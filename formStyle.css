@@ -1,0 +1,284 @@
+/*Main file for SQL operations classes, for CRUD interaction with database
+Created by Aaron Cortina, Start Date: 09/01/2024 Finished Date:*/
+
+/*Start of stylesheet for inventory system*/
+.hidden {
+    display: none;
+}
+
+html{
+    background-color: #32635F;
+    background: linear-gradient(135deg, #3b708c, #244764, #68827d, #B1BEBB, #2f5C60, transparent);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #F3FCF6;
+}
+
+header{
+    width: 1450px;
+    justify-self: center;
+    padding-left: 5%;
+}
+
+textarea[id="PCcondition"]{
+    width: 100%;
+    min-width: 400px;
+    max-width: 600px;
+}
+
+input {
+    box-shadow: 0 0 10px black;
+    border-radius: 5px;
+}
+
+input:hover {
+    box-shadow: 0 0 10px green;
+    border-radius: 5px;
+}
+
+.head-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.head-container h1{
+    flex: 1;
+    text-align: center;
+    padding-left: 5rem;
+}
+
+.head-container h1[id="int-form"]{
+    flex: 1;
+    text-align: center;
+    padding-left: 5rem;
+}
+
+.head-container nav{
+    display: flex;
+    gap: 15px;
+}
+
+.banner-image{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    height: 350px;
+}
+
+.formMaker{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.nav-button {
+    background-color: mediumseagreen;
+    border: none;
+    color: black;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.nav-button:hover{
+    background-color: darkgreen;
+}
+
+/*This is beginning set up for table design*/
+.table{
+   /* background-color: rgb(47, 117, 129);*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 2px solid darkgreen;
+    font-size: large;
+}
+
+.table td{
+    background-color: #000080;
+    color: #F3FCF6;
+}
+
+.table th, .table td{
+    border: 2px solid #FFD700;
+    padding: 10px;
+    text-align: center;
+}
+
+.table th{
+    background-color: #32635F;
+    color: #F3FCF6;
+}
+/*endinig portion for the table design*/
+
+.form-field{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-field[name="delete"]{
+    padding-right: 60px;
+}
+
+.form-field label {
+    width: 100px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.form-field input{
+    display: flex;
+    width: fit-content;
+}
+
+.styleForm{
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+
+.styleForm[id="deleteTableRow"]{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-block{
+    display: block;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+/* class for buttons and how they look on the webpage*/
+.button-container{
+    display:flex;
+    justify-content: center;
+}
+
+.button-container[name="delete"]{
+    margin-top: auto;
+}
+
+.button-container button{
+    margin: 5px 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1457px){
+    header{
+        display: block;
+        width: 100%;
+        padding-left: unset;
+    }
+
+    form[id="Main-form"]{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        display: flex;
+        max-width: 100%;
+        
+    }
+    
+    .banner-image{
+        width: 100%;
+        height: 350px;
+    }
+
+    nav a {
+        float: none !important;
+        width: 100% !important;
+    }
+
+    .styleForm{
+        display: flex;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 30px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: fit-content;
+    }
+
+    form[id="Main-form"]{
+        display: flex;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    form#Main-form .form-field{
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .form-field[name="delete"]{
+        padding-right: 60px !important;
+    }
+    
+    .form-field label {
+        width: 100%;
+        margin-right: 5px;
+        text-align: left;
+    }
+    
+    .form-field input{
+        width: 100%;
+        padding: 5px;
+    }
+    .comment-block{
+        display: flex;
+        width: fit-content;
+        flex-direction: column;
+    }
+
+    .button-container{
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        flex-direction: column;
+    }
+
+    .button-container button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .form-field {
+        width: fit-content;
+    }
+}

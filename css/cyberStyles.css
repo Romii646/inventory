@@ -1,0 +1,313 @@
+html{
+    /* background: linear-gradient(135deg, #3b708c, #244764, #68827d, #B1BEBB, #2f5C60, transparent);
+    background-repeat: no-repeat; */
+    --body-bg-image: url("../images/matrix.jpg");
+
+                /* colors */
+                --content: #296dbb;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header{
+    border: 5px solid rgb(48 234 42); 
+}
+
+body{
+    font-family: monospace;
+    color: white;
+    position: relative;
+    top: 20px;
+    background-image: var(--body-bg-image);
+}
+
+label{
+    text-align: end;
+    padding-right: 5px;
+    font-size: 17px;
+    font-family: monospace;
+}
+
+
+input :hover{
+    border-color: greenyellow;
+    background-color: aqua;
+}
+
+.home{
+    max-width: 1549px;
+    margin: 0 auto;
+}
+
+.title {
+    font-family: 'Cyberpunk', sans-serif;
+    text-align: center;
+    font-size: xx-large;
+    padding: 10px 0px 20px 0px;
+    /* margin-right: -10.5%; */
+    background-color: rgb(0, 99, 123);
+    color: whitesmoke;
+    width: 100%;
+}
+
+.images{
+    width: 100%;
+}
+
+.images img{
+    width: 100%;
+    height: 380px;
+}
+
+.nav{
+    height: 60px;
+    background-color: rgb(0, 99, 123);
+    /* margin-right: -10.5%; */
+    margin-top: -20px;
+    width: 100%;
+    /* box-sizing: border-box;*/
+}
+
+.nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.nav ul li{
+    display: inline-block;
+}
+
+.nav ul li a{
+    text-align: center;
+    background-color: mediumseagreen;
+    border: solid 1px black;
+    color: whitesmoke;
+    padding: 6px 35px;
+    font-size: x-large;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.nav ul li a:hover{
+    background-color: #40cf3a;
+    color: black;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 0px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.container > *:nth-last-child(-n+2) {
+    flex-basis: 100%; /* Make each item take up the full width */
+}
+
+footer{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewTableContainer{
+    flex: 1;
+    border: 5px solid rgb(48 234 42);
+    width: 180px;
+    height: 1000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    background: #00637b;
+    gap: 100px;
+  }
+
+.viewTableContainer a{
+    background-color: mediumseagreen;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.viewTableContainer a:hover{
+    background-color: #40cf3a;
+    color: black;
+}
+
+.viewTableContainer h2{
+    margin-bottom: -59px;
+    margin-top: -4px;
+    border-bottom: #40cf3a solid;
+    padding: 5px 20px;
+}
+
+.mainTableContainer{
+    /* flex: 1; */
+    border: 1px solid rgb(48 234 42);
+    width: 74.5%;
+    /* max-width: 1000px; */
+    height: 1000px;
+    box-sizing: border-box;
+    margin-left: 40px;
+    min-width: 800px;
+}
+
+.mainFormHeading{
+    grid-column: span 3;
+    justify-self: center;
+}
+
+.mainTableContainer h2{
+    color: greenyellow;
+    padding: 5px 20px;
+}
+
+.viewSpace{
+    background-color: black;
+}
+
+.announcementContainer{
+    flex: 1;
+    border: 5px solid rgb(64 207 58);
+    width: 220px;
+    height: 1000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #00637b
+}
+
+.announcementContainer p{
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.viewTableContainer p, .mainTableContainer p, .announcementContainer p {
+    margin: 0;
+}
+
+.formMaker{
+    display: grid;
+    grid-template-rows: 500px 1fr 172px;   
+}
+
+.form-field{
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+#comment-block{
+    display: block;
+    grid-column: span 2;
+}
+
+#Main-form{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    border: solid;
+    border-color: #2fcb3c;
+    border-bottom: 42px solid #2fcb3c;
+    padding: 10px;
+    grid-auto-rows: auto;
+    justify-items: right;
+    background: rgb(0, 99, 123);
+}
+
+#deleteForm{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    display: grid;
+    grid-template-areas: "header header header"
+                         "main main main"
+                         "button button button";
+    border: #40cf3a solid;
+    height: 150px;
+    align-content: end;
+    background-color: #00637b;
+}
+
+#deleteForm .form-field{
+    padding: 5px;
+    margin-right: 14px;
+    grid-area: main;
+    text-align: center;
+    margin-bottom: 6px;
+    padding-right: 10px;
+}
+
+#deleteForm h2{
+    grid-area: header;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#deleteForm .button-container{
+    grid-area: button;
+    margin: 10px 0px;
+    padding-left: 71px;
+}
+
+.button-container{
+    display: flex;
+    justify-self: center;
+    grid-column: span 3;
+    gap: 15px;
+}
+
+#PCcondition{
+    width: 453px;
+}
+
+/*This is beginning set up for table design*/
+.table{
+    /* background-color: rgb(47, 117, 129);*/
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     max-width: fit-content;
+     margin: 0 auto;
+     border-collapse: collapse;
+     border: 2px solid darkgreen;
+     font-size: large;
+ }
+ 
+ .table td{
+     background-color: #000080;
+     color: #F3FCF6;
+ }
+ 
+ .table th, .table td{
+     border: 2px solid #FFD700;
+     padding: 10px;
+     text-align: center;
+ }
+ 
+ .table th{
+     background-color: #32635F;
+ } 
+
+@media screen and (max-width: 2026px){
+    
+}

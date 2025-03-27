@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- Created by Aaron C. 09/16/2024 -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +13,11 @@
     <div class="head-container">
         <h1 id="inv-form">Component Forms</h1>
        <nav>
-           <a href="homePagev2.html" class="nav-button">HomePage</a>
+           <a href="homePage.html" class="nav-button">HomePage</a>
        </nav>
     </div>
     </header>
-    <form id="insertForm" name="inventory" action="form_process.php" method="POST">
+    <form id="insertForm" name="inventory" action="./php/form_process.php" method="POST">
         <fieldset id="addForm">
             <legend><h2>Add row form</h2></legend>
             <p style="font-weight: bold;">Add information to a table</p>
@@ -123,7 +122,7 @@
     </form>
     <br>
     <!--Form 3 for update table-->
-    <form name="updateTable" action="form_process.php" method="POST">
+    <form name="updateTable" action="./php/form_process.php" method="POST">
         <fieldset id="updateForm">
             <legend><h2>Update table form</h2></legend>
             <p style="font-weight: bold;">Update a row or parts of the row</p>
@@ -201,7 +200,7 @@
     </form>
     <br>
     <!--Form 4 for deletion of record-->
-    <form name="deleteTable" action="form_process.php" method="POST">
+    <form name="deleteTable" action="./php/form_process.php" method="POST">
         <Fieldset>
             <legend><h2>Delete row form</h2></legend>
             <p style="font-weight: bold;">Delete a row from a table</p>
@@ -225,7 +224,7 @@
         </Fieldset>
     </form>
     <footer>Cyber Range</footer>
-    <script src="cyberScript.js"></script>
-    <script src="formScript.js"></script>
+    <script src="./js/cyberScript.js"></script>
+    <script src="./js/formScript.js"></script>
 </body>
 </html><!--End of html page-->

@@ -1,2 +1,4 @@
 [05-Mar-2025 02:17:13 Europe/Berlin] PHP Warning:  Undefined array key "empty" in C:\xampp\htdocs\inventory\word_bank.php on line 30
 [05-Mar-2025 02:17:13 Europe/Berlin] Execution not successful SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= 'gfdg'' at line 1
+[27-Mar-2025 03:07:58 Europe/Berlin] Message: this is mepcsetups
+[27-Mar-2025 03:08:01 Europe/Berlin] Message: this is mepcsetups

@@ -39,7 +39,7 @@ function clearForm(formId){
 
 // function to fetchTable pcSetUp which is for the main table that keeps track of computers currently on the lab floor
 function fetchTable(event) {
-    fetch('pc_set_up_process.php?action=view', {
+    fetch('./php/pc_set_up_process.php?action=view', {
         method : 'POST',
         headers : {'content-type' : 'application/json'},
         body : event
@@ -120,7 +120,7 @@ function queryTable(event){
     };
 
     if(nameValue === 'add'){
-        fetch('pc_set_up_process.php?action=add', {
+        fetch('./php/pc_set_up_process.php?action=add', {
             method : 'POST',
             headers : {'content-type' : 'application/json' },
             body: JSON.stringify(fieldValueArray)
@@ -143,7 +143,7 @@ function queryTable(event){
         });
     }
     else if(nameValue === 'update'){
-        fetch('pc_set_up_process.php?action=update', {
+        fetch('./php/pc_set_up_process.php?action=update', {
             method : 'POST',
             headers : {'content-type' : 'application/json'},
             body : JSON.stringify(fieldValueArray) 
@@ -164,7 +164,7 @@ function deleteRow(event){
         event.preventDefault();
         const pc_id = document.getElementById('delete_pc_id').value;
 
-        fetch('pc_set_up_process.php?action=delete', {
+        fetch('./php/pc_set_up_process.php?action=delete', {
             method : 'POST',
             headers : {'content-type' : 'application/json'},
             body : JSON.stringify({pc_id : pc_id})

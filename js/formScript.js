@@ -11,6 +11,6 @@ function showTable(event){//function to show table
             document.getElementById('show').innerHTML = this.responseText;
         }
     };
-        httpRequest.open("GET", "form_process.php?table=" + tables + "&form=" + form, true);//specify the type of request
+        httpRequest.open("GET", "./php/form_process.php?table=" + tables + "&form=" + form, true);//specify the type of request
         httpRequest.send();//send the request
 } 

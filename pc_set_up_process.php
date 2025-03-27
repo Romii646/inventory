@@ -21,7 +21,9 @@ try {
     switch($modeSet) {
         // view is used to display the table data in the pcSetUp table.
         case 'view':
+            $tableName = file_get_contents('php://input');
             $pcSetUpObj -> connect();
+            $pcSetUpObj -> set_table_name($tableName);
             $result = $pcSetUpObj ->view_table();
             if (empty($result)) {
                 error_log('Message: No data available');

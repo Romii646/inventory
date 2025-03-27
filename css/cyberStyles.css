@@ -132,7 +132,7 @@ footer{
     gap: 100px;
   }
 
-.viewTableContainer a{
+.viewTableContainer section{
     background-color: mediumseagreen;
     border: none;
     color: white;
@@ -146,7 +146,7 @@ footer{
     border-radius: 8px;
 }
 
-.viewTableContainer a:hover{
+.viewTableContainer section:hover{
     background-color: #40cf3a;
     color: black;
 }

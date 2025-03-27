@@ -39,36 +39,40 @@ function clearForm(formId){
 
 // function to fetchTable pcSetUp which is for the main table that keeps track of computers currently on the lab floor
 function fetchTable(event) {
-    fetch('pc_set_up_process.php?action=view')
-        .then(response => {
-            console.log('Response Status:', response.status); // Log the HTTP status
-            return response.json(); // Read the response as text
-        })
-        .then(data => {
-            if (data.message) {
-                document.getElementById('pcSetUp-table').innerHTML = data.message;
-            } 
-            else {
-                let table = '<table border="1"><tr>';
-                for (let key in data[0]) {
-                    table += `<th>${key}</th>`;
+    fetch('pc_set_up_process.php?action=view', {
+        method : 'POST',
+        headers : {'content-type' : 'application/json'},
+        body : event
+    })
+    .then(response => {
+        console.log('Response Status:', response.status); // Log the HTTP status
+        return response.json(); // Read the response as text
+    })
+    .then(data => {
+        if (data.message) {
+            document.getElementById('pcSetUp-table').innerHTML = data.message;
+        } 
+        else {
+            let table = '<table border="1"><tr>';
+            for (let key in data[0]) {
+                table += `<th>${key}</th>`;
+            }
+            table += '</tr>';
+            data.forEach(row => {
+                table += '<tr>';
+                for (let key in row) {
+                    table += `<td>${row[key]}</td>`;
                 }
                 table += '</tr>';
-                data.forEach(row => {
-                    table += '<tr>';
-                    for (let key in row) {
-                        table += `<td>${row[key]}</td>`;
-                    }
-                    table += '</tr>';
-                });
-                table += '</table>';
-                document.getElementById('pcSetUp-table').innerHTML = table;
-            }
-        })
-        .catch(error => {
-            console.error('Error in fetchTable:', error);
-            document.getElementById('error').innerHTML = '<p>Error loading data.</p>';
-        });
+            });
+            table += '</table>';
+            document.getElementById('pcSetUp-table').innerHTML = table;
+        }
+    })
+    .catch(error => {
+        console.error('Error in fetchTable:', error);
+        document.getElementById('error').innerHTML = '<p>Error loading data.</p>';
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -80,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add an event listener to the delete form to handle form submissions.
     document.getElementById('deleteForm').addEventListener("submit", deleteRow);
+
+    // Add an event listener to the viewTableContainer to handle view table submissions.
+    document.querySelector('.viewTableContainer').addEventListener("click", virtualView);
 });
 
 // function add is used to add new entries to the pcSetUP table and update to table
@@ -170,4 +177,11 @@ function deleteRow(event){
             console.error('Error: ', error);
             document.getElementById('error').innerHTML = "Row deleted failed."
         });
+}
+
+function virtualView(event){
+    event.preventDefault();
+    const idName = event.target.id;
+
+    fetchTable(idName);// fetch table data for view tables
 }

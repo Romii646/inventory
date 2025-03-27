@@ -223,6 +223,8 @@ class pcSetUp extends SQLOp{
      * 
      * @param mixed ...$values Values to be inserted into the table.
      */
+
+     private $namedTable = "";
     public function add_row(...$values){
         // start of function statements
         //$bindValues = [$p_ID_value, $mobo_ID_value, $gpu_ID_Value, $ram_ID_value, $psu_ID_value, $monitor_ID_value, $acc_ID_value, $kb_ID_value,
@@ -255,9 +257,15 @@ class pcSetUp extends SQLOp{
        }
     }// end of add_row function
 
+
+    // function to set name of table to be used to retrieve table data
+    public function set_table_name($tableName){
+        $this -> namedTable = $tableName;
+    }
     public function view_table(){
         try{
-            $viewStatement = $this -> conn -> query("SELECT * FROM pcsetups");
+            $viewStatement = $this -> conn -> query("SELECT * FROM " .  $this -> namedTable);
+            error_log('Message: this is me' . $this -> namedTable);
             $data = $viewStatement -> fetchAll(PDO::FETCH_ASSOC);
             if($data){
                 return $data;

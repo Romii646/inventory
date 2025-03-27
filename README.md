@@ -6,17 +6,39 @@ The Cyber Lab Inventory System is a web-based application designed to manage and
 ## Project Structure
 ```
 /c:/xampp/htdocs/inventory/
-├── cyberScript.js
-├── database.php
-├── database_operations.php
-├── formProcess.php
-├── formStyle.css
+├── composer.json
+├── css/
+│   ├── cyberStyles.css
+│   └── formStyle.css
 ├── homePage.html
+├── inventory.code-workspace
 ├── inventoryForm.html
-├── pcSetUpProcess.php
-├── SQL_statement_generator.php
-├── validate_error_functions.php
-├── wLInventory.php
+├── inventdev.sql
+├── js/
+│   ├── cyberScript.js
+│   └── formScript.js
+├── php/
+│   ├── database.php
+│   ├── database_operations.php
+│   ├── form_process.php
+│   ├── pc_set_up_process.php
+│   ├── SQL_statement_generator.php
+│   ├── validate_error_functions.php
+│   └── word_bank.php
+├── src/
+│   └── MyClass.php
+├── test.php
+├── vendor/
+│   ├── autoload.php
+│   ├── composer/
+│   │   ├── autoload_classmap.php
+│   │   ├── autoload_namespaces.php
+│   │   ├── autoload_psr4.php
+│   │   ├── autoload_real.php
+│   │   ├── autoload_static.php
+│   │   ├── ClassLoader.php
+│   │   └── LICENSE
+├── README.md
 ```
 
 ## Setup Instructions
@@ -31,14 +53,14 @@ The Cyber Lab Inventory System is a web-based application designed to manage and
    - Open the XAMPP Control Panel and start the Apache and MySQL services.
 
 4. **Database Setup:**
-   - Create a MySQL database named `inventory`.
-   - Import the SQL schema to create the necessary tables.
+   - Create a MySQL database named `inventdev`.
+   - Import the `inventdev.sql` file to create the necessary tables and populate initial data.
 
 5. **Configure Database Connection:**
-   - Update the database connection details in `database.php`.
+   - Update the database connection details in `php/database.php`.
 
 6. **Set Writable Permissions:**
-   - Ensure the error log paths in `pcSetUpProcess.php` and `database_operations.php` are writable.
+   - Ensure the error log paths in `php/pc_set_up_process.php` and `php/database_operations.php` are writable.
 
 ## Usage
 
@@ -51,31 +73,43 @@ The Cyber Lab Inventory System is a web-based application designed to manage and
 - Provides forms to add, view, update, and delete records for various components.
 
 ### Scripts and Styles
-- **cyberScript.js:** Contains JavaScript functions for form handling and AJAX requests.
-- **formStyle.css:** Contains CSS styles for the forms and layout.
+- **CSS:**
+  - `css/cyberStyles.css`: Styles for the home page.
+  - `css/formStyle.css`: Styles for the inventory form.
+- **JavaScript:**
+  - `js/cyberScript.js`: Contains JavaScript functions for form handling and AJAX requests.
+  - `js/formScript.js`: Handles table viewing functionality.
 
 ## File Descriptions
 
-### `pcSetUpProcess.php`
-Handles the backend processing for viewing, adding, updating, and deleting PC setup records.
+### Configuration and Setup
+- **`composer.json`**: Defines dependencies and autoloading for the project.
+- **`inventory.code-workspace`**: VS Code workspace configuration.
 
-### `database.php`
-Manages the database connection and provides methods to connect and close the database.
+### HTML Pages
+- **`homePage.html`**: Main page for viewing and managing PC setups.
+- **`inventoryForm.html`**: Form page for managing individual component records.
 
-### `database_operations.php`
-Contains classes for database operations such as insert, update, delete, and query.
+### SQL
+- **`inventdev.sql`**: SQL dump for creating and populating the database.
 
-### `formProcess.php`
-Processes form submissions for adding, viewing, updating, and deleting records.
+### PHP Backend
+- **`php/database.php`**: Manages database connections.
+- **`php/database_operations.php`**: Contains classes for database operations (insert, update, delete, query).
+- **`php/form_process.php`**: Processes form submissions for various operations.
+- **`php/pc_set_up_process.php`**: Handles AJAX requests for managing PC setups.
+- **`php/SQL_statement_generator.php`**: Generates SQL statements dynamically.
+- **`php/validate_error_functions.php`**: Validates input data and handles errors.
+- **`php/word_bank.php`**: Utility functions and constants for table operations.
 
-### `SQL_statement_generator.php`
-Generates SQL statements for insert and update operations.
+### PHP Classes
+- **`src/MyClass.php`**: Example PHP class for testing.
 
-### `validate_error_functions.php`
-Contains functions for validating input data and displaying errors.
+### Testing
+- **`test.php`**: Example script to test the `MyClass` functionality.
 
-### `wLInventory.php`
-Includes external file listings and utility functions such as finding primary key names.
+### Vendor
+- **`vendor/`**: Contains Composer's autoload files and dependencies.
 
 ## Error Handling
 - Errors are logged to `php-error.log` and `database_operations_error_log.log`.

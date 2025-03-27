@@ -57,7 +57,7 @@
                 $insertOP -> set_table_names($idName, ...$columnNames);// goes to SQLOp.php
                 $statement = $insertOP -> add_query($table_name, ...$columnValues);// goes to SQLOp.php
                 $insertOP -> execute_query($statement);// goes to SQLOp.php
-                header("Location: inventoryForm.html");
+                header("Location: ../inventoryForm.html");
                 exit();
             }
             else{
@@ -156,7 +156,7 @@
                 $deleteOp -> set_table_delete($table_name, $p_id);
                 $deleteOp -> delete_row();
                 $deleteOp -> DB_close();
-                header("Location: inventoryForm.html");
+                header("Location: ../inventoryForm.html");
                 exit();
             }
             break;

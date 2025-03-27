@@ -37,7 +37,10 @@ function clearForm(formId){
     showNeededFields(); // reset for all hidden entries
 }
 
+// function to create paragraph element for the view table area.
+
 // function to fetchTable pcSetUp which is for the main table that keeps track of computers currently on the lab floor
+// Functions that uses this function are virtualView, queryTable, and deleteRow.
 function fetchTable(event) {
     fetch('./php/pc_set_up_process.php?action=view', {
         method : 'POST',
@@ -66,7 +69,7 @@ function fetchTable(event) {
                 table += '</tr>';
             });
             table += '</table>';
-            document.getElementById('pcSetUp-table').innerHTML = table;
+            document.getElementById('pcSetUp-table').innerHTML = table; //this will be replaced by a function that will create a paragraph element and append it to a container
         }
     })
     .catch(error => {
@@ -74,7 +77,13 @@ function fetchTable(event) {
         document.getElementById('error').innerHTML = '<p>Error loading data.</p>';
     });
 }
+// function to fetchTable for the view tables
+function virtualView(event){
+    event.preventDefault();
+    const idName = event.target.id;
 
+    fetchTable(idName);// fetch table data for view tables
+}
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch and display the table data as soon as the page loads.
     fetchTable("pcsetups");
@@ -179,9 +188,3 @@ function deleteRow(event){
         });
 }
 
-function virtualView(event){
-    event.preventDefault();
-    const idName = event.target.id;
-
-    fetchTable(idName);// fetch table data for view tables
-}

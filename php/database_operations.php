@@ -204,7 +204,7 @@ class deleteOp extends SQLOp {// delete rows
         if($this -> statement === false){
             die("SQL statement preparation failed: " . print_r($this -> conn-> errorInfo(), true));
         }
-        $this -> statement -> bindParam(':deleteValue1', $deleteValue1);
+        $this -> statement -> bindParam(':deleteValue1', $deleteValue1, PDO::PARAM_STR);
     }
 
     public function delete_row(){// function used to delete a row from a table.
@@ -212,7 +212,7 @@ class deleteOp extends SQLOp {// delete rows
             $this -> statement -> execute();
         }
         catch(PDOException $e){
-            echo "Deletion not successful " . $e -> getMessage();
+            error_log("Execution failed: " . $e->getMessage());
         }
     }
 }// end of class deleteOp
@@ -265,7 +265,6 @@ class pcSetUp extends SQLOp{
     public function view_table(){
         try{
             $viewStatement = $this -> conn -> query("SELECT * FROM " .  $this -> namedTable);
-            error_log('Message: this is me' . $this -> namedTable);
             $data = $viewStatement -> fetchAll(PDO::FETCH_ASSOC);
             if($data){
                 return $data;

@@ -1,3 +1,10 @@
+// Description: This script handles the functionality of the Cyber Lab Management System. It includes functions for adding, updating, deleting, and viewing computer setups in the lab. The script also manages the visibility of form fields based on user selections and handles form submissions.
+// It uses the Fetch API to communicate with a PHP backend for database operations. The script is designed to be modular and reusable, with clear separation of concerns for different functionalities.
+
+import tableNames from './tableNames.js';// import tableNames from the tableNames.js file
+// import the JSON data about the table names from the tableNames.js file
+const TABLE_NAMES_JSON = JSON.parse(tableNames);
+
 function showNeededFields(table, accessories, monitors, motherboards, ramsticks, powersupplies){
     // declared variables
     const tableSelect = document.getElementById(table).value;
@@ -96,6 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add an event listener to the viewTableContainer to handle view table submissions.
     document.querySelector('.viewTableContainer').addEventListener("click", virtualView);
+
+    document.querySelector('.formLoader').addEventListener("click", formLoader);
 });
 
 // function add is used to add new entries to the pcSetUP table and update to table
@@ -188,3 +197,8 @@ function deleteRow(event){
         });
 }
 
+function formLoader(event){
+    event.preventDefault();
+    const tableSelect = document.getElementById('tableSelect').value;
+    const table_array = TABLE_NAMES_JSON.find(item => item.table === tableSelect);
+}

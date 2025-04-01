@@ -194,7 +194,7 @@ footer{
     background: #00637b
 }
 
-.announcementContainer p{
+.announcementContainer p, .announcementContainer h3{
     text-align: center;
     font-size: 15px;
     margin-bottom: 10px;

@@ -16,7 +16,7 @@
      */
    function find_ID($table_name) {
     // Array of table names and their corresponding primary key names
-       $idArray = [
+       $idArray = [// for every new table created, add the table name and its primary key name here.
          "accessories" => "acc_id",
          "graphicscards" => "gpu_id",
          "keyboards" => "kb_id",

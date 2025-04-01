@@ -34,6 +34,20 @@
                     <section id="component_totals">Component Count</section>
                     <section id="#">Relation</section>
                 </div>
+                <div class="tableSelection">
+                    <label for="tableSelect">Table name</label><br>
+                    <select id="tableSelect" name="tableSelect" onchange="showNeededFields( 'tableSelect', 'addAccessoryFields', 'addMonitorsFields', 'addMotherboardsFields','addRamsticksFields', 'addPowerSupplyFields')">
+                        <option value="empty">Table drop down list </option>
+                        <option value="accessories">Accessory table</option>
+                        <option value="graphicscards">Graphics card table</option>
+                        <option value="keyboards">Keyboard table</option>
+                        <option value="mice">Mouse table</option>
+                        <option value="monitors">Monitors table</option>
+                        <option value="motherboards">Motherboard table</option>
+                        <option value="powersupplies">Power supply table</option>
+                        <option value="ramsticks">Ramstick table</option>
+                    </select><br>
+                </div>
                 <div class="mainTableContainer">
                     <div class="formMaker">
                         <div class="viewSpace">
@@ -115,6 +129,7 @@
             <p>Welcome to the Home page of the cyber range database.</p>
         </div>
         <script src="./js/cyberScript.js"></script>
+        <script src="./js/test.js"></script>
     </body>
 </html>
 <footer>

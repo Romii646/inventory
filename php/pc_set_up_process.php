@@ -21,7 +21,7 @@ try {
     switch($modeSet) {
         // view is used to display the table data in the pcSetUp table.
         case 'view':
-            $tableName = file_get_contents('php://input');
+            $tableName = file_get_contents('php://input');// used to get the table name from the client side.
             $pcSetUpObj -> connect();
             $pcSetUpObj -> set_table_name($tableName);
             $result = $pcSetUpObj ->view_table();

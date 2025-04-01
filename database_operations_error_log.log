@@ -1,3 +1,37 @@
 
 [27-Mar-2025 22:29:36 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '-table' at line 1
 [27-Mar-2025 22:29:36 Europe/Berlin] Message: No data available
+[27-Mar-2025 23:27:22 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.storage' doesn't exist
+[27-Mar-2025 23:27:22 Europe/Berlin] Message: No data available
+[27-Mar-2025 23:27:43 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.stored_component_storage' doesn't exist
+[27-Mar-2025 23:27:43 Europe/Berlin] Message: No data available
+[27-Mar-2025 23:28:44 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.stored_component_storage' doesn't exist
+[27-Mar-2025 23:28:44 Europe/Berlin] Message: No data available
+[27-Mar-2025 23:59:42 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[27-Mar-2025 23:59:42 Europe/Berlin] Message: No data available
+[27-Mar-2025 23:59:45 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[27-Mar-2025 23:59:45 Europe/Berlin] Message: No data available
+[27-Mar-2025 23:59:48 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[27-Mar-2025 23:59:48 Europe/Berlin] Message: No data available
+[28-Mar-2025 00:18:08 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.broken' doesn't exist
+[28-Mar-2025 00:18:08 Europe/Berlin] Message: No data available
+[28-Mar-2025 00:18:15 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.broken' doesn't exist
+[28-Mar-2025 00:18:15 Europe/Berlin] Message: No data available
+[28-Mar-2025 13:23:56 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.stored_components_storage' doesn't exist
+[28-Mar-2025 13:23:56 Europe/Berlin] Message: No data available
+[28-Mar-2025 13:23:56 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.broken' doesn't exist
+[28-Mar-2025 13:23:56 Europe/Berlin] Message: No data available
+[28-Mar-2025 13:24:00 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.component_totals' doesn't exist
+[28-Mar-2025 13:24:00 Europe/Berlin] Message: No data available
+[28-Mar-2025 13:24:01 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.broken' doesn't exist
+[28-Mar-2025 13:24:01 Europe/Berlin] Message: No data available
+[28-Mar-2025 13:24:03 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.component_totals' doesn't exist
+[28-Mar-2025 13:24:03 Europe/Berlin] Message: No data available
+[29-Mar-2025 00:23:19 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.stored_components_storage' doesn't exist
+[29-Mar-2025 00:23:19 Europe/Berlin] Message: No data available
+[29-Mar-2025 00:23:21 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.broken' doesn't exist
+[29-Mar-2025 00:23:21 Europe/Berlin] Message: No data available
+[29-Mar-2025 00:23:22 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.component_totals' doesn't exist
+[29-Mar-2025 00:23:22 Europe/Berlin] Message: No data available
+[31-Mar-2025 22:31:49 Europe/Berlin] Execution not successful for view_tableSQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.broken' doesn't exist
+[31-Mar-2025 22:31:49 Europe/Berlin] Message: No data available

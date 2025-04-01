@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2025 at 06:13 PM
+-- Generation Time: Mar 27, 2025 at 11:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -77,11 +77,9 @@ CREATE TABLE `keyboards` (
 --
 
 INSERT INTO `keyboards` (`kb_id`, `name`, `condition`, `cost`, `status`) VALUES
-('gfdg', 'kirby', 'BROKEN', 5.000, 'STORAGE'),
-('KS2PC2', 'Cherry', 'GOOD', 140.000, 'IN_USE'),
-('KS2PC3', 'Cherry', 'GOOD', 140.000, 'IN_USE'),
-('KS3PC2', 'Cherry', 'GOOD', 140.000, 'IN_USE'),
-('KS5PC5', 'mines', 'GOOD', 100.000, 'IN_USE');
+('kb_0010', 'cherry', 'GOOD', 180.000, 'IN_USE'),
+('KS2PC2', 'Berry', 'GOOD', 140.000, 'IN_USE'),
+('KS2PC3', 'Cherry', 'GOOD', 140.000, 'IN_USE');
 
 -- --------------------------------------------------------
 
@@ -129,7 +127,7 @@ CREATE TABLE `minipc` (
 CREATE TABLE `monitors` (
   `monitor_id` varchar(25) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
-  `size` varchar(20) DEFAULT NULL,
+  `width` enum('small','medium','large','') DEFAULT NULL,
   `condition` enum('GOOD','BROKEN','','') DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
   `status` enum('IN_USE','STORAGE','DISPOSED','') DEFAULT NULL
@@ -139,10 +137,18 @@ CREATE TABLE `monitors` (
 -- Dumping data for table `monitors`
 --
 
-INSERT INTO `monitors` (`monitor_id`, `name`, `size`, `condition`, `cost`, `status`) VALUES
+INSERT INTO `monitors` (`monitor_id`, `name`, `width`, `condition`, `cost`, `status`) VALUES
 ('MN2PC1', 'LG electronics', 'large', 'GOOD', 180.00, 'IN_USE'),
-('MN2PC2', 'LG electronics', 'Large', 'GOOD', 180.00, 'IN_USE'),
-('MN2PC3', 'LG electronics', 'large', 'GOOD', 180.00, 'IN_USE');
+('MN2PC2', 'LG electronics', 'large', 'GOOD', 180.00, 'IN_USE'),
+('monitor_0001', 'LG electronic', 'large', 'GOOD', 180.00, 'IN_USE'),
+('monitor_0003', 'LG electronic', NULL, 'GOOD', 152.02, 'IN_USE'),
+('monitor_0004', 'LG electronic', NULL, 'GOOD', 150.63, 'IN_USE'),
+('monitor_0005', 'LG electronic', NULL, 'GOOD', 180.00, 'STORAGE'),
+('monitor_0006', 'LG electronic', NULL, 'GOOD', 160.00, 'STORAGE'),
+('monitor_0008', 'LG electronic', NULL, 'GOOD', 150.00, 'STORAGE'),
+('monitor_0009', 'LG electronic', NULL, 'GOOD', 140.00, 'STORAGE'),
+('monitor_0011', 'LG electronic', 'large', 'GOOD', 144.00, 'STORAGE'),
+('monitor_002', 'LG electronic', NULL, 'GOOD', 100.00, 'IN_USE');
 
 -- --------------------------------------------------------
 
@@ -164,9 +170,10 @@ CREATE TABLE `motherboards` (
 --
 
 INSERT INTO `motherboards` (`mobo_id`, `name`, `size`, `condition`, `cost`, `status`) VALUES
-('MB1PC2', 'Arog', 'ATX', 'GOOD', 1000.00, 'IN_USE'),
+('MB1PC2', 'SUT', 'ATX', '', 1000.00, 'IN_USE'),
 ('MB2PC2', 'Gigabyte Z790 UD AC', 'ATX', 'GOOD', 188.00, 'IN_USE'),
-('MB2PC3', 'Gigabyte Z790 UD AC', 'ATX', 'GOOD', 188.00, 'IN_USE');
+('MB2PC3', 'Gigabyte Z790 UD AC', 'ATX', 'GOOD', 188.00, 'IN_USE'),
+('mobo_0001', 'mickey', 'Extended ATX', 'GOOD', 150.00, 'IN_USE');
 
 -- --------------------------------------------------------
 
@@ -193,8 +200,8 @@ CREATE TABLE `pcsetups` (
 --
 
 INSERT INTO `pcsetups` (`pc_id`, `mobo_id`, `gpu_id`, `ram_id`, `psu_id`, `monitor_id`, `acc_id`, `kb_id`, `mouse_id`, `tableLocation`, `PCcondition`) VALUES
-('PC1LC1', 'MB2PC2', 'GP2PC2', 'ram_0005', 'PW2PC3', 'MN2PC1', '', 'KS2PC2', 'MO2PC3', 'Table 2 - 1', 'Qui hates php'),
-('PC2ID2', 'MB2PC3', 'GP2PC3', 'RS2PC3', 'PW2PC3', 'MN2PC2', '', 'KS2PC2', 'MO3PC2', 'table 2 -2', 'Andrew hates AJAX');
+('PC1LC1', 'MB2PC2', 'GP2PC2', 'ram_0005', 'PW2PC3', 'MN2PC1', 'null', 'KS2PC2', 'MO2PC3', 'Table 2 - 1', 'Qui hates php'),
+('PC2ID2', 'MB2PC3', 'GP2PC3', 'RS2PC3', 'PW2PC3', 'MN2PC2', 'null', 'KS2PC2', 'MO3PC2', 'Table 2 - 2', 'Andrew hates AJAX');
 
 -- --------------------------------------------------------
 

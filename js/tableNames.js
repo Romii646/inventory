@@ -109,7 +109,7 @@ const tableNames = {
             "ram_id": "RAM ID",
             "name": "Brand Name",
             "type":["DDR3", "DDR4", "DDR5"],
-            "speed": "",
+            "speed": "Ram speed",
             "condition": {
                 "description": "RAM condition",
                 "type": ["GOOD", "BROKEN"]    

@@ -24,7 +24,58 @@
 
         <diV class="output">
             <form id="Main-form" name="Main-form">
-
+                <div class="mainFormHeading">
+                    <h2>Add & Update Form</h2>
+                </div>
+                <div class="form-field">
+                    <label for="pc_id">PC ID: </label>
+                    <input type="text" id="pc_id" name="pc_id"/>
+                </div>
+                <div class="form-field">
+                    <label for="mobo_id">MotherBoard ID: </label>
+                    <input type="text" id="mobo_id" name="mobo_id"/>
+                </div>
+                <div class="form-field">
+                    <label for="gpu_id">Graphics card ID: </label>
+                    <input type="text" id="gpu_id" name="gpu_id"/>
+                </div>
+                <div class="form-field">
+                    <label for="ram_id">Ramstick ID: </label>
+                    <input type="text" id="ram_id" name="ram_id"/>
+                </div>
+                <div class="form-field">
+                    <label for="psu_id">Power Supply ID: </label>
+                    <input type="text" id="psu_id" name="psu_id"/>
+                </div>
+                <div class="form-field">
+                    <label for="monitor_id">Monitor ID: </label>
+                    <input type="text" id="monitor_id" name="monitor_id"/>
+                </div>
+                <div class="form-field">
+                    <label for="acc_id">Accessory ID: </label>
+                    <input type="text" id="acc_id" name="acc_id" value=""/>
+                </div>
+                <div class="form-field">
+                    <label for="kb_id">Keyboard ID: </label>
+                    <input type="text" id="kb_id" name="kb_id"/>
+                </div>
+                <div class="form-field">
+                <label for="mouse_id">Mouse ID:</label>
+                <input type="text" id="mouse_id" name="mouse_id"/><br>
+                </div>
+                <div class="form-field" id="comment-block">
+                <label for="PCcondition">Computer's current condition:</label><br>
+                <textarea id="PCcondition" name="PCcondition" rows="2"></textarea>
+                </div>
+                <div class="form-field">
+                    <label for="tableLocation">Computer location:</label><br>
+                    <input type="text" id="tableLocation" name="tableLocation"/>
+                </div>
+                <div class="button-container">
+                    <button type="submit" name="add" class="button">Insert Row</button>
+                    <button type="submit" name="update" class="button">Update Row</button>
+                    <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>&nbsp; &nbsp; 
+                <div>
             </form>
         </diV>
     </body>

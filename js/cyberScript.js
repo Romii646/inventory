@@ -1,10 +1,5 @@
 // Description: This script handles the functionality of the Cyber Lab Management System. It includes functions for adding, updating, deleting, and viewing computer setups in the lab. The script also manages the visibility of form fields based on user selections and handles form submissions.
 // It uses the Fetch API to communicate with a PHP backend for database operations. The script is designed to be modular and reusable, with clear separation of concerns for different functionalities.
-
-import tableNames from './tableNames.js';// import tableNames from the tableNames.js file
-// import the JSON data about the table names from the tableNames.js file
-const TABLE_NAMES_JSON = JSON.parse(tableNames);
-
 function showNeededFields(table, accessories, monitors, motherboards, ramsticks, powersupplies){
     // declared variables
     const tableSelect = document.getElementById(table).value;
@@ -36,16 +31,14 @@ function showNeededFields(table, accessories, monitors, motherboards, ramsticks,
         powerSupplyFields.classList.remove('hidden');
     }
 }// end of addShowNeededFields
-
+/******************************************************************************************************************************************************************************************************************/
 //function to clear form values
 function clearForm(formId){
     formValue = document.getElementById(formId);
     formValue.reset();
     showNeededFields(); // reset for all hidden entries
 }
-
-// function to create paragraph element for the view table area.
-
+/*************************************************************************************************************************************************************************************************************************/
 // function to fetchTable pcSetUp which is for the main table that keeps track of computers currently on the lab floor
 // Functions that uses this function are virtualView, queryTable, and deleteRow.
 function fetchTable(event) {
@@ -84,6 +77,7 @@ function fetchTable(event) {
         document.getElementById('error').innerHTML = '<p>Error loading data.</p>';
     });
 }
+/**************************************************************************************************************************************************************************************************************************************/
 // function to fetchTable for the view tables
 function virtualView(event){
     event.preventDefault();
@@ -103,10 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add an event listener to the viewTableContainer to handle view table submissions.
     document.querySelector('.viewTableContainer').addEventListener("click", virtualView);
-
-    document.querySelector('.formLoader').addEventListener("click", formLoader);
 });
-
+/****************************************************************************************************************************************************************************************************************************************************/
 // function add is used to add new entries to the pcSetUP table and update to table
 function queryTable(event){
     event.preventDefault();
@@ -176,7 +168,7 @@ function queryTable(event){
         })
        } 
 }
-
+/*****************************************************************************************************************************************************************************************************************************************************************************/
 // function to delete row from the pc set up table
 function deleteRow(event){
         event.preventDefault();
@@ -197,8 +189,25 @@ function deleteRow(event){
         });
 }
 
-function formLoader(event){
-    event.preventDefault();
-    const tableSelect = document.getElementById('tableSelect').value;
-    const table_array = TABLE_NAMES_JSON.find(item => item.table === tableSelect);
+function queryAction(event) {
+
+    const ID = document.getElementById('pc_id')
+
+    if(ID.value === 'pc_id'){
+        queryTable(event);
+    }
+    else{
+        let nameValue = event.submitter.name;
+        if(nameValue === 'add'){
+            let form = 'form1';
+            fetch('./php/form_process.php?form=form1', {
+                method : 'POST',
+                headers : {'content-type' : 'application/json'},
+                body : JSON.stringify(nameValue)
+            })
+            .then(() =>{
+
+            });
+        }
+    }
 }

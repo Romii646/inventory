@@ -1,10 +1,11 @@
 html{
     /* background: linear-gradient(135deg, #3b708c, #244764, #68827d, #B1BEBB, #2f5C60, transparent);
     background-repeat: no-repeat; */
-    --body-bg-image: url("../images/matrix.jpg");
+    --body-bg-image: url("../images/matrix.png");
 
                 /* colors */
                 --content: #296dbb;
+                image-rendering: pixelated;
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;

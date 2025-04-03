@@ -225,4 +225,15 @@ formFields.forEach(field => {
     }
 });
 
-console.log(fieldData); // Outputs an  */
+console.log(fieldData); // Outputs an 
+// 
+// 
+// 
+// formFields.forEach(field => {//debugger
+            console.error('Form field 1:', field);
+            let input = field.querySelector('input');
+            if (input) {
+                console.log('Input ID:', input.id);
+                console.log('Input Value:', input.value);
+            }
+        }); */

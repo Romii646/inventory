@@ -30,6 +30,9 @@ const formFields = 'form-field';
 // this variable holds the form heading text. If you want to change the title of the form use this variable.
 const formHeaderDescription = "Add & Update form for "; 
 
+// this variable holds the form's dropdown menu option text title. If you want to change the title of the dropdown menu use this variable.
+const optionDescription = "Select an option";
+
 function formLoader(event) {
     const tableSelect = tableSelectElement.value;
     const tableName = tableNames[tableSelect];
@@ -38,6 +41,7 @@ function formLoader(event) {
     const output = document.querySelector('.formMaker');
 
     deleteFormElements(mainForm); // Clear previous form content
+
     const headerDiv = document.createElement('div');
     headerDiv.classList.add('mainFormHeading');
     const header = document.createElement('h2');
@@ -65,7 +69,7 @@ function formLoader(event) {
 
             const option = document.createElement('option');
             option.value = '';
-            option.textContent = 'Select an option';
+            option.textContent = optionDescription;
             select.appendChild(option);
 
             for (const item of value) {
@@ -75,13 +79,13 @@ function formLoader(event) {
                 select.appendChild(option);
             }
         } else if (typeof value === 'object' && value !== null) {
+            const subLabel = document.createElement('label');
             for (const subKey in value) {
                 const subValue = value[subKey];
-                const subLabel = document.createElement('label');
 
                 //key is the original variable in the outter for in loop, key is the key side of the object structure.
                 // For example width: small, medium, large; width is the key side of the key-value structure.
-                subLabel.htmlFor = key; // used to for the element tag.
+                subLabel.htmlFor = key; // used to create a for attribute tag with context in this case key values.
 
                 // Use the value for the description key as the label text
                 if (subKey === keyhole) {
@@ -100,7 +104,7 @@ function formLoader(event) {
                     // creates a blank option to keep the first value null if this list is not selected
                     const option = document.createElement('option');
                     option.value = '';
-                    option.textContent = 'Select an option';
+                    option.textContent = optionDescription;
                     select.appendChild(option);
 
                     for (const item of subValue) {// iterates through an array within the object
@@ -109,15 +113,11 @@ function formLoader(event) {
                         option.textContent = item;
                         select.appendChild(option);
                     }
+
                     formDiv.appendChild(select);
+
                 } else {
-                  // this section fires if the current value is not an array or object it gets a simple input text element.
-                    /* const input = document.createElement('input');
-                    input.type = 'text';
-                    input.id = key;
-                    input.name = key;
-                    input.value = 'this is me'; // Ensure the input is blank
-                    formDiv.appendChild(input); */
+                    continue;
                 }
             }
         } else {
@@ -144,13 +144,16 @@ function deleteFormElements(form) {
     
     formChildElement.forEach(childElement => childElement.remove());
  
-    formChildElement = form.querySelectorAll('.mainFormHeading')
+    formChildElement = form.querySelectorAll('.mainFormHeading');
  
     formChildElement.forEach(childElement => childElement.remove());
  }
  
  function moveButtonContainer(form){
    let buttonContainer = form.querySelector('.button-container');
+   buttonContainer.firstElementChild.value = 'None';
+   buttonContainer.children[1].value = 'None';
+
    if(buttonContainer){
     form.appendChild(buttonContainer);
   }

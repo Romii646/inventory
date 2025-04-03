@@ -6,7 +6,7 @@ const tableNames = {
            "name": "Brand Name",
            "condition": {
                 "description": "graphic card condition",
-                "type": ["GOOD", "BROKEN"]    
+                "condition": ["GOOD", "BROKEN"]    
            },
            "cost": "cost",
            "status": ["IN_USE", "STORAGE", "DISPOSED"]
@@ -18,7 +18,7 @@ const tableNames = {
             "name": "Brand Name",
             "condition": {
                 "description": "keyboard condition",
-                "type": ["GOOD", "BROKEN"]    
+                "condition": ["GOOD", "BROKEN"]    
            },
             "cost": "cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
@@ -30,7 +30,7 @@ const tableNames = {
             "name": "Brand Name",
             "condition": {
                 "description": "mice condition",
-                "type": ["GOOD", "BROKEN"]    
+                "condition": ["GOOD", "BROKEN"]    
            },
             "cost": "cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
@@ -42,7 +42,7 @@ const tableNames = {
             "name": "Brand Name",
             "condition": {
                 "description": "miniPC condition",
-                "type": ["GOOD", "BROKEN"]    
+                "condition": ["GOOD", "BROKEN"]    
            },
             "cost": "cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"],
@@ -56,7 +56,7 @@ const tableNames = {
             "width": ["12-18 inch", "19-24 inch", "25-32 inch"],
             "condition": {
                 "description": "Monitor condition",
-                "type": ["GOOD", "BROKEN"]    
+                "condition": ["GOOD", "BROKEN"]    
            },
             "cost": "cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
@@ -64,12 +64,12 @@ const tableNames = {
     ],
     "motherboards": [
         {
-            "mb_id": "mobo ID",
+            "mobo_id": "mobo ID",
             "name": "Brand Name",
             "size": ["ATX", "mATX", "ITX"],
             "condition": {
                 "description": "Motherboard condition",
-                "type": ["GOOD", "BROKEN"]    
+                "condition": ["GOOD", "BROKEN"]    
            },
             "cost": "cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
@@ -98,7 +98,7 @@ const tableNames = {
             "modular": ["yes", "no"],
             "condition": {
                 "description": "Power supply condition",
-                "type": ["GOOD", "BROKEN"]    
+                "condition": ["GOOD", "BROKEN"]    
            },
             "cost": "cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
@@ -112,7 +112,7 @@ const tableNames = {
             "speed": "Ram speed",
             "condition": {
                 "description": "RAM condition",
-                "type": ["GOOD", "BROKEN"]    
+                "condition": ["GOOD", "BROKEN"]    
            },
             "cost": "cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]

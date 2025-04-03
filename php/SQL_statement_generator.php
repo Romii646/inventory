@@ -47,10 +47,9 @@
  * @param array $tableColumnName An array of column names to be updated.
  * @return string The generated SQL UPDATE statement.
  */
-   function update_string($tableName, $tableColumnName){
+   function update_string($tableName, $tableColumnName, $primaryIDName){
     //require 'word_bank.php';
     $count = count($tableColumnName);
-    $primaryIDName = find_ID($tableName);// to find the primary ID name for the primary key column
     $sqlString = "UPDATE $tableName SET `$tableColumnName[0]` =";
     for($i = 1; $i <= $count; $i++){
         if($count == 1){

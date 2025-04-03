@@ -23,15 +23,20 @@
     else if(isset($_GET['form'])){// Check if form data is received
         $form = $_GET['form'];
     }
+
+    // this variable is used to look up the datas bases corresponding table name from _POST globals and to be a condition in a if else or loop
+    $tableKeyName = 'tableSelect'; 
+
     switch($form){
         case 'form1':
             $insertOP = new insertOp(); // Class object for inserting data
             $columnValues = [];
             $columnNames = [];
             $count = 0;
+
             // Start of assigning variables to POST values
             foreach($_POST as $post => $values){
-                if($post != "form" &&  $post != "tableSelect" && !empty($values)){
+                if($post != "form" &&  $post != $tableKeyName && !empty($values)){
                     $columnValues[$count] = validate_input($values, $post);
                     if($post == "cost"){
                         if (!is_numeric($columnValues[$count])) {
@@ -49,12 +54,15 @@
                     $count++;
                 }
             }
-            $table_name = validate_input($_POST['tableSelect'], "Table name");
+            $table_name = validate_input($_POST[$tableKeyName], "Table name");
+            error_log("Parameters values: " . print_r($columnValues, true));
+            error_log("Parameters names: " . print_r($columnNames, true));
+            error_log("table name is: " . $table_name);
             // End of assigning variable to POST values
             if($errorCount == 0) {
-                $idName = find_ID($table_name);//goes to word_bank.php
+                //$idName = find_ID($table_name);//goes to word_bank.php
                 $insertOP -> connect();
-                $insertOP -> set_table_names($idName, ...$columnNames);// goes to SQLOp.php
+                $insertOP -> set_table_names(...$columnNames);// goes to SQLOp.php
                 $statement = $insertOP -> add_query($table_name, ...$columnValues);// goes to SQLOp.php
                 $insertOP -> execute_query($statement);// goes to SQLOp.php
                 header("Location: ../inventoryForm.html");
@@ -66,10 +74,12 @@
             break;
 
         // View Table form ***********************************************************************
-        case 'form2':
+        case 'form2'://This form is no long in use due to javascript function fetchTable take control of rendering tables
+            // on the homePage. This function can be used from more dominate php focused data transfers between php files
+            
             $viewOp = new queryOp(); // Instantiating queryOp class for viewing data
             if(isset($_GET['table'])){
-                $table_name = validate_input($_GET['table'], "view table");
+                $table_name = validate_input($_GET['table'], "view table"); // this string table is the expection to not having $tableKeyName within the POST brackets. As the view form is fairly stable and non changing
             }
             else{
                 error_log("No table name received");
@@ -92,29 +102,17 @@
             }
             break;
 
-        // Operation to update table row ***************************************************************************
+        // Operation to update table row *********************************************************************************************************************************************************************************************************************
         case 'form3':
             // Local variables
             $updateOp = new updateOp(); // Class object for updating data
             $tableNameValues =[];
 
             // grabbing the table name
-            $table_name = validate_input($_POST['tableUpdate'], "update table row");
-
-            try{// grabbing the primary ID value
-                if(!empty($_POST['pValue'])){
-                    $p_id_value = validate_input($_POST['pValue'],"Need p_id value for $table_name");
-                }
-                else{
-                    throw new Exception ("Need a Primary ID to update a row on a table.");
-                }
-            }
-            catch(Exception $e){
-                echo "Error:" . $e -> getMessage();
-            }
+            $table_name = validate_input($_POST[$tableKeyName], "update table row");
             
             foreach($_POST as $post => $value){
-                if($post != "form" && $post != "tableUpdate" && $post != "pValue" && !empty($value)){
+                if($post != "form" && $post != $tableKeyName && !empty($value)){
                     $tableNameValues[$post] = validate_input($value, $post);
                 }
             }
@@ -130,7 +128,7 @@
                      * @param int $p_id_value Primary ID value.
                      */
 
-                    $updateOp -> set_table_update($table_name, $tableNameValues, $p_id_value);
+                    $updateOp -> set_table_update($table_name, $tableNameValues);
                 }
                 else{
                     echo "No values to update";

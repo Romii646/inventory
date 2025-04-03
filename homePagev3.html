@@ -32,11 +32,11 @@
                     <section id="stored_components_storage">Storaged Items</section>
                     <section id="broken">Broken Items</section>
                     <section id="component_totals">Component Count</section>
-                    <section id="#">Relation</section>
+                    <section id="not_in_use">Not in use</section>
                 </div>
                 <div class="tableSelection">
                     <label for="tableSelect">Table name</label><br>
-                    <select id="tableSelect" name="tableSelect" onchange="showNeededFields( 'tableSelect', 'addAccessoryFields', 'addMonitorsFields', 'addMotherboardsFields','addRamsticksFields', 'addPowerSupplyFields')">
+                    <select id="tableSelect" name="tableSelect">
                         <option value="empty">Table drop down list </option>
                         <option value="accessories">Accessory table</option>
                         <option value="graphicscards">Graphics card table</option>
@@ -104,8 +104,8 @@
                                 <input type="text" id="tableLocation" name="tableLocation"/>
                             </div>
                             <div class="button-container">
-                                <button type="submit" name="add" class="button">Insert Row</button>
-                                <button type="submit" name="update" class="button">Update Row</button>
+                                <button type="submit" name="add" value="addPCForm" class="button">Insert Row</button>
+                                <button type="submit" name="update" value="addPCForm" class="button">Update Row</button>
                                 <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>&nbsp; &nbsp; 
                             <div>
                         </form>
@@ -118,7 +118,7 @@
                            <input type="text" id="delete_pc_id" name="delete_pc_id"/>
                         </div>
                         <div class="button-container" name="delete">
-                           <button type="submit" name="submit">Delete Row</button>
+                           <button type="submit" name="delete" value="deletePCForm">Delete Row</button>
                            <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>&nbsp; &nbsp;
                         </div>
                 </form>

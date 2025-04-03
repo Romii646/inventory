@@ -160,25 +160,38 @@ class updateOp extends SQLOp{// updateOp class intended to update tables
     // class variables
     protected $statement;
 
-    public function set_table_update($tableName, $columnValue, $pValue){
+    public function set_table_update($tableName, $columnValue){
         include 'word_bank.php';
         $columnArray = []; // array used to dynamically bind columnValues to column names
         $combineColumnArray =[];
-        $tableColumnValue = array_values($columnValue);
-        $tableColumnName = array_keys($columnValue);
-        $this -> SQLstring = update_string($tableName, $tableColumnName);
+
+        $tableColumnValue = array_values($columnValue); // used to split the key-value array
+        $tableColumnName = array_keys($columnValue);// used to split the key-value array
+
+        // removing primary ID value, example kb_0001. expectation is that primary
+        // ID is always the first element of the array
+        $pValue = array_shift($tableColumnValue);
+        // removing primary ID column name, example kb_id.
+        // expectation is that the column name is in the first element of the array
+        $primaryKeyColumnName = array_shift($tableColumnName); 
+
+        $this -> SQLstring = update_string($tableName, $tableColumnName, $primaryKeyColumnName);
         $this -> statement = $this -> conn -> prepare($this -> SQLstring);
+
         if($this -> statement === false){
             die("SQL statement preparation failed: " . print_r($this -> conn-> errorInfo(), true));
         }
+
         for($i = 1; $i <= count($tableColumnName); $i++){
             $columnArray [] = ":columnValue$i";
         };
+
         $combineColumnArray = array_combine($columnArray, $tableColumnValue);
 
         foreach ($combineColumnArray as $colName => $colValue){
             $this -> statement -> bindValue($colName, $colValue);
         }
+        
         $this -> statement ->bindValue('pValue', $pValue);
     }
 

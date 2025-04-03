@@ -85,12 +85,13 @@ function virtualView(event){
 
     fetchTable(idName);// fetch table data for view tables
 }
+
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch and display the table data as soon as the page loads.
     fetchTable("pcsetups");
     
     // Add an event listener to the form to handle form submissions.
-    document.getElementById('Main-form').addEventListener("submit", queryTable);
+    document.getElementById('Main-form').addEventListener("submit", queryAction);
 
     // Add an event listener to the delete form to handle form submissions.
     document.getElementById('deleteForm').addEventListener("submit", deleteRow);
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // function add is used to add new entries to the pcSetUP table and update to table
 function queryTable(event){
     event.preventDefault();
-    var nameValue = event.submitter.name;
+    let nameValue = event.submitter.name;
     const pc_id = document.getElementById('pc_id').value;
     const mobo_id = document.getElementById('mobo_id').value;
     const gpu_id = document.getElementById('gpu_id').value;
@@ -147,7 +148,6 @@ function queryTable(event){
             }
         })
         .catch(error =>{
-           // fetchTable();
             console.error('Error: ', error);
             document.getElementById('error').innerHTML = "Add operation failed.";
         });
@@ -188,26 +188,109 @@ function deleteRow(event){
             document.getElementById('error').innerHTML = "Row deleted failed."
         });
 }
-
+/**********************************************************************************************************************************************************************************************************************************************************************************/
 function queryAction(event) {
+    event.preventDefault();
+    let formID = event.submitter.value;
+    // for the fetchTable function. the string represents a key-value pair name where it finds the value.
+    //  value is the names of the tables in the database
+    console.log("the name", formID);
+    let tableSelect = document.getElementById('tableSelect');
 
-    const ID = document.getElementById('pc_id')
-
-    if(ID.value === 'pc_id'){
+    if(formID === 'addPCForm'){
         queryTable(event);
     }
+    else if(formID === 'deletePCForm'){
+        deleteRow(event);
+    }
     else{
+      //  event.preventDefault();
         let nameValue = event.submitter.name;
+        // for the fetchTable function. the string represents a key-value pair name where it finds the value.
+        //  value is the names of the tables in the database
+
+        const formFields = this.querySelectorAll('.form-field');
+        const data = tableKeyAndDataJoiner(formFields);
+            
+        const formData = new URLSearchParams();
+        if(Array.isArray(data)){
+            data.forEach(field =>{
+                for(const key in field){
+                    formData.append(key, field[key]);
+                }
+            });
+        }  
+        else{
+            console.error("Invalid data format. function queryAction")
+        }
+        
+        for (const [key, value] of formData.entries()) {//debugger
+            console.log('Input ID:', key);
+            console.log('Input Value:', value);
+        }
+ 
         if(nameValue === 'add'){
-            let form = 'form1';
             fetch('./php/form_process.php?form=form1', {
                 method : 'POST',
-                headers : {'content-type' : 'application/json'},
-                body : JSON.stringify(nameValue)
+                body : formData
             })
             .then(() =>{
-
+                console.log('Response back from php server for insertion: ', data);
+                fetchTable(tableSelect.value);
+            })
+            .catch(error =>{
+                console.error('Error from cyberScript: FUNCTION queryAction : add section: ', error);
+            });
+        }
+        else if(nameValue === 'update'){
+            fetch('./php/form_process.php?form=form3', {
+                method : 'POST',
+                body : formData
+            })
+            .then(() =>{
+                console.log('Response back from php server for updating: ', data);
+                fetchTable(tableSelect.value);
+            })
+            .catch(error =>{
+                console.error('Error from cyberScript: FUNCTION queryAction : update section: ', error);
+            });
+        }
+        else if (nameValue === 'delete'){
+            fetch('./php/form_process?form=form4', {
+                method : 'POST',
+                body : formData
+            })
+            .then(() => {
+                console.log('Response back from php server for deleting row: ', data);
+            })
+            .catch(error =>{
+                console.error('Error from cyberScript: FUNCTION queryAction : delete section: ', error);
             });
         }
     }
+}
+/*****************************************************************************************************************************************************************************************************************************************************************************************/
+function tableKeyAndDataJoiner (formFields){
+// Create an array to store the collected data
+    const fieldData = [];
+    let tableSelect = document.getElementById('tableSelect');
+   formFields.forEach(field => {
+    //gets the child node of .form-field's element input to capture the id and value of the input inside a div element with aa class tag of .form-field
+       let input = field.querySelector('input');
+       let select = field.querySelector('select');
+       if(input){
+            fieldData.push({
+                [input.id] : input.value
+            });
+        }
+        else if(select){
+            fieldData.push({
+                [select.id] : select.value
+            });
+        }
+   });
+fieldData.push({
+    [tableSelect.id] : tableSelect.value
+});
+return fieldData;
 }

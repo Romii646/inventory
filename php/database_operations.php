@@ -208,10 +208,10 @@ class updateOp extends SQLOp{// updateOp class intended to update tables
 }// end of class updateOp
 
 class deleteOp extends SQLOp {// delete rows
-    public function set_table_delete($tableName, $deleteValue1){// set user variables to delete row
+    public function set_table_delete($tableName, $primaryIdName, $deleteValue1){// set user variables to delete row
         // deleteValue1 is the primary ID to tables
-        include 'word_bank.php';
-        $primaryIdName = find_ID($tableName);
+        //include 'word_bank.php';
+        //$primaryIdName = find_ID($tableName);
         $this -> SQLstring = "DELETE FROM $tableName WHERE $primaryIdName = :deleteValue1";
         $this -> statement = $this -> conn -> prepare($this -> SQLstring);
         if($this -> statement === false){

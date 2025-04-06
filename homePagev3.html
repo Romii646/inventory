@@ -34,20 +34,6 @@
                     <section id="component_totals">Component Count</section>
                     <section id="not_in_use">Not in use</section>
                 </div>
-                <div class="tableSelection">
-                    <label for="tableSelect">Table name</label><br>
-                    <select id="tableSelect" name="tableSelect">
-                        <option value="empty">Table drop down list </option>
-                        <option value="accessories">Accessory table</option>
-                        <option value="graphicscards">Graphics card table</option>
-                        <option value="keyboards">Keyboard table</option>
-                        <option value="mice">Mouse table</option>
-                        <option value="monitors">Monitors table</option>
-                        <option value="motherboards">Motherboard table</option>
-                        <option value="powersupplies">Power supply table</option>
-                        <option value="ramsticks">Ramstick table</option>
-                    </select><br>
-                </div>
                 <div class="mainTableContainer">
                     <div class="formMaker">
                         <div class="viewSpace">
@@ -106,13 +92,29 @@
                             <div class="button-container">
                                 <button type="submit" name="add" value="addPCForm" class="button">Insert Row</button>
                                 <button type="submit" name="update" value="addPCForm" class="button">Update Row</button>
-                                <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>&nbsp; &nbsp; 
+                                <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>
+                                <div class="tableSelection">
+                                    <label for="tableSelect">Table Names</label><br>
+                                    <select id="tableSelect" name="tableSelect">
+                                        <option value="empty">Drop down list</option>
+                                        <option value="accessories">Accessory table</option>
+                                        <option value="graphicscards">Graphics card table</option>
+                                        <option value="keyboards">Keyboard table</option>
+                                        <option value="mice">Mouse table</option>
+                                        <option value="monitors">Monitors table</option>
+                                        <option value="motherboards">Motherboard table</option>
+                                        <option value="powersupplies">Power supply table</option>
+                                        <option value="ramsticks">Ramstick table</option>
+                                    </select><br>
+                                </div> 
                             <div>
                         </form>
                     </div>
                 </div>
                 <form id="deleteForm" name="deleteForm">
-                    <h2>Delete Row</h2>
+                    <div class="mainFormHeading">
+                        <h2>Delete Row</h2>
+                    </div>
                         <div class="form-field" name="delete">
                            <label for="delete_pc_id">PC ID: </label>
                            <input type="text" id="delete_pc_id" name="delete_pc_id"/>

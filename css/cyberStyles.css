@@ -273,6 +273,7 @@ footer{
     justify-self: center;
     grid-column: span 3;
     gap: 15px;
+    margin-left: 10%;
 }
 
 #PCcondition{

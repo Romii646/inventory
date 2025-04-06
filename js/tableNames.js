@@ -64,7 +64,7 @@ const tableNames = {
     ],
     "motherboards": [
         {
-            "mobo_id": "mobo ID",
+            "mobo_id": "MotherBoard ID",
             "name": "Brand Name",
             "size": ["ATX", "mATX", "ITX"],
             "condition": {
@@ -77,17 +77,17 @@ const tableNames = {
     ],
     "pcsetups":[
         {
-            "pc_id": "",
-            "mobo_id": "",
-            "gpu_id": "",
-            "ran_id": "",
-            "psu_id": "",
-            "monitor_id": "",
-            "acc_id": "",
-            "kb_id": "",
-            "mouse_id": "",
-            "tableLocation": "",
-            "PCcondition":""
+            "pc_id": "Computer ID",
+            "mobo_id": "MotherBoard ID",
+            "gpu_id": "Graphic Card ID",
+            "ram_id": "RamStick ID",
+            "psu_id": "Pwoer Supply ID",
+            "monitor_id": "Monitor ID",
+            "acc_id": "Accessory ID",
+            "kb_id": "KeyBoard ID",
+            "mouse_id": "Mouse ID",
+            "tableLocation": "Table Location",
+            "PCcondition":"Current Condition of the PC"
         }
     ],
     "powersupplies": [

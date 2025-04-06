@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('Main-form').addEventListener("submit", queryAction);
 
     // Add an event listener to the delete form to handle form submissions.
-    document.getElementById('deleteForm').addEventListener("submit", deleteRow);
+    document.getElementById('deleteForm').addEventListener("submit", queryAction);
 
     // Add an event listener to the viewTableContainer to handle view table submissions.
     document.querySelector('.viewTableContainer').addEventListener("click", virtualView);
@@ -256,12 +256,13 @@ function queryAction(event) {
             });
         }
         else if (nameValue === 'delete'){
-            fetch('./php/form_process?form=form4', {
+            fetch('./php/form_process.php?form=form4', {
                 method : 'POST',
                 body : formData
             })
             .then(() => {
                 console.log('Response back from php server for deleting row: ', data);
+                fetchTable(tableSelect.value);
             })
             .catch(error =>{
                 console.error('Error from cyberScript: FUNCTION queryAction : delete section: ', error);

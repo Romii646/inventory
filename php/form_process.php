@@ -24,7 +24,7 @@
         $form = $_GET['form'];
     }
 
-    // this variable is used to look up the datas bases corresponding table name from _POST globals and to be a condition in a if else or loop
+    // this variable is used to look up the datas bases corresponding table name from _POST globals and declared in a variable, and to be a condition in a if else or loop.
     $tableKeyName = 'tableSelect'; 
 
     switch($form){
@@ -141,8 +141,17 @@
         // Operation to delete table row ***********************************************************************
         case 'form4':
             $deleteOp = new deleteOp(); // Instantiating deleteOp class for deleting data
-            $table_name = validate_input($_POST['tableDelete'], "deleting row for keyboard table");
-            $p_id = validate_input($_POST['pValue'], "Primary ID value");
+            $table_name = validate_input($_POST[$tableKeyName], "deleting row for keyboard table");
+            $tableNameValues = [];
+            foreach($_POST as $post => $value){
+                if($post != "form" && $post != $tableKeyName && !empty($value)){
+                    $tableNameValues[$post] = validate_input($value, $post);
+                }
+            }
+            $nameArrayValue = array_values($tableNameValues);
+            $nameArrayKey = array_keys($tableNameValues);
+            $p_value = trim($nameArrayValue[0]);
+            $p_id = trim($nameArrayKey[0]);
             if($errorCount == 0) {
                 $deleteOp -> connect();
                 /**
@@ -151,7 +160,7 @@
                  * @param string $table_name Name of the table.
                  * @param int $p_id Primary ID value.
                  */
-                $deleteOp -> set_table_delete($table_name, $p_id);
+                $deleteOp -> set_table_delete($table_name, $p_id, $p_value);
                 $deleteOp -> delete_row();
                 $deleteOp -> DB_close();
                 header("Location: ../inventoryForm.html");

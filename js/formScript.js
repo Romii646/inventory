@@ -1,4 +1,4 @@
-function showTable(event){//function to show table
+function showTable(event){//function to show table currently a function not in use until more php focused files are developed.
     event.preventDefault();
     var tables = document.getElementById('table').value;//get the value of the table
     var httpRequest = new XMLHttpRequest();//create a new XMLHttpRequest object
@@ -27,6 +27,8 @@ const keyhole = 'description'; // can be found with variable subkey
 
 const formFields = 'form-field';
 
+const formHeading = 'mainFormHeading';
+
 // this variable holds the form heading text. If you want to change the title of the form use this variable.
 const formHeaderDescription = "Add & Update form for "; 
 
@@ -38,7 +40,7 @@ function formLoader(event) {
     const tableName = tableNames[tableSelect];
   
     const mainForm = document.getElementById('Main-form');
-    const output = document.querySelector('.formMaker');
+    //const output = document.querySelector('.formMaker');
 
     deleteFormElements(mainForm); // Clear previous form content
 
@@ -132,19 +134,20 @@ function formLoader(event) {
             formDiv.appendChild(input);
         }
         mainForm.appendChild(formDiv);
-        moveButtonContainer(mainForm);
-        fetchTable(tableSelect);
     }
+    moveButtonContainer(mainForm);
+    deleteRowFormLoader(tableName);
+    fetchTable(tableSelect);
 }
 
 tableSelectElement.addEventListener('change', formLoader);
 
 function deleteFormElements(form) {
-    let formChildElement = form.querySelectorAll('.'+ formFields);
+    let formChildElement = form.querySelectorAll('.' + formFields);
     
     formChildElement.forEach(childElement => childElement.remove());
- 
-    formChildElement = form.querySelectorAll('.mainFormHeading');
+
+    formChildElement = form.querySelectorAll('.' + formHeading);
  
     formChildElement.forEach(childElement => childElement.remove());
  }
@@ -160,4 +163,38 @@ function deleteFormElements(form) {
   else{
     console.error('Element is not found or doesnt exist.')
   }
+ }
+
+ function deleteRowFormLoader(tableName){
+    const deleteForm = document.getElementById('deleteForm');
+    deleteFormElements(deleteForm);
+
+    const headerDiv = document.createElement('div');
+    headerDiv.classList.add(formHeading);
+    deleteForm.appendChild(headerDiv);
+
+    const header = document.createElement('h2');
+    header.textContent = 'Delete Row Form'
+    headerDiv.appendChild(header);
+
+    const deleteFormDiv = document.createElement('div');
+    deleteFormDiv.classList.add(formFields);
+
+    const key = Object.keys(tableName[0])[0];
+    const value = tableName[0][key];
+
+    const deleteLabel = document.createElement('label');
+    console.log(key, value);
+    deleteLabel.htmlFor = key
+    deleteLabel.textContent = value;
+    deleteFormDiv.appendChild(deleteLabel);
+
+    const deleteInput = document.createElement('input');
+    deleteInput.type = 'text';
+    deleteInput.id = key;
+    deleteInput.name = key;
+    deleteFormDiv.appendChild(deleteInput);
+    deleteForm.appendChild(deleteFormDiv)
+
+    moveButtonContainer(deleteForm);
  }

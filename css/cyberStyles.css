@@ -227,7 +227,7 @@ footer{
     gap: 10px;
     border: solid;
     border-color: #2fcb3c;
-    border-bottom: 42px solid #2fcb3c;
+    border-bottom: 24px solid #2fcb3c;
     padding: 10px;
     grid-auto-rows: auto;
     justify-items: right;
@@ -274,6 +274,10 @@ footer{
     grid-column: span 3;
     gap: 15px;
     margin-left: 10%;
+}
+
+#Main-form .button-container button{
+    margin: 18px 0px 0px 0px;
 }
 
 #PCcondition{

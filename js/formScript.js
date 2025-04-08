@@ -198,3 +198,16 @@ function deleteFormElements(form) {
 
     moveButtonContainer(deleteForm);
  }
+ /*************************************************************************************************************************************************************************/
+ function setDropdownOptions(tableNames) {
+    const tableSelect = document.getElementById('tableSelect');
+    Object.keys(tableNames).forEach((tableName) => {
+        const option = document.createElement('option');
+        option.value = tableName;
+        option.textContent = tableName.charAt(0).toUpperCase() + tableName.slice(1);
+        tableSelect.appendChild(option);
+    });
+}
+
+setDropdownOptions(tableNames); // Call the function to set dropdown options
+/*************************************************************************************************************************************************************************/

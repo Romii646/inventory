@@ -1,5 +1,18 @@
 
 const tableNames = {
+    "accessories": [
+        {
+           "acc_id": "Accessory ID",
+           "name": "Brand Name",
+           "type": ["Mouse", "Keyboard", "Headset", "Webcam"],
+           "condition": {
+                "description": "graphic card condition",
+                "condition": ["GOOD", "BROKEN"]    
+           },
+           "cost": "Cost",
+           "status": ["IN_USE", "STORAGE", "DISPOSED"]
+        }
+    ],
     "graphicscards": [
         {
            "gpu_id": "Graphic Card ID",
@@ -8,7 +21,7 @@ const tableNames = {
                 "description": "graphic card condition",
                 "condition": ["GOOD", "BROKEN"]    
            },
-           "cost": "cost",
+           "cost": "Cost",
            "status": ["IN_USE", "STORAGE", "DISPOSED"]
         }
     ],
@@ -20,7 +33,7 @@ const tableNames = {
                 "description": "keyboard condition",
                 "condition": ["GOOD", "BROKEN"]    
            },
-            "cost": "cost",
+            "cost": "Cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
         }
     ],
@@ -32,7 +45,7 @@ const tableNames = {
                 "description": "mice condition",
                 "condition": ["GOOD", "BROKEN"]    
            },
-            "cost": "cost",
+            "cost": "Cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
         }
     ],
@@ -44,7 +57,7 @@ const tableNames = {
                 "description": "miniPC condition",
                 "condition": ["GOOD", "BROKEN"]    
            },
-            "cost": "cost",
+            "cost": "Cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"],
             "location":""
         }
@@ -58,7 +71,7 @@ const tableNames = {
                 "description": "Monitor condition",
                 "condition": ["GOOD", "BROKEN"]    
            },
-            "cost": "cost",
+            "cost": "Cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
         }
     ],
@@ -71,7 +84,7 @@ const tableNames = {
                 "description": "Motherboard condition",
                 "condition": ["GOOD", "BROKEN"]    
            },
-            "cost": "cost",
+            "cost": "Cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
         }
     ],
@@ -100,7 +113,7 @@ const tableNames = {
                 "description": "Power supply condition",
                 "condition": ["GOOD", "BROKEN"]    
            },
-            "cost": "cost",
+            "cost": "Cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
         }
     ],
@@ -114,8 +127,23 @@ const tableNames = {
                 "description": "RAM condition",
                 "condition": ["GOOD", "BROKEN"]    
            },
-            "cost": "cost",
+            "cost": "Cost",
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
+        }
+    ],
+    "storage_components": [
+        {
+            "storage_id": "Storage ID",
+            "storage_slot_id": "Storage Slot ID",
+            "name" : "Brand Name",
+            "type": ["SSD", "HDD"],
+            "condition": {
+                "description": "Storage part condition",
+                "condition": ["GOOD", "BROKEN"]
+            },
+            "cost": "Cost",
+            "status":["IN_USE", "STROAGE", "DISPOSED"],
+            "location": "Location of the stroage part"
         }
     ]
 }

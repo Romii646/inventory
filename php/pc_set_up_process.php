@@ -42,6 +42,7 @@ try {
                     $input['mobo_id'],
                     $input['gpu_id'],
                     $input['ram_id'],
+                    $input['storage_slot_id'],
                     $input['psu_id'],
                     $input['monitor_id'],
                     $input['acc_id'],

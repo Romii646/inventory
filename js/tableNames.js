@@ -88,21 +88,6 @@ const tableNames = {
             "status": ["IN_USE", "STORAGE", "DISPOSED"]
         }
     ],
-    "pcsetups":[
-        {
-            "pc_id": "Computer ID",
-            "mobo_id": "MotherBoard ID",
-            "gpu_id": "Graphic Card ID",
-            "ram_id": "RamStick ID",
-            "psu_id": "Pwoer Supply ID",
-            "monitor_id": "Monitor ID",
-            "acc_id": "Accessory ID",
-            "kb_id": "KeyBoard ID",
-            "mouse_id": "Mouse ID",
-            "tableLocation": "Table Location",
-            "PCcondition":"Current Condition of the PC"
-        }
-    ],
     "powersupplies": [
         {
             "psu_id": "Power Supply ID",
@@ -142,8 +127,14 @@ const tableNames = {
                 "condition": ["GOOD", "BROKEN"]
             },
             "cost": "Cost",
-            "status":["IN_USE", "STROAGE", "DISPOSED"],
-            "location": "Location of the stroage part"
+            "status":["IN_USE", "STORAGE", "DISPOSED"],
+            "location": "Location of the storage part"
+        }
+    ],
+    "storage_slots": [
+        {
+            "storage_slot_id": "Storage Slot ID",
+            "description": "Description of the storage slot"
         }
     ]
 }

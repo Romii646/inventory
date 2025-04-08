@@ -82,8 +82,11 @@ function fetchTable(event) {
 function virtualView(event){
     event.preventDefault();
     const idName = event.target.id;
-
-    fetchTable(idName);// fetch table data for view tables
+    if(idName === 'pcsetups'){
+        window.location.reload();
+    }else{
+        fetchTable(idName);// fetch table data for view tables
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -103,11 +106,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // function add is used to add new entries to the pcSetUP table and update to table
 function queryTable(event){
     event.preventDefault();
-    let nameValue = event.submitter.name;
+    const nameValue = event.submitter.name;
     const pc_id = document.getElementById('pc_id').value;
     const mobo_id = document.getElementById('mobo_id').value;
     const gpu_id = document.getElementById('gpu_id').value;
     const ram_id = document.getElementById('ram_id').value;
+    const storage_slot_id = document.getElementById('storage_slot_id').value;
     const psu_id = document.getElementById('psu_id').value;
     const monitor_id = document.getElementById('monitor_id').value;
     const acc_id = document.getElementById('acc_id').value;
@@ -121,6 +125,7 @@ function queryTable(event){
         'mobo_id' : mobo_id,
         'gpu_id' : gpu_id,
         'ram_id' : ram_id,
+        'storage_slot_id' : storage_slot_id,
         'psu_id' : psu_id,
         'monitor_id' : monitor_id,
         'acc_id' : acc_id,
@@ -129,6 +134,8 @@ function queryTable(event){
         'tableLocation' : tableLoc,
         'PCcondition' : PCcondition
     };
+
+    console.log(nameValue);
 
     if(nameValue === 'add'){
         fetch('./php/pc_set_up_process.php?action=add', {

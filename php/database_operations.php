@@ -210,8 +210,6 @@ class updateOp extends SQLOp{// updateOp class intended to update tables
 class deleteOp extends SQLOp {// delete rows
     public function set_table_delete($tableName, $primaryIdName, $deleteValue1){// set user variables to delete row
         // deleteValue1 is the primary ID to tables
-        //include 'word_bank.php';
-        //$primaryIdName = find_ID($tableName);
         $this -> SQLstring = "DELETE FROM $tableName WHERE $primaryIdName = :deleteValue1";
         $this -> statement = $this -> conn -> prepare($this -> SQLstring);
         if($this -> statement === false){
@@ -243,8 +241,8 @@ class pcSetUp extends SQLOp{
         //$bindValues = [$p_ID_value, $mobo_ID_value, $gpu_ID_Value, $ram_ID_value, $psu_ID_value, $monitor_ID_value, $acc_ID_value, $kb_ID_value,
                 //$mouse_ID_value, $PCcondition_value];
         try{
-           $this -> statement = $this -> conn -> prepare("INSERT INTO pcsetups (pc_id, mobo_id, gpu_id, ram_id, psu_id, monitor_id, acc_id, kb_id, mouse_id, tableLocation, PCcondition)
-            VALUES (:val1, :val2, :val3, :val4, :val5, :val6, :val7, :val8, :val9, :val10, :val11)");
+           $this -> statement = $this -> conn -> prepare("INSERT INTO pcsetups (pc_id, mobo_id, gpu_id, ram_id, storage_slot_id, psu_id, monitor_id, acc_id, kb_id, mouse_id, tableLocation, PCcondition)
+            VALUES (:val1, :val2, :val3, :val4, :val5, :val6, :val7, :val8, :val9, :val10, :val11, :val12)");
 
            for($i = 1; $i <= count($values); $i++){
              $this -> statement -> bindValue(":val$i",$values[$i - 1]);
@@ -295,7 +293,7 @@ class pcSetUp extends SQLOp{
         $tableName = "pcsetups";
         $tableColumnName = array_keys($columnNameValue);
         $tableColumnValue = array_values($columnNameValue);
-        $updateStmnt = update_string($tableName, $tableColumnName);
+        $updateStmnt = update_string($tableName, $tableColumnName, 'pc_id');
         $updateSqlStmnt = $this -> conn -> prepare($updateStmnt);
 
         if($updateSqlStmnt === false){

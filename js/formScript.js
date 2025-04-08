@@ -153,7 +153,7 @@ function deleteFormElements(form) {
  }
  
  function moveButtonContainer(form){
-   let buttonContainer = form.querySelector('.button-container');
+   const buttonContainer = form.querySelector('.button-container');
    buttonContainer.firstElementChild.value = 'None';
    buttonContainer.children[1].value = 'None';
 

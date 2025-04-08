@@ -7,16 +7,16 @@
    $SQLOperationFile = 'database_operations.php';
    $errorFunctionsFile = 'validate_error_functions.php';
 
- if (!function_exists('find_ID')) {
+ //if (!function_exists('find_ID')) {
     /**
      * Finds the primary key name of the table.
      * 
      * @param string $table_name Name of the table.
      * @return string Primary key name.
      */
-   function find_ID($table_name) {
+   //function find_ID($table_name) {
     // Array of table names and their corresponding primary key names
-       $idArray = [// for every new table created, add the table name and its primary key name here.
+    /*    $idArray = [// for every new table created, add the table name and its primary key name here.
          "accessories" => "acc_id",
          "graphicscards" => "gpu_id",
          "keyboards" => "kb_id",
@@ -29,4 +29,4 @@
                      ];
           return $idArray[$table_name];
       }
-}
+} */

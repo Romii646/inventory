@@ -60,7 +60,6 @@
             error_log("table name is: " . $table_name);
             // End of assigning variable to POST values
             if($errorCount == 0) {
-                //$idName = find_ID($table_name);//goes to word_bank.php
                 $insertOP -> connect();
                 $insertOP -> set_table_names(...$columnNames);// goes to SQLOp.php
                 $statement = $insertOP -> add_query($table_name, ...$columnValues);// goes to SQLOp.php

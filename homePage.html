@@ -32,7 +32,7 @@
                     <section id="stored_components_storage">Storaged Items</section>
                     <section id="broken">Broken Items</section>
                     <section id="component_totals">Component Count</section>
-                    <section id="#">Relation</section>
+                    <section id="not_in_use">Not in use</section>
                 </div>
                 <div class="mainTableContainer">
                     <div class="formMaker">
@@ -90,21 +90,29 @@
                                 <input type="text" id="tableLocation" name="tableLocation"/>
                             </div>
                             <div class="button-container">
-                                <button type="submit" name="add" class="button">Insert Row</button>
-                                <button type="submit" name="update" class="button">Update Row</button>
-                                <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>&nbsp; &nbsp; 
+                                <button type="submit" name="add" value="addPCForm" class="button">Insert Row</button>
+                                <button type="submit" name="update" value="addPCForm" class="button">Update Row</button>
+                                <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>
+                                <div class="tableSelection">
+                                    <label for="tableSelect">Table Names</label><br>
+                                    <select id="tableSelect" name="tableSelect">
+                                        <option value="empty">Drop down list</option>
+                                    </select><br>
+                                </div> 
                             <div>
                         </form>
                     </div>
                 </div>
                 <form id="deleteForm" name="deleteForm">
-                    <h2>Delete Row</h2>
+                    <div class="mainFormHeading">
+                        <h2>Delete Row</h2>
+                    </div>
                         <div class="form-field" name="delete">
                            <label for="delete_pc_id">PC ID: </label>
                            <input type="text" id="delete_pc_id" name="delete_pc_id"/>
                         </div>
                         <div class="button-container" name="delete">
-                           <button type="submit" name="submit">Delete Row</button>
+                           <button type="submit" name="delete" value="deletePCForm">Delete Row</button>
                            <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>&nbsp; &nbsp;
                         </div>
                 </form>
@@ -115,6 +123,7 @@
             <p>Welcome to the Home page of the cyber range database.</p>
         </div>
         <script src="./js/cyberScript.js"></script>
+        <script type="module" src="./js/formScript.js"></script>
     </body>
 </html>
 <footer>

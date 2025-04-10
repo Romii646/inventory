@@ -287,6 +287,10 @@ footer{
 }
 
 /*This is beginning set up for table design*/
+#pcSetUp-table{
+    width: fit-content;
+}
+
 .table{
     /* background-color: rgb(47, 117, 129);*/
      display: flex;

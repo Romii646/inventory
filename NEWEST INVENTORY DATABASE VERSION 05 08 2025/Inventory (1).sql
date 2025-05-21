@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 09, 2025 at 06:09 PM
--- Server version: 8.0.41-0ubuntu0.24.04.1
+-- Generation Time: May 07, 2025 at 04:19 PM
+-- Server version: 8.0.42-0ubuntu0.24.04.1
 -- PHP Version: 8.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -44,7 +44,7 @@ CREATE TABLE `accessories` (
 --
 CREATE TABLE `component_totals` (
 `category` varchar(12)
-,`total_cost` decimal(54,3)
+,`total_cost` decimal(57,3)
 ,`total_count` decimal(42,0)
 );
 
@@ -71,30 +71,31 @@ CREATE TABLE `disposed_parts` (
 CREATE TABLE `graphicscards` (
   `gpu_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN','','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','DISPOSED','') COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','DISPOSED','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `graphicscards`
 --
 
-INSERT INTO `graphicscards` (`gpu_id`, `name`, `condition`, `cost`, `status`) VALUES
-('gpu_0001', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE'),
-('gpu_0002', 'EVGA 3070 Ti XC3 ULTRA GAMING', 'GOOD', 749.99, 'IN_USE'),
-('gpu_0003', 'EVGA 3070 Ti XC3 ULTRA GAMING ', 'GOOD', 749.99, 'IN_USE'),
-('gpu_0004', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE'),
-('gpu_0005', 'EVGA 3070 Ti XC3 ULTRA GAMING', 'GOOD', 749.99, 'IN_USE'),
-('gpu_0006', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE'),
-('gpu_0007', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE'),
-('gpu_0008', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 949.99, 'IN_USE'),
-('gpu_0009', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 949.99, 'IN_USE'),
-('gpu_0010', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE'),
-('gpu_0011', 'NVIDIA GeForce RTX 3060', 'GOOD', 329.00, 'IN_USE'),
-('gpu_0012', 'NVIDIA GeForce RTX 3060', 'GOOD', 329.00, 'IN_USE'),
-('gpu_0013', 'EVGA 3070 Ti XC3 ULTRA GAMING', 'GOOD', 749.99, 'IN_USE'),
-('gpu_0014', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 949.99, 'IN_USE');
+INSERT INTO `graphicscards` (`gpu_id`, `name`, `condition`, `cost`, `status`, `location`) VALUES
+('gpu_0001', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE', 'Table 2 - 1'),
+('gpu_0002', 'EVGA 3070 Ti XC3 ULTRA GAMING', 'GOOD', 749.99, 'IN_USE', 'Table 1 - 5'),
+('gpu_0003', 'EVGA 3070 Ti XC3 ULTRA GAMING ', 'GOOD', 749.99, 'IN_USE', 'Table 1 - 4'),
+('gpu_0004', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE', 'Table 1 - 3'),
+('gpu_0005', 'EVGA 3070 Ti XC3 ULTRA GAMING', 'GOOD', 749.99, 'IN_USE', 'Table 1 - 2'),
+('gpu_0006', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE', 'Table 1 - 1'),
+('gpu_0007', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE', 'Table 2 - 5'),
+('gpu_0008', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 949.99, 'IN_USE', 'Table 2 - 4'),
+('gpu_0009', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 949.99, 'IN_USE', 'Table 2 - 3'),
+('gpu_0010', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 849.99, 'IN_USE', 'Table 2 - 2'),
+('gpu_0011', 'NVIDIA GeForce RTX 3060', 'GOOD', 329.00, 'IN_USE', 'Table 4 - 1'),
+('gpu_0012', 'NVIDIA GeForce RTX 3060', 'GOOD', 329.00, 'IN_USE', 'Table 3 - 2'),
+('gpu_0013', 'EVGA 3070 Ti XC3 ULTRA GAMING', 'GOOD', 749.99, 'IN_USE', 'Table 3 - 1'),
+('gpu_0014', 'ASUS TUF RTX 4070 TI GAMING OC', 'GOOD', 949.99, 'IN_USE', 'Table 3 - 2');
 
 -- --------------------------------------------------------
 
@@ -105,30 +106,39 @@ INSERT INTO `graphicscards` (`gpu_id`, `name`, `condition`, `cost`, `status`) VA
 CREATE TABLE `keyboards` (
   `kb_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN','','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost` decimal(10,3) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','DISPOSED','') COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','DISPOSED') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `keyboards`
 --
 
-INSERT INTO `keyboards` (`kb_id`, `name`, `condition`, `cost`, `status`) VALUES
-('kb_0001', 'Drop SHIFT V1', 'GOOD', 200.000, 'IN_USE'),
-('kb_0002', 'Cherry MX 3.0S', 'GOOD', 76.990, 'IN_USE'),
-('kb_0003', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE'),
-('kb_0004', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE'),
-('kb_0005', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE'),
-('kb_0006', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE'),
-('kb_0007', 'Cherry MX 3.0S', 'GOOD', 120.000, 'IN_USE'),
-('kb_0008', 'Dell (Generic)', 'GOOD', 25.400, 'IN_USE'),
-('kb_0009', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE'),
-('kb_0010', 'Drop SHIFT V1', 'GOOD', 200.000, 'IN_USE'),
-('kb_0011', 'Dell (Generic)', 'GOOD', 25.400, 'IN_USE'),
-('kb_0012', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE'),
-('kb_0013', 'Dell (Generic)', 'GOOD', 25.400, 'IN_USE'),
-('kb_0014', 'Dell (Generic)', 'GOOD', 25.400, 'IN_USE');
+INSERT INTO `keyboards` (`kb_id`, `name`, `condition`, `cost`, `status`, `location`) VALUES
+('kb_0001', 'Drop SHIFT V1', 'GOOD', 200.000, 'IN_USE', 'Table 2 - 1'),
+('kb_0002', 'Cherry MX 3.0S', 'GOOD', 76.990, 'IN_USE', 'Table 1 - 5'),
+('kb_0003', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE', 'Table 1 - 4'),
+('kb_0004', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE', 'Table 1 - 3'),
+('kb_0005', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE', 'Table 1 - 2'),
+('kb_0006', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE', 'Table 1 - 1'),
+('kb_0007', 'Cherry MX 3.0S', 'GOOD', 120.000, 'IN_USE', 'Table 2 - 5'),
+('kb_0008', 'Dell (Generic)', 'GOOD', 25.400, 'IN_USE', 'Table 2 - 4'),
+('kb_0009', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE', 'Table 2 - 3'),
+('kb_0010', 'Drop SHIFT V1', 'GOOD', 200.000, 'IN_USE', 'Table 2 - 2'),
+('kb_0011', 'Dell (Generic)', 'GOOD', 25.400, 'IN_USE', 'Table 4 - 1'),
+('kb_0012', 'Cherry MX 3.0S', 'GOOD', 99.990, 'IN_USE', 'Table 3 - 2'),
+('kb_0013', 'Dell (Generic)', 'GOOD', 25.400, 'IN_USE', 'Table 3 - 1'),
+('kb_0014', 'Dell (Generic)', 'GOOD', 25.400, 'IN_USE', 'Table 3 - 1'),
+('kb_0015', 'Cherry MX 3.0S', 'GOOD', 99.990, 'STORAGE', 'Storage room 212'),
+('kb_0016', 'Cherry MX 3.0S', 'GOOD', 99.990, 'STORAGE', 'Storage room 212'),
+('kb_0017', 'Cherry MX 3.0S', 'GOOD', 99.990, 'STORAGE', 'Storage room 212'),
+('kb_0018', 'Cherry MX 3.0S', 'GOOD', 99.990, 'STORAGE', 'Storage room 212'),
+('kb_0019', 'Cherry MX 3.0S', 'GOOD', 99.990, 'STORAGE', 'Storage room 212'),
+('kb_0020', 'Cherry MX 3.0S', 'GOOD', 99.990, 'STORAGE', 'Storage room 212'),
+('kb_0021', 'Cherry MX 3.0S', 'GOOD', 99.990, 'STORAGE', 'Storage room 212'),
+('kb_0022', 'Cherry MX 3.0S', 'GOOD', 99.990, 'STORAGE', 'Storage room 212');
 
 -- --------------------------------------------------------
 
@@ -141,28 +151,29 @@ CREATE TABLE `mice` (
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `mice`
 --
 
-INSERT INTO `mice` (`mouse_id`, `name`, `condition`, `cost`, `status`) VALUES
-('mouse_0001', 'Corsair SABRE RGB', 'GOOD', 109.99, 'IN_USE'),
-('mouse_0002', 'Corsair SABRE RGB', 'GOOD', 109.99, 'IN_USE'),
-('mouse_0003', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE'),
-('mouse_0004', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE'),
-('mouse_0005', 'Corsair SABRE RGB', 'GOOD', 109.99, 'IN_USE'),
-('mouse_0006', 'Corsair SABRE RGB', 'GOOD', 109.99, 'IN_USE'),
-('mouse_0007', 'Dell CN-09RRC7', 'GOOD', 10.00, 'IN_USE'),
-('mouse_0008', 'Corsair SABRE RGB', 'GOOD', 59.99, 'IN_USE'),
-('mouse_0009', 'Corsair SABRE RGB', 'GOOD', 80.00, 'IN_USE'),
-('mouse_0010', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE'),
-('mouse_0011', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE'),
-('mouse_0012', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE'),
-('mouse_0013', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE'),
-('mouse_0014', 'Dell M-UVDEL1', 'GOOD', 25.99, 'IN_USE');
+INSERT INTO `mice` (`mouse_id`, `name`, `condition`, `cost`, `status`, `location`) VALUES
+('mouse_0001', 'Corsair SABRE RGB', 'GOOD', 109.99, 'IN_USE', 'Table  2 - 1'),
+('mouse_0002', 'Corsair SABRE RGB', 'GOOD', 109.99, 'IN_USE', 'Table 1 - 5'),
+('mouse_0003', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE', 'Table 1 - 4'),
+('mouse_0004', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE', 'Table 1 - 3'),
+('mouse_0005', 'Corsair SABRE RGB', 'GOOD', 109.99, 'IN_USE', 'Table 1 - 2'),
+('mouse_0006', 'Corsair SABRE RGB', 'GOOD', 109.99, 'IN_USE', 'Table 1 - 1'),
+('mouse_0007', 'Dell CN-09RRC7', 'GOOD', 10.00, 'IN_USE', 'Table 2 - 5'),
+('mouse_0008', 'Corsair SABRE RGB', 'GOOD', 59.99, 'IN_USE', 'Table 2 - 4'),
+('mouse_0009', 'Corsair SABRE RGB', 'GOOD', 80.00, 'IN_USE', 'Table 2 - 3'),
+('mouse_0010', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE', 'Table 2 - 2'),
+('mouse_0011', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE', 'Table 4 - 1'),
+('mouse_0012', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE', 'Table 3 - 2'),
+('mouse_0013', 'Dell (Generic)', 'GOOD', 15.00, 'IN_USE', 'Table 3 - 1'),
+('mouse_0014', 'Dell M-UVDEL1', 'GOOD', 25.99, 'IN_USE', 'Table 3 - 1');
 
 -- --------------------------------------------------------
 
@@ -173,10 +184,31 @@ INSERT INTO `mice` (`mouse_id`, `name`, `condition`, `cost`, `status`) VALUES
 CREATE TABLE `minipc` (
   `mipc_id` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN','','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','DISPOSED','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cost` int DEFAULT NULL,
+  `status` enum('IN_USE','STORAGE','DISPOSED') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `location` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `minipc`
+--
+
+INSERT INTO `minipc` (`mipc_id`, `name`, `condition`, `cost`, `status`, `location`) VALUES
+('mipc_0001', 'Dell Latitude Laptop 3520', 'GOOD', 749, 'IN_USE', 'Table 3 - 1'),
+('mipc_0002', 'KINGDEL Core i7', 'GOOD', 295, 'STORAGE', 'Storage room 212'),
+('mipc_0003', 'KINGDEL Core i7', 'GOOD', 295, 'STORAGE', 'Storage room 212'),
+('mipc_0004', 'KINGDEL Core i7', 'GOOD', 295, 'STORAGE', 'Storage room 212'),
+('mipc_0005', 'KINGDEL Core i7', 'GOOD', 295, 'STORAGE', 'Storage room 212'),
+('mipc_0006', 'KINGDEL Core i7', 'GOOD', 295, 'STORAGE', 'Storage room 212'),
+('mipc_0007', 'KINGDEL Core i7', 'GOOD', 295, 'IN_USE', 'Table 3 - 1'),
+('mipc_0008', 'Raspberry Pi 400', 'GOOD', 70, 'STORAGE', 'Storage room 212'),
+('mipc_0009', 'Raspberry Pi 400', 'GOOD', 70, 'STORAGE', 'Storage room 212'),
+('mipc_0010', 'Raspberry Pi 400', 'GOOD', 70, 'STORAGE', 'Storage room 212'),
+('mipc_0011', 'Raspberry Pi 400', 'GOOD', 70, 'STORAGE', 'Storage room 212'),
+('mipc_0012', 'Raspberry Pi 400', 'GOOD', 70, 'STORAGE', 'Storage room 212'),
+('mipc_0013', 'Raspberry Pi 400', 'GOOD', 70, 'STORAGE', 'Storage room 212'),
+('mipc_0014', 'Raspberry Pi 400', 'GOOD', 70, 'STORAGE', 'Storage room 212');
 
 -- --------------------------------------------------------
 
@@ -190,33 +222,38 @@ CREATE TABLE `monitors` (
   `width` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `condition` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','DISPOSED','') COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','DISPOSED','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `monitors`
 --
 
-INSERT INTO `monitors` (`monitor_id`, `name`, `width`, `condition`, `cost`, `status`) VALUES
-('monitor_0001', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0002', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0003', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0004', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0005', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0006', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0007', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0008', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0009', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0010', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', NULL, 340.00, 'IN_USE'),
-('monitor_0011', 'Sceptre Curved 24-inch (1920x1080)', 'large', 'GOOD', 87.97, 'IN_USE'),
-('monitor_0012', 'Dell P2422H 24-Inch FHD (1920x1080)', '19-24 inch', NULL, 199.99, 'IN_USE'),
-('monitor_0013', 'Dell P2317H 23-Inch FHD (1920x1080)', '19-24 inch', NULL, 279.00, 'IN_USE'),
-('monitor_0014', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', 'large', 'GOOD', 340.00, 'IN_USE'),
-('monitor_0016', 'Dell P2422H 24-Inch FHD (1920x1080)', '19-24 inch', NULL, NULL, 'STORAGE'),
-('monitor_0017', 'Samsung S23A550H 23-Inch FHD (1920x1080)', '19-24 inch', NULL, NULL, 'STORAGE'),
-('monitor_0018', 'Dell E190SB 19-Inch (1280x1024)', '19-24 inch', 'GOOD', 100.86, 'STORAGE'),
-('monitor_0019', 'Samsung BX2231 21.5-Inch FHD(1920x1080)', '19-24 inch', NULL, NULL, 'STORAGE'),
-('monitor_0021', 'Dell E190SB 19-Inch (1280x1024)', '19-24 inch', 'GOOD', 100.84, 'STORAGE');
+INSERT INTO `monitors` (`monitor_id`, `name`, `width`, `condition`, `cost`, `status`, `location`) VALUES
+('monitor_0001', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 2 -1'),
+('monitor_0002', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 1 - 5'),
+('monitor_0003', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 1 - 4'),
+('monitor_0004', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 1 - 3'),
+('monitor_0005', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 1 - 2'),
+('monitor_0006', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 1 - 1'),
+('monitor_0007', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 2 - 5'),
+('monitor_0008', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 2 - 4'),
+('monitor_0009', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 2 - 3'),
+('monitor_0010', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', '25-32 inch', 'GOOD', 340.00, 'IN_USE', 'Table 2 - 2'),
+('monitor_0011', 'Sceptre Curved 24-inch (1920x1080)', 'large', 'GOOD', 87.97, 'IN_USE', 'Table 4 - 1'),
+('monitor_0012', 'Dell P2422H 24-Inch FHD (1920x1080)', '19-24 inch', 'GOOD', 199.99, 'IN_USE', 'Table 3 - 2'),
+('monitor_0013', 'Dell P2317H 23-Inch FHD (1920x1080)', '19-24 inch', 'GOOD', 279.00, 'IN_USE', 'Table 3 - 1'),
+('monitor_0014', 'LG ULTRAWIDE 35WN65C-B 34-inch FHD (3440x1440)', 'large', 'BROKEN', 340.00, 'STORAGE', 'Storage room 212'),
+('monitor_0015', 'LG UltraWide Monitor Curved 34WQ73A (3440 x 1440)', '25-32 inch', 'GOOD', 399.99, 'IN_USE', 'NCL Competition'),
+('monitor_0016', 'Dell P2422H 24-Inch FHD (1920x1080)', '19-24 inch', 'GOOD', 102.99, 'STORAGE', 'Storage room 212'),
+('monitor_0017', 'Samsung S23A550H 23-Inch FHD (1920x1080)', '19-24 inch', 'GOOD', 159.66, 'STORAGE', 'Storage room 212'),
+('monitor_0018', 'Dell E190SB 19-Inch (1280x1024)', '19-24 inch', 'GOOD', 100.86, 'STORAGE', 'Storage room 212'),
+('monitor_0019', 'Samsung BX2231 21.5-Inch FHD(1920x1080)', '19-24 inch', 'GOOD', 277.88, 'STORAGE', 'Storage room 212'),
+('monitor_0020', 'LG UltraWide Monitor Curved 34WQ73A (3440 x 1440)', '25-32 inch', 'GOOD', 399.99, 'IN_USE', 'NCL Competition'),
+('monitor_0021', 'Dell E190SB 19-Inch (1280x1024)', '19-24 inch', 'GOOD', 100.84, 'STORAGE', 'Storage room 212'),
+('monitor_0022', 'LG UltraWide Monitor Curved 34WQ73A (3440 x 1440)', '25-32 inch', 'GOOD', 399.99, 'IN_USE', 'NCL Competition'),
+('monitor_0024', 'LG UltraWide Monitor Curved 34WQ73A (3440 x 1440)', '25-32 inch', 'GOOD', 399.99, 'IN_USE', 'NCL Competition');
 
 -- --------------------------------------------------------
 
@@ -228,28 +265,50 @@ CREATE TABLE `motherboards` (
   `mobo_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `size` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN','','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN','') COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','BROKEN','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `motherboards`
 --
 
-INSERT INTO `motherboards` (`mobo_id`, `name`, `size`, `condition`, `cost`, `status`) VALUES
-('mobo_0001', 'ASUS ROG STRIX Z690-E GAMING WIFI', 'ATX', 'GOOD', 469.99, 'IN_USE'),
-('mobo_0002', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE'),
-('mobo_0003', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE'),
-('mobo_0004', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE'),
-('mobo_0005', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE'),
-('mobo_0006', 'ASUS ROG STRIX Z690-E GAMING WIFI', 'ATX', 'GOOD', 469.99, 'IN_USE'),
-('mobo_0007', 'ASUS ROG STRIX Z790-E GAMING WIFI', 'ATX', 'GOOD', 299.99, 'IN_USE'),
-('mobo_0008', 'ASUS ROG STRIX Z790-E GAMING WIFI', 'ATX', 'GOOD', 299.99, 'IN_USE'),
-('mobo_0009', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE'),
-('mobo_0010', 'ASUS ROG STRIX Z690-E GAMING WIFI', 'ATX', 'GOOD', 469.99, 'IN_USE'),
-('mobo_0011', 'ASUSTek TUF GAMING X570-PLUS WIFI', 'ATX', 'GOOD', 260.99, 'IN_USE'),
-('mobo_0014', 'ASUS PRIME Z790-A WIFI', 'ATX', 'GOOD', 298.99, 'IN_USE');
+INSERT INTO `motherboards` (`mobo_id`, `name`, `size`, `condition`, `cost`, `status`, `location`) VALUES
+('mobo_0001', 'ASUS ROG STRIX Z690-E GAMING WIFI', 'ATX', 'GOOD', 469.99, 'IN_USE', 'Table 2 - 1'),
+('mobo_0002', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE', 'Table 1 - 5'),
+('mobo_0003', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE', 'Table 1 - 4'),
+('mobo_0004', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE', 'Table 1 - 3'),
+('mobo_0005', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE', 'Table 1 - 2'),
+('mobo_0006', 'ASUS ROG STRIX Z690-E GAMING WIFI', 'ATX', 'GOOD', 469.99, 'IN_USE', 'Table 1 - 1'),
+('mobo_0007', 'ASUS ROG STRIX Z790-E GAMING WIFI', 'ATX', 'GOOD', 299.99, 'IN_USE', 'Table 2 - 5'),
+('mobo_0008', 'ASUS ROG STRIX Z790-E GAMING WIFI', 'ATX', 'GOOD', 299.99, 'IN_USE', 'Table 2 - 4'),
+('mobo_0009', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'IN_USE', 'Table 2 - 3'),
+('mobo_0010', 'ASUS ROG STRIX Z690-E GAMING WIFI', 'ATX', 'GOOD', 469.99, 'IN_USE', 'Table 2 - 2'),
+('mobo_0011', 'ASUSTek TUF GAMING X570-PLUS WIFI', 'ATX', 'GOOD', 260.99, 'IN_USE', 'Table 4 - 1'),
+('mobo_0012', 'ASUSTek TUF GAMING X570-PLUS WIFI', 'ATX', 'GOOD', 260.99, 'IN_USE', 'Table 3 - 2'),
+('mobo_0013', 'ASUSTek TUF GAMING X570-PLUS WIFI', 'ATX', 'GOOD', 260.99, 'IN_USE', 'Table 3 - 1'),
+('mobo_0014', 'ASUS PRIME Z790-A WIFI', 'ATX', 'GOOD', 298.99, 'IN_USE', 'Table 3 - 1'),
+('mobo_0015', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0016', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0017', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0018', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0019', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0020', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0021', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0022', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0023', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0024', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0025', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0026', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0027', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0028', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0029', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0030', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0031', 'GIGABYTE Z790 UD AC', 'ATX', 'GOOD', 194.99, 'STORAGE', 'Storage room 212'),
+('mobo_0032', 'ASUS ROG STRIX Z690-E GAMING WIFI', 'ATX', 'GOOD', 469.99, 'STORAGE', 'Storage room 212'),
+('mobo_0033', 'ASUS ROG STRIX Z690-E GAMING WIFI', 'ATX', 'GOOD', 469.99, 'STORAGE', 'Storage room 212');
 
 -- --------------------------------------------------------
 
@@ -287,8 +346,8 @@ INSERT INTO `pcsetups` (`pc_id`, `mobo_id`, `gpu_id`, `ram_id`, `storage_slot_id
 ('pc00_08', 'mobo_0008', 'gpu_0008', 'ram_0008', NULL, 'psu_0008', 'monitor_0008', 'null', 'kb_0008', 'mouse_0008', 'Table 2 - 4', 'Windows 11. Working'),
 ('pc00_09', 'mobo_0009', 'gpu_0009', 'ram_0009', NULL, 'psu_0009', 'monitor_0009', 'null', 'kb_0009', 'mouse_0009', 'Table 2 - 3', 'Windows 10. Working'),
 ('pc00_10', 'mobo_0010', 'gpu_0010', 'ram_0010', NULL, 'psu_0010', 'monitor_0010', 'null', 'kb_0010', 'mouse_0010', 'Table 2 - 2', 'Windows 10. Working'),
-('pc00_11', 'mobo_0011', 'gpu_0011', 'ram_0011', NULL, 'psu_0011', 'monitor_0011', 'null', 'kb_0011', 'mouse_0011', 'Table 4 - 1', 'Windows 10. Working'),
-('pc00_14', 'mobo_0014', 'gpu_0014', 'ram_0014', NULL, 'psu_0014', 'monitor_0014', 'null', 'kb_0014', 'mouse_0014', 'NULL', 'Windows 10. Working');
+('pc00_11', 'mobo_0011', 'gpu_0011', 'ram_0011', NULL, 'psu_0011', 'monitor_0014', 'null', 'kb_0011', 'mouse_0011', 'Table 4 - 1', 'Windows 10. Working'),
+('pc00_14', 'mobo_0014', 'gpu_0014', 'ram_0014', NULL, 'psu_0014', NULL, NULL, 'kb_0014', 'mouse_0014', 'Table 3 - 2', 'Operating System is Ubuntu. Currently used as part of a cluster of PCs to power the newest Llama A.I model.');
 
 -- --------------------------------------------------------
 
@@ -301,30 +360,36 @@ CREATE TABLE `powersupplies` (
   `name` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `wattage` int DEFAULT NULL,
   `modular` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN','','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN','') COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `powersupplies`
 --
 
-INSERT INTO `powersupplies` (`psu_id`, `name`, `wattage`, `modular`, `condition`, `cost`, `status`) VALUES
-('psu_0001', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0002', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0003', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0004', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0005', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0006', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0007', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0008', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0009', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0010', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0011', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0012', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0013', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE'),
-('psu_0014', 'Corsair RM1000e', 1000, 'yes', 'GOOD', 179.99, 'IN_USE');
+INSERT INTO `powersupplies` (`psu_id`, `name`, `wattage`, `modular`, `condition`, `cost`, `status`, `location`) VALUES
+('psu_0001', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 2 - 1'),
+('psu_0002', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 1 - 5'),
+('psu_0003', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 1 - 4'),
+('psu_0004', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 1 - 3'),
+('psu_0005', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 1 - 2'),
+('psu_0006', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 1 - 1'),
+('psu_0007', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 2 - 5'),
+('psu_0008', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 2 - 4'),
+('psu_0009', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 2 - 3'),
+('psu_0010', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 2 - 2'),
+('psu_0011', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 4 - 1'),
+('psu_0012', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 3 - 2'),
+('psu_0013', 'EVGA', 1000, 'yes', 'GOOD', 189.99, 'IN_USE', 'Table 3 - 1'),
+('psu_0014', 'Corsair RM1000e', 1000, 'yes', 'GOOD', 179.99, 'IN_USE', 'Table 3 - 1'),
+('psu_0015', 'Corsair RM1000e', 1000, 'yes', 'GOOD', 179.99, 'STORAGE', 'Storage room 212'),
+('psu_0016', 'Corsair RM1000e', 1000, 'yes', 'GOOD', 179.99, 'STORAGE', 'Storage room 212'),
+('psu_0017', 'EVGA 1000GT', 1000, 'yes', 'GOOD', 157.88, 'STORAGE', 'Storage room 212'),
+('psu_0018', 'Corsair RM1000x', 1000, 'yes', 'GOOD', 190.99, 'STORAGE', 'Storage room 212'),
+('psu_0019', 'EVGA 1000GT', 1000, 'yes', 'GOOD', 157.88, 'STORAGE', 'Storage room 212');
 
 -- --------------------------------------------------------
 
@@ -333,34 +398,35 @@ INSERT INTO `powersupplies` (`psu_id`, `name`, `wattage`, `modular`, `condition`
 --
 
 CREATE TABLE `ramsticks` (
-  `ram_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` enum('DDR3','DDR4','DDR5','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `speed` varchar(4) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN','','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ram_id` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` enum('DDR3','DDR4','DDR5') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `speed` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN','') COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `ramsticks`
 --
 
-INSERT INTO `ramsticks` (`ram_id`, `name`, `type`, `speed`, `condition`, `cost`, `status`) VALUES
-('ram_0001', 'CORSAIR VENGANCE 128 GB (4 x 32GB)', 'DDR5', '6000', 'GOOD', 459.99, 'IN_USE'),
-('ram_0002', 'CORSAIR VENGANCE 32 GB (2 x 16GB)', 'DDR5', '6000', 'GOOD', 98.99, 'IN_USE'),
-('ram_0003', 'CORSAIR VENGANCE 64 GB (4 x 16GB)', 'DDR5', '5200', 'GOOD', 220.99, 'IN_USE'),
-('ram_0004', 'CORSAIR VENGANCE 16 GB (2 x 8GB)', 'DDR5', '5200', 'GOOD', 62.99, 'IN_USE'),
-('ram_0005', 'G.SKILL TridentZ RGB 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 189.99, 'IN_USE'),
-('ram_0006', 'CORSAIR VENGANCE 32 GB (2 x 16GB)', 'DDR5', '6000', 'GOOD', 98.99, 'IN_USE'),
-('ram_0007', 'CORSAIR VENGANCE 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 188.99, 'IN_USE'),
-('ram_0008', 'G.SKILL TridentZ RGB 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 189.99, 'IN_USE'),
-('ram_0009', 'G.SKILL TridentZ RGB 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 189.99, 'IN_USE'),
-('ram_0010', 'G.SKILL TridentZ RGB 32 GB (2 x 16GB)', 'DDR5', '6000', 'GOOD', 82.99, 'IN_USE'),
-('ram_0011', 'CORSAIR VENGANCE 32 GB (2 x 16GB)', 'DDR5', '6000', 'GOOD', 98.99, 'IN_USE'),
-('ram_0012', 'CORSAIR VENGANCE LPX 64 GB (4 x 16GB)', 'DDR4', '3200', 'GOOD', 64.99, 'IN_USE'),
-('ram_0013', 'CORSAIR VENGANCE 64 GB (2 x 32GB)', 'DDR5', '5200', 'GOOD', 220.99, 'IN_USE'),
-('ram_0014', 'CORSAIR VENGANCE 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 188.99, 'IN_USE');
+INSERT INTO `ramsticks` (`ram_id`, `name`, `type`, `speed`, `condition`, `cost`, `status`, `location`) VALUES
+('ram_0001', 'CORSAIR VENGANCE 128 GB (4 x 32GB)', 'DDR5', '6000', 'GOOD', 459.99, 'IN_USE', 'Table 2 - 1'),
+('ram_0002', 'CORSAIR VENGANCE 32 GB (2 x 16GB)', 'DDR5', '6000', 'GOOD', 98.99, 'IN_USE', 'Table 1 - 5'),
+('ram_0003', 'CORSAIR VENGANCE 64 GB (4 x 16GB)', 'DDR5', '5200', 'GOOD', 220.99, 'IN_USE', 'Table 1 - 4'),
+('ram_0004', 'CORSAIR VENGANCE 16 GB (2 x 8GB)', 'DDR5', '5200', 'GOOD', 62.99, 'IN_USE', 'Table 1 - 3'),
+('ram_0005', 'G.SKILL TridentZ RGB 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 189.99, 'IN_USE', 'Table 1 - 2'),
+('ram_0006', 'CORSAIR VENGANCE 32 GB (2 x 16GB)', 'DDR5', '6000', 'GOOD', 98.99, 'IN_USE', 'Table 1 - 1'),
+('ram_0007', 'CORSAIR VENGANCE 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 188.99, 'IN_USE', 'Table 2 - 5'),
+('ram_0008', 'G.SKILL TridentZ RGB 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 189.99, 'IN_USE', 'Table 2 - 4'),
+('ram_0009', 'G.SKILL TridentZ RGB 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 189.99, 'IN_USE', 'Table 2 - 3'),
+('ram_0010', 'G.SKILL TridentZ RGB 32 GB (2 x 16GB)', 'DDR5', '6000', 'GOOD', 82.99, 'IN_USE', 'Table 2 - 2'),
+('ram_0011', 'CORSAIR VENGANCE 32 GB (2 x 16GB)', 'DDR5', '6000', 'GOOD', 98.99, 'IN_USE', 'Table 4 - 1'),
+('ram_0012', 'CORSAIR VENGANCE LPX 64 GB (4 x 16GB)', 'DDR4', '3200', 'GOOD', 64.99, 'IN_USE', 'Table 3 - 2'),
+('ram_0013', 'CORSAIR VENGANCE 64 GB (2 x 32GB)', 'DDR5', '5200', 'GOOD', 220.99, 'IN_USE', 'Table 3 - 1'),
+('ram_0014', 'CORSAIR VENGANCE 64 GB (2 x 32GB)', 'DDR5', '6000', 'GOOD', 188.99, 'IN_USE', 'Table 3 - 1');
 
 -- --------------------------------------------------------
 
@@ -372,7 +438,9 @@ CREATE TABLE `storage_components` (
   `storage_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `storage_slot_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` enum('SSD','HDD','NVME','USB') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `media` enum('SSD','HDD') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` enum('SATA','eSATA','NVME','USB') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `capacity` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `condition` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cost` int DEFAULT NULL,
   `status` enum('IN_USE','STORAGE','BROKEN','') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -387,7 +455,8 @@ CREATE TABLE `storage_components` (
 
 CREATE TABLE `storage_slots` (
   `storage_slot_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `description` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -413,7 +482,7 @@ CREATE TABLE `stored_components_storage` (
 --
 DROP TABLE IF EXISTS `component_totals`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `component_totals`  AS SELECT 'Accessory' AS `category`, count(0) AS `total_count`, sum(`accessories`.`cost`) AS `total_cost` FROM `accessories`union all select 'GPU' AS `category`,count(0) AS `total_count`,sum(`graphicscards`.`cost`) AS `total_cost` from `graphicscards` union all select 'Keyboard' AS `category`,count(0) AS `total_count`,sum(`keyboards`.`cost`) AS `total_cost` from `keyboards` union all select 'Mouse' AS `category`,count(0) AS `total_count`,sum(`mice`.`cost`) AS `total_cost` from `mice` union all select 'Monitor' AS `category`,count(0) AS `total_count`,sum(`monitors`.`cost`) AS `total_cost` from `monitors` union all select 'Motherboard' AS `category`,count(0) AS `total_count`,sum(`motherboards`.`cost`) AS `total_cost` from `motherboards` union all select 'Power Supply' AS `category`,count(0) AS `total_count`,sum(`powersupplies`.`cost`) AS `total_cost` from `powersupplies` union all select 'RAM' AS `category`,count(0) AS `total_count`,sum(`ramsticks`.`cost`) AS `total_cost` from `ramsticks` union all select 'TOTAL' AS `category`,sum(`all_totals`.`total_count`) AS `total_count`,sum(`all_totals`.`total_cost`) AS `total_cost` from (select count(0) AS `total_count`,sum(`accessories`.`cost`) AS `total_cost` from `accessories` union all select count(0) AS `total_count`,sum(`graphicscards`.`cost`) AS `total_cost` from `graphicscards` union all select count(0) AS `total_count`,sum(`keyboards`.`cost`) AS `total_cost` from `keyboards` union all select count(0) AS `total_count`,sum(`mice`.`cost`) AS `total_cost` from `mice` union all select count(0) AS `total_count`,sum(`monitors`.`cost`) AS `total_cost` from `monitors` union all select count(0) AS `total_count`,sum(`motherboards`.`cost`) AS `total_cost` from `motherboards` union all select count(0) AS `total_count`,sum(`powersupplies`.`cost`) AS `total_cost` from `powersupplies` union all select count(0) AS `total_count`,sum(`ramsticks`.`cost`) AS `total_cost` from `ramsticks`) `all_totals`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `component_totals`  AS SELECT 'Accessory' AS `category`, count(0) AS `total_count`, sum(`accessories`.`cost`) AS `total_cost` FROM `accessories`union all select 'GPU' AS `category`,count(0) AS `total_count`,sum(`graphicscards`.`cost`) AS `total_cost` from `graphicscards` union all select 'Keyboard' AS `category`,count(0) AS `total_count`,sum(`keyboards`.`cost`) AS `total_cost` from `keyboards` union all select 'Mouse' AS `category`,count(0) AS `total_count`,sum(`mice`.`cost`) AS `total_cost` from `mice` union all select 'Monitor' AS `category`,count(0) AS `total_count`,sum(`monitors`.`cost`) AS `total_cost` from `monitors` union all select 'MiniPC' AS `category`,count(0) AS `total_count`,sum(`minipc`.`cost`) AS `total_cost` from `minipc` union all select 'Motherboard' AS `category`,count(0) AS `total_count`,sum(`motherboards`.`cost`) AS `total_cost` from `motherboards` union all select 'Power Supply' AS `category`,count(0) AS `total_count`,sum(`powersupplies`.`cost`) AS `total_cost` from `powersupplies` union all select 'RAM' AS `category`,count(0) AS `total_count`,sum(`ramsticks`.`cost`) AS `total_cost` from `ramsticks` union all select 'TOTAL' AS `category`,sum(`all_totals`.`total_count`) AS `total_count`,sum(`all_totals`.`total_cost`) AS `total_cost` from (select count(0) AS `total_count`,sum(`accessories`.`cost`) AS `total_cost` from `accessories` union all select count(0) AS `total_count`,sum(`graphicscards`.`cost`) AS `total_cost` from `graphicscards` union all select count(0) AS `total_count`,sum(`keyboards`.`cost`) AS `total_cost` from `keyboards` union all select count(0) AS `total_count`,sum(`mice`.`cost`) AS `total_cost` from `mice` union all select count(0) AS `total_count`,sum(`monitors`.`cost`) AS `total_cost` from `monitors` union all select count(0) AS `total_count`,sum(`minipc`.`cost`) AS `total_cost` from `minipc` union all select count(0) AS `total_count`,sum(`motherboards`.`cost`) AS `total_cost` from `motherboards` union all select count(0) AS `total_count`,sum(`powersupplies`.`cost`) AS `total_cost` from `powersupplies` union all select count(0) AS `total_count`,sum(`ramsticks`.`cost`) AS `total_cost` from `ramsticks`) `all_totals`  ;
 
 -- --------------------------------------------------------
 

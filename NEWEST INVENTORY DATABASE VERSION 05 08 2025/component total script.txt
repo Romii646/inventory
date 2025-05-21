@@ -1,0 +1,45 @@
+
+component_total
+SELECT 'Accessory' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`accessories`.`cost`) AS `total_cost` FROM `Inventory`.`accessories`
+UNION ALL
+SELECT 'GPU' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`graphicscards`.`cost`) AS `total_cost` FROM `Inventory`.`graphicscards`
+UNION ALL
+SELECT 'Keyboard' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`keyboards`.`cost`) AS `total_cost` FROM `Inventory`.`keyboards`
+UNION ALL
+SELECT 'Mouse' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`mice`.`cost`) AS `total_cost` FROM `Inventory`.`mice`
+UNION ALL
+SELECT 'Monitor' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`monitors`.`cost`) AS `total_cost` FROM `Inventory`.`monitors`
+UNION ALL
+SELECT 'MiniPC' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`minipc`.`cost`) AS `total_cost` FROM `Inventory`.`minipc`
+UNION ALL
+SELECT 'Motherboard' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`motherboards`.`cost`) AS `total_cost` FROM `Inventory`.`motherboards`
+UNION ALL
+SELECT 'Power Supply' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`powersupplies`.`cost`) AS `total_cost` FROM `Inventory`.`powersupplies`
+UNION ALL
+SELECT 'RAM' AS `category`, COUNT(0) AS `total_count`, SUM(`Inventory`.`ramsticks`.`cost`) AS `total_cost` FROM `Inventory`.`ramsticks`
+UNION ALL
+SELECT 'TOTAL' AS `category`, SUM(`all_totals`.`total_count`) AS `total_count`, SUM(`all_totals`.`total_cost`) AS `total_cost`
+FROM (
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`accessories`.`cost`) AS `total_cost` FROM `Inventory`.`accessories`
+    UNION ALL
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`graphicscards`.`cost`) AS `total_cost` FROM `Inventory`.`graphicscards`
+    UNION ALL
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`keyboards`.`cost`) AS `total_cost` FROM `Inventory`.`keyboards`
+    UNION ALL
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`mice`.`cost`) AS `total_cost` FROM `Inventory`.`mice`
+    UNION ALL
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`monitors`.`cost`) AS `total_cost` FROM `Inventory`.`monitors`
+    UNION ALL
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`minipc`.`cost`) AS `total_cost` FROM `Inventory`.`minipc`
+    UNION ALL
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`motherboards`.`cost`) AS `total_cost` FROM `Inventory`.`motherboards`
+    UNION ALL
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`powersupplies`.`cost`) AS `total_cost` FROM `Inventory`.`powersupplies`
+    UNION ALL
+    SELECT COUNT(0) AS `total_count`, SUM(`Inventory`.`ramsticks`.`cost`) AS `total_cost` FROM `Inventory`.`ramsticks`
+) `all_totals`;
+
+
+
+
+select 'Accessory' AS `category`,`Inventory`.`accessories`.`acc_id` AS `component_id`,`Inventory`.`accessories`.`name` AS `name`,`Inventory`.`accessories`.`type` AS `type`,`Inventory`.`accessories`.`condition` AS `condition`,`Inventory`.`accessories`.`cost` AS `cost`,`Inventory`.`accessories`.`status` AS `status` from `Inventory`.`accessories` where (`Inventory`.`accessories`.`status` = 'STORAGE') union all select 'GPU' AS `category`,`Inventory`.`graphicscards`.`gpu_id` AS `component_id`,`Inventory`.`graphicscards`.`name` AS `name`,NULL AS `type`,`Inventory`.`graphicscards`.`condition` AS `condition`,`Inventory`.`graphicscards`.`cost` AS `cost`,`Inventory`.`graphicscards`.`status` AS `status` from `Inventory`.`graphicscards` where (`Inventory`.`graphicscards`.`status` = 'STORAGE') union all select 'Keyboard' AS `category`,`Inventory`.`keyboards`.`kb_id` AS `component_id`,`Inventory`.`keyboards`.`name` AS `name`,NULL AS `type`,`Inventory`.`keyboards`.`condition` AS `condition`,`Inventory`.`keyboards`.`cost` AS `cost`,`Inventory`.`keyboards`.`status` AS `status` from `Inventory`.`keyboards` where (`Inventory`.`keyboards`.`status` = 'STORAGE') union all select 'Mouse' AS `category`,`Inventory`.`mice`.`mouse_id` AS `component_id`,`Inventory`.`mice`.`name` AS `name`,NULL AS `type`,`Inventory`.`mice`.`condition` AS `condition`,`Inventory`.`mice`.`cost` AS `cost`,`Inventory`.`mice`.`status` AS `status` from `Inventory`.`mice` where (`Inventory`.`mice`.`status` = 'STORAGE') union all select 'Monitor' AS `category`,`Inventory`.`monitors`.`monitor_id` AS `component_id`,`Inventory`.`monitors`.`name` AS `name`,`Inventory`.`monitors`.`width` AS `type`,`Inventory`.`monitors`.`condition` AS `condition`,`Inventory`.`monitors`.`cost` AS `cost`,`Inventory`.`monitors`.`status` AS `status` from `Inventory`.`monitors` where (`Inventory`.`monitors`.`status` = 'STORAGE') union all select 'Motherboard' AS `category`,`Inventory`.`motherboards`.`mobo_id` AS `component_id`,`Inventory`.`motherboards`.`name` AS `name`,`Inventory`.`motherboards`.`size` AS `type`,`Inventory`.`motherboards`.`condition` AS `condition`,`Inventory`.`motherboards`.`cost` AS `cost`,`Inventory`.`motherboards`.`status` AS `status` from `Inventory`.`motherboards` where (`Inventory`.`motherboards`.`status` = 'STORAGE') union all select 'Power Supply' AS `category`,`Inventory`.`powersupplies`.`psu_id` AS `component_id`,`Inventory`.`powersupplies`.`name` AS `name`,`Inventory`.`powersupplies`.`wattage` AS `type`,`Inventory`.`powersupplies`.`condition` AS `condition`,`Inventory`.`powersupplies`.`cost` AS `cost`,`Inventory`.`powersupplies`.`status` AS `status` from `Inventory`.`powersupplies` where (`Inventory`.`powersupplies`.`status` = 'STORAGE') union all select 'RAM' AS `category`,`Inventory`.`ramsticks`.`ram_id` AS `component_id`,`Inventory`.`ramsticks`.`name` AS `name`,`Inventory`.`ramsticks`.`type` AS `type`,`Inventory`.`ramsticks`.`condition` AS `condition`,`Inventory`.`ramsticks`.`cost` AS `cost`,`Inventory`.`ramsticks`.`status` AS `status` from `Inventory`.`ramsticks` where (`Inventory`.`ramsticks`.`status` = 'STORAGE') union all select 'TOTAL' AS `category`,NULL AS `component_id`,NULL AS `name`,NULL AS `type`,NULL AS `condition`,sum(`all_costs`.`cost`) AS `cost`,NULL AS `status` from (select `Inventory`.`accessories`.`cost` AS `cost` from `Inventory`.`accessories` where (`Inventory`.`accessories`.`status` = 'STORAGE') union all select `Inventory`.`graphicscards`.`cost` AS `cost` from `Inventory`.`graphicscards` where (`Inventory`.`graphicscards`.`status` = 'STORAGE') union all select `Inventory`.`keyboards`.`cost` AS `cost` from `Inventory`.`keyboards` where (`Inventory`.`keyboards`.`status` = 'STORAGE') union all select `Inventory`.`mice`.`cost` AS `cost` from `Inventory`.`mice` where (`Inventory`.`mice`.`status` = 'STORAGE') union all select `Inventory`.`monitors`.`cost` AS `cost` from `Inventory`.`monitors` where (`Inventory`.`monitors`.`status` = 'STORAGE') union all select `Inventory`.`motherboards`.`cost` AS `cost` from `Inventory`.`motherboards` where (`Inventory`.`motherboards`.`status` = 'STORAGE') union all select `Inventory`.`powersupplies`.`cost` AS `cost` from `Inventory`.`powersupplies` where (`Inventory`.`powersupplies`.`status` = 'STORAGE') union all select `Inventory`.`ramsticks`.`cost` AS `cost` from `Inventory`.`ramsticks` where (`Inventory`.`ramsticks`.`status` = 'STORAGE')) `all_costs`

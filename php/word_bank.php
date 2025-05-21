@@ -6,6 +6,7 @@
    $SQLGeneratorFile = "SQL_statement_generator.php";
    $SQLOperationFile = 'database_operations.php';
    $errorFunctionsFile = 'validate_error_functions.php';
+   $EmployeeFile = 'Employees.php';
 
  //if (!function_exists('find_ID')) {
     /**

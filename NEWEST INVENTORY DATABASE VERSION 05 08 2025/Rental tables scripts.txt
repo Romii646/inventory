@@ -1,0 +1,22 @@
+CREATE TABLE Object_Junction (
+    object_id INT PRIMARY KEY AUTO_INCREMENT,
+    category ENUM('Motherboard', 'RAMStick', 'GPU', 'Keyboard', 'Mouse', 'Monitor'),
+    specific_item_id INT
+);
+
+
+CREATE TABLE Rentals (
+    rental_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    object_id INT,
+    rental_date DATE,
+    return_date DATE,
+    rental_status ENUM('Active', 'Returned', 'Overdue'),
+    FOREIGN KEY (object_id) REFERENCES Object_Junction(object_id) ON DELETE CASCADE
+);
+
+
+SELECT * FROM Rentals 
+JOIN Object_Junction ON Rentals.object_id = Object_Junction.object_id
+JOIN RAMSticks ON Object_Junction.specific_item_id = RAMSticks.ramstick_id
+WHERE Object_Junction.category = 'RAMStick';

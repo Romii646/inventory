@@ -27,16 +27,14 @@ session_start();?>
 
         if($error == 0){
             $employee -> connect();
-            if($employee -> verifyLogin()){
-                /* $employeeID = $employee -> getEmployeeID(); */
-                $firstName = $employee -> getFirstName();
-                $employeeType = $employee -> getEmployeeType();
-
+            if($employee -> verifyLogin()){            
                 // Set session variables
-                /* $_SESSION['employeeID'] = $employeeID; */
-                $_SESSION['firstName'] = $firstName;
-                $_SESSION['employeeType'] = $employeeType;
+                $_SESSION['employeeID'] = $employeeID -> getEmployeeID();
+                $_SESSION['firstName'] = $firstName -> getFirstName();
+                $_SESSION['employeeType'] = $employeeType -> getEmployeeType();
+                $employee -> DB_close();
                 header("Location: ../homePage.html"); // Redirect to the home page the ../ means go up one directory
+                $employee -> DB_close();
                 exit();
             }
             else{

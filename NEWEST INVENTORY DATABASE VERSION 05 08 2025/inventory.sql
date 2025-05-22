@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1deb3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 07, 2025 at 04:19 PM
--- Server version: 8.0.42-0ubuntu0.24.04.1
--- PHP Version: 8.3.6
+-- Host: 127.0.0.1
+-- Generation Time: May 22, 2025 at 08:41 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Inventory`
+-- Database: `inventdev`
 --
 
 -- --------------------------------------------------------
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `accessories` (
-  `acc_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `acc_id` varchar(25) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `type` varchar(20) DEFAULT NULL,
+  `condition` varchar(15) DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -44,8 +44,8 @@ CREATE TABLE `accessories` (
 --
 CREATE TABLE `component_totals` (
 `category` varchar(12)
-,`total_cost` decimal(57,3)
 ,`total_count` decimal(42,0)
+,`total_cost` decimal(57,3)
 );
 
 -- --------------------------------------------------------
@@ -56,11 +56,27 @@ CREATE TABLE `component_totals` (
 --
 CREATE TABLE `disposed_parts` (
 `category` varchar(12)
-,`cost` decimal(35,3)
-,`location` varchar(30)
 ,`name` varchar(70)
 ,`type` varchar(20)
+,`cost` decimal(35,3)
+,`location` varchar(30)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `employee_id` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `hire_date` date NOT NULL,
+  `employee_type` enum('DBA','FullTime','SoftwareDev') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -69,12 +85,12 @@ CREATE TABLE `disposed_parts` (
 --
 
 CREATE TABLE `graphicscards` (
-  `gpu_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gpu_id` varchar(25) NOT NULL,
+  `name` varchar(70) DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','DISPOSED','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','DISPOSED','') DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -104,12 +120,12 @@ INSERT INTO `graphicscards` (`gpu_id`, `name`, `condition`, `cost`, `status`, `l
 --
 
 CREATE TABLE `keyboards` (
-  `kb_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kb_id` varchar(25) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') DEFAULT NULL,
   `cost` decimal(10,3) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','DISPOSED') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','DISPOSED') DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -147,12 +163,12 @@ INSERT INTO `keyboards` (`kb_id`, `name`, `condition`, `cost`, `status`, `locati
 --
 
 CREATE TABLE `mice` (
-  `mouse_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mouse_id` varchar(25) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','BROKEN') DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -182,12 +198,12 @@ INSERT INTO `mice` (`mouse_id`, `name`, `condition`, `cost`, `status`, `location
 --
 
 CREATE TABLE `minipc` (
-  `mipc_id` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cost` int DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','DISPOSED') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `mipc_id` varchar(30) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') DEFAULT NULL,
+  `cost` int(11) DEFAULT NULL,
+  `status` enum('IN_USE','STORAGE','DISPOSED') DEFAULT NULL,
+  `location` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -217,13 +233,13 @@ INSERT INTO `minipc` (`mipc_id`, `name`, `condition`, `cost`, `status`, `locatio
 --
 
 CREATE TABLE `monitors` (
-  `monitor_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `width` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `monitor_id` varchar(25) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `width` varchar(20) DEFAULT NULL,
+  `condition` varchar(20) DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','DISPOSED','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','DISPOSED','') DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -262,13 +278,13 @@ INSERT INTO `monitors` (`monitor_id`, `name`, `width`, `condition`, `cost`, `sta
 --
 
 CREATE TABLE `motherboards` (
-  `mobo_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `size` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobo_id` varchar(25) NOT NULL,
+  `name` varchar(70) DEFAULT NULL,
+  `size` varchar(15) DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN','') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','BROKEN','') DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -317,18 +333,18 @@ INSERT INTO `motherboards` (`mobo_id`, `name`, `size`, `condition`, `cost`, `sta
 --
 
 CREATE TABLE `pcsetups` (
-  `pc_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mobo_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gpu_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ram_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `storage_slot_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `psu_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `monitor_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `acc_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `kb_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mouse_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tableLocation` text COLLATE utf8mb4_unicode_ci,
-  `PCcondition` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `pc_id` varchar(20) NOT NULL,
+  `mobo_id` varchar(20) DEFAULT NULL,
+  `gpu_id` varchar(20) DEFAULT NULL,
+  `ram_id` varchar(20) DEFAULT NULL,
+  `storage_slot_id` varchar(20) DEFAULT NULL,
+  `psu_id` varchar(20) DEFAULT NULL,
+  `monitor_id` varchar(20) DEFAULT NULL,
+  `acc_id` varchar(20) DEFAULT NULL,
+  `kb_id` varchar(20) DEFAULT NULL,
+  `mouse_id` varchar(20) DEFAULT NULL,
+  `tableLocation` text DEFAULT NULL,
+  `PCcondition` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -356,14 +372,14 @@ INSERT INTO `pcsetups` (`pc_id`, `mobo_id`, `gpu_id`, `ram_id`, `storage_slot_id
 --
 
 CREATE TABLE `powersupplies` (
-  `psu_id` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `wattage` int DEFAULT NULL,
-  `modular` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `psu_id` varchar(25) NOT NULL,
+  `name` varchar(70) DEFAULT NULL,
+  `wattage` int(11) DEFAULT NULL,
+  `modular` varchar(15) DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','BROKEN') DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -398,14 +414,14 @@ INSERT INTO `powersupplies` (`psu_id`, `name`, `wattage`, `modular`, `condition`
 --
 
 CREATE TABLE `ramsticks` (
-  `ram_id` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(70) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` enum('DDR3','DDR4','DDR5') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `speed` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` enum('GOOD','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ram_id` varchar(25) NOT NULL,
+  `name` varchar(70) DEFAULT NULL,
+  `type` enum('DDR3','DDR4','DDR5') DEFAULT NULL,
+  `speed` varchar(4) DEFAULT NULL,
+  `condition` enum('GOOD','BROKEN') DEFAULT NULL,
   `cost` decimal(7,2) DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('IN_USE','STORAGE','BROKEN') DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -435,16 +451,16 @@ INSERT INTO `ramsticks` (`ram_id`, `name`, `type`, `speed`, `condition`, `cost`,
 --
 
 CREATE TABLE `storage_components` (
-  `storage_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `storage_slot_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `media` enum('SSD','HDD') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` enum('SATA','eSATA','NVME','USB') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `capacity` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `condition` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cost` int DEFAULT NULL,
-  `status` enum('IN_USE','STORAGE','BROKEN','') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `storage_id` varchar(20) NOT NULL,
+  `storage_slot_id` varchar(20) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `media` enum('SSD','HDD') DEFAULT NULL,
+  `type` enum('SATA','eSATA','NVME','USB') DEFAULT NULL,
+  `capacity` varchar(20) DEFAULT NULL,
+  `condition` varchar(20) DEFAULT NULL,
+  `cost` int(11) DEFAULT NULL,
+  `status` enum('IN_USE','STORAGE','BROKEN','') DEFAULT NULL,
+  `location` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -454,9 +470,9 @@ CREATE TABLE `storage_components` (
 --
 
 CREATE TABLE `storage_slots` (
-  `storage_slot_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `storage_slot_id` varchar(20) NOT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -468,11 +484,11 @@ CREATE TABLE `storage_slots` (
 CREATE TABLE `stored_components_storage` (
 `category` varchar(12)
 ,`component_id` varchar(25)
+,`name` varchar(70)
+,`type` varchar(20)
 ,`condition` varchar(20)
 ,`cost` decimal(32,3)
-,`name` varchar(70)
 ,`status` varchar(30)
-,`type` varchar(20)
 );
 
 -- --------------------------------------------------------
@@ -491,7 +507,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `disposed_parts`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `disposed_parts`  AS SELECT cast('Accessory' as char charset utf8mb4) AS `category`, cast(`accessories`.`name` as char charset utf8mb4) AS `name`, cast(`accessories`.`type` as char charset utf8mb4) AS `type`, `accessories`.`cost` AS `cost`, cast(`accessories`.`status` as char charset utf8mb4) AS `location` FROM `accessories` WHERE (`accessories`.`status` = 'DISPOSED')union all select cast('GPU' as char charset utf8mb4) AS `CAST('GPU' AS CHAR CHARACTER SET utf8mb4)`,cast(`graphicscards`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,NULL AS `NULL`,`graphicscards`.`cost` AS `cost`,cast(`graphicscards`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `graphicscards` where (`graphicscards`.`status` = 'DISPOSED') union all select cast('Keyboard' as char charset utf8mb4) AS `CAST('Keyboard' AS CHAR CHARACTER SET utf8mb4)`,cast(`keyboards`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,NULL AS `NULL`,`keyboards`.`cost` AS `cost`,cast(`keyboards`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `keyboards` where (`keyboards`.`status` = 'DISPOSED') union all select cast('Mouse' as char charset utf8mb4) AS `CAST('Mouse' AS CHAR CHARACTER SET utf8mb4)`,cast(`mice`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,NULL AS `NULL`,`mice`.`cost` AS `cost`,cast(`mice`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `mice` where (`mice`.`status` = 'DISPOSED') union all select cast('Monitor' as char charset utf8mb4) AS `CAST('Monitor' AS CHAR CHARACTER SET utf8mb4)`,cast(`monitors`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`monitors`.`width` as char charset utf8mb4) AS `CAST(width AS CHAR CHARACTER SET utf8mb4)`,`monitors`.`cost` AS `cost`,cast(`monitors`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `monitors` where (`monitors`.`status` = 'DISPOSED') union all select cast('Motherboard' as char charset utf8mb4) AS `CAST('Motherboard' AS CHAR CHARACTER SET utf8mb4)`,cast(`motherboards`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`motherboards`.`size` as char charset utf8mb4) AS `CAST(size AS CHAR CHARACTER SET utf8mb4)`,`motherboards`.`cost` AS `cost`,cast(`motherboards`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `motherboards` where (`motherboards`.`status` = 'DISPOSED') union all select cast('Power Supply' as char charset utf8mb4) AS `CAST('Power Supply' AS CHAR CHARACTER SET utf8mb4)`,cast(`powersupplies`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`powersupplies`.`wattage` as char charset utf8mb4) AS `CAST(wattage AS CHAR CHARACTER SET utf8mb4)`,`powersupplies`.`cost` AS `cost`,cast(`powersupplies`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `powersupplies` where (`powersupplies`.`status` = 'DISPOSED') union all select cast('RAM' as char charset utf8mb4) AS `CAST('RAM' AS CHAR CHARACTER SET utf8mb4)`,cast(`ramsticks`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`ramsticks`.`type` as char charset utf8mb4) AS `CAST(type AS CHAR CHARACTER SET utf8mb4)`,`ramsticks`.`cost` AS `cost`,cast(`ramsticks`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `ramsticks` where (`ramsticks`.`status` = 'DISPOSED') union all select cast('Storage' as char charset utf8mb4) AS `CAST('Storage' AS CHAR CHARACTER SET utf8mb4)`,cast(`storage_components`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`storage_components`.`type` as char charset utf8mb4) AS `CAST(type AS CHAR CHARACTER SET utf8mb4)`,`storage_components`.`cost` AS `cost`,cast(`storage_components`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `storage_components` where (`storage_components`.`status` = 'DISPOSED') union all select cast('TOTAL' as char charset utf8mb4) AS `CAST('TOTAL' AS CHAR CHARACTER SET utf8mb4)`,NULL AS `NULL`,NULL AS `NULL`,sum(`total_costs`.`cost`) AS `SUM(cost)`,NULL AS `NULL` from (select `accessories`.`cost` AS `cost` from `accessories` where (`accessories`.`status` = 'DISPOSED') union all select `graphicscards`.`cost` AS `cost` from `graphicscards` where (`graphicscards`.`status` = 'DISPOSED') union all select `keyboards`.`cost` AS `cost` from `keyboards` where (`keyboards`.`status` = 'DISPOSED') union all select `mice`.`cost` AS `cost` from `mice` where (`mice`.`status` = 'DISPOSED') union all select `monitors`.`cost` AS `cost` from `monitors` where (`monitors`.`status` = 'DISPOSED') union all select `motherboards`.`cost` AS `cost` from `motherboards` where (`motherboards`.`status` = 'DISPOSED') union all select `powersupplies`.`cost` AS `cost` from `powersupplies` where (`powersupplies`.`status` = 'DISPOSED') union all select `ramsticks`.`cost` AS `cost` from `ramsticks` where (`ramsticks`.`status` = 'DISPOSED') union all select `storage_components`.`cost` AS `cost` from `storage_components` where (`storage_components`.`status` = 'DISPOSED')) `total_costs`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `disposed_parts`  AS SELECT cast('Accessory' as char charset utf8mb4) AS `category`, cast(`accessories`.`name` as char charset utf8mb4) AS `name`, cast(`accessories`.`type` as char charset utf8mb4) AS `type`, `accessories`.`cost` AS `cost`, cast(`accessories`.`status` as char charset utf8mb4) AS `location` FROM `accessories` WHERE `accessories`.`status` = 'DISPOSED'union all select cast('GPU' as char charset utf8mb4) AS `CAST('GPU' AS CHAR CHARACTER SET utf8mb4)`,cast(`graphicscards`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,NULL AS `NULL`,`graphicscards`.`cost` AS `cost`,cast(`graphicscards`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `graphicscards` where `graphicscards`.`status` = 'DISPOSED' union all select cast('Keyboard' as char charset utf8mb4) AS `CAST('Keyboard' AS CHAR CHARACTER SET utf8mb4)`,cast(`keyboards`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,NULL AS `NULL`,`keyboards`.`cost` AS `cost`,cast(`keyboards`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `keyboards` where `keyboards`.`status` = 'DISPOSED' union all select cast('Mouse' as char charset utf8mb4) AS `CAST('Mouse' AS CHAR CHARACTER SET utf8mb4)`,cast(`mice`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,NULL AS `NULL`,`mice`.`cost` AS `cost`,cast(`mice`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `mice` where `mice`.`status` = 'DISPOSED' union all select cast('Monitor' as char charset utf8mb4) AS `CAST('Monitor' AS CHAR CHARACTER SET utf8mb4)`,cast(`monitors`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`monitors`.`width` as char charset utf8mb4) AS `CAST(width AS CHAR CHARACTER SET utf8mb4)`,`monitors`.`cost` AS `cost`,cast(`monitors`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `monitors` where `monitors`.`status` = 'DISPOSED' union all select cast('Motherboard' as char charset utf8mb4) AS `CAST('Motherboard' AS CHAR CHARACTER SET utf8mb4)`,cast(`motherboards`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`motherboards`.`size` as char charset utf8mb4) AS `CAST(size AS CHAR CHARACTER SET utf8mb4)`,`motherboards`.`cost` AS `cost`,cast(`motherboards`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `motherboards` where `motherboards`.`status` = 'DISPOSED' union all select cast('Power Supply' as char charset utf8mb4) AS `CAST('Power Supply' AS CHAR CHARACTER SET utf8mb4)`,cast(`powersupplies`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`powersupplies`.`wattage` as char charset utf8mb4) AS `CAST(wattage AS CHAR CHARACTER SET utf8mb4)`,`powersupplies`.`cost` AS `cost`,cast(`powersupplies`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `powersupplies` where `powersupplies`.`status` = 'DISPOSED' union all select cast('RAM' as char charset utf8mb4) AS `CAST('RAM' AS CHAR CHARACTER SET utf8mb4)`,cast(`ramsticks`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`ramsticks`.`type` as char charset utf8mb4) AS `CAST(type AS CHAR CHARACTER SET utf8mb4)`,`ramsticks`.`cost` AS `cost`,cast(`ramsticks`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `ramsticks` where `ramsticks`.`status` = 'DISPOSED' union all select cast('Storage' as char charset utf8mb4) AS `CAST('Storage' AS CHAR CHARACTER SET utf8mb4)`,cast(`storage_components`.`name` as char charset utf8mb4) AS `CAST(name AS CHAR CHARACTER SET utf8mb4)`,cast(`storage_components`.`type` as char charset utf8mb4) AS `CAST(type AS CHAR CHARACTER SET utf8mb4)`,`storage_components`.`cost` AS `cost`,cast(`storage_components`.`status` as char charset utf8mb4) AS `CAST(status AS CHAR CHARACTER SET utf8mb4)` from `storage_components` where `storage_components`.`status` = 'DISPOSED' union all select cast('TOTAL' as char charset utf8mb4) AS `CAST('TOTAL' AS CHAR CHARACTER SET utf8mb4)`,NULL AS `NULL`,NULL AS `NULL`,sum(`total_costs`.`cost`) AS `SUM(cost)`,NULL AS `NULL` from (select `accessories`.`cost` AS `cost` from `accessories` where `accessories`.`status` = 'DISPOSED' union all select `graphicscards`.`cost` AS `cost` from `graphicscards` where `graphicscards`.`status` = 'DISPOSED' union all select `keyboards`.`cost` AS `cost` from `keyboards` where `keyboards`.`status` = 'DISPOSED' union all select `mice`.`cost` AS `cost` from `mice` where `mice`.`status` = 'DISPOSED' union all select `monitors`.`cost` AS `cost` from `monitors` where `monitors`.`status` = 'DISPOSED' union all select `motherboards`.`cost` AS `cost` from `motherboards` where `motherboards`.`status` = 'DISPOSED' union all select `powersupplies`.`cost` AS `cost` from `powersupplies` where `powersupplies`.`status` = 'DISPOSED' union all select `ramsticks`.`cost` AS `cost` from `ramsticks` where `ramsticks`.`status` = 'DISPOSED' union all select `storage_components`.`cost` AS `cost` from `storage_components` where `storage_components`.`status` = 'DISPOSED') `total_costs`  ;
 
 -- --------------------------------------------------------
 
@@ -500,7 +516,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `stored_components_storage`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `stored_components_storage`  AS SELECT 'Accessory' AS `category`, `accessories`.`acc_id` AS `component_id`, `accessories`.`name` AS `name`, `accessories`.`type` AS `type`, `accessories`.`condition` AS `condition`, `accessories`.`cost` AS `cost`, `accessories`.`status` AS `status` FROM `accessories` WHERE (`accessories`.`status` = 'STORAGE')union all select 'GPU' AS `category`,`graphicscards`.`gpu_id` AS `component_id`,`graphicscards`.`name` AS `name`,NULL AS `type`,`graphicscards`.`condition` AS `condition`,`graphicscards`.`cost` AS `cost`,`graphicscards`.`status` AS `status` from `graphicscards` where (`graphicscards`.`status` = 'STORAGE') union all select 'Keyboard' AS `category`,`keyboards`.`kb_id` AS `component_id`,`keyboards`.`name` AS `name`,NULL AS `type`,`keyboards`.`condition` AS `condition`,`keyboards`.`cost` AS `cost`,`keyboards`.`status` AS `status` from `keyboards` where (`keyboards`.`status` = 'STORAGE') union all select 'Mouse' AS `category`,`mice`.`mouse_id` AS `component_id`,`mice`.`name` AS `name`,NULL AS `type`,`mice`.`condition` AS `condition`,`mice`.`cost` AS `cost`,`mice`.`status` AS `status` from `mice` where (`mice`.`status` = 'STORAGE') union all select 'Monitor' AS `category`,`monitors`.`monitor_id` AS `component_id`,`monitors`.`name` AS `name`,`monitors`.`width` AS `type`,`monitors`.`condition` AS `condition`,`monitors`.`cost` AS `cost`,`monitors`.`status` AS `status` from `monitors` where (`monitors`.`status` = 'STORAGE') union all select 'Motherboard' AS `category`,`motherboards`.`mobo_id` AS `component_id`,`motherboards`.`name` AS `name`,`motherboards`.`size` AS `type`,`motherboards`.`condition` AS `condition`,`motherboards`.`cost` AS `cost`,`motherboards`.`status` AS `status` from `motherboards` where (`motherboards`.`status` = 'STORAGE') union all select 'Power Supply' AS `category`,`powersupplies`.`psu_id` AS `component_id`,`powersupplies`.`name` AS `name`,`powersupplies`.`wattage` AS `type`,`powersupplies`.`condition` AS `condition`,`powersupplies`.`cost` AS `cost`,`powersupplies`.`status` AS `status` from `powersupplies` where (`powersupplies`.`status` = 'STORAGE') union all select 'RAM' AS `category`,`ramsticks`.`ram_id` AS `component_id`,`ramsticks`.`name` AS `name`,`ramsticks`.`type` AS `type`,`ramsticks`.`condition` AS `condition`,`ramsticks`.`cost` AS `cost`,`ramsticks`.`status` AS `status` from `ramsticks` where (`ramsticks`.`status` = 'STORAGE') union all select 'TOTAL' AS `category`,NULL AS `component_id`,NULL AS `name`,NULL AS `type`,NULL AS `condition`,sum(`all_costs`.`cost`) AS `cost`,NULL AS `status` from (select `accessories`.`cost` AS `cost` from `accessories` where (`accessories`.`status` = 'STORAGE') union all select `graphicscards`.`cost` AS `cost` from `graphicscards` where (`graphicscards`.`status` = 'STORAGE') union all select `keyboards`.`cost` AS `cost` from `keyboards` where (`keyboards`.`status` = 'STORAGE') union all select `mice`.`cost` AS `cost` from `mice` where (`mice`.`status` = 'STORAGE') union all select `monitors`.`cost` AS `cost` from `monitors` where (`monitors`.`status` = 'STORAGE') union all select `motherboards`.`cost` AS `cost` from `motherboards` where (`motherboards`.`status` = 'STORAGE') union all select `powersupplies`.`cost` AS `cost` from `powersupplies` where (`powersupplies`.`status` = 'STORAGE') union all select `ramsticks`.`cost` AS `cost` from `ramsticks` where (`ramsticks`.`status` = 'STORAGE')) `all_costs`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `stored_components_storage`  AS SELECT 'Accessory' AS `category`, `accessories`.`acc_id` AS `component_id`, `accessories`.`name` AS `name`, `accessories`.`type` AS `type`, `accessories`.`condition` AS `condition`, `accessories`.`cost` AS `cost`, `accessories`.`status` AS `status` FROM `accessories` WHERE `accessories`.`status` = 'STORAGE'union all select 'GPU' AS `category`,`graphicscards`.`gpu_id` AS `component_id`,`graphicscards`.`name` AS `name`,NULL AS `type`,`graphicscards`.`condition` AS `condition`,`graphicscards`.`cost` AS `cost`,`graphicscards`.`status` AS `status` from `graphicscards` where `graphicscards`.`status` = 'STORAGE' union all select 'Keyboard' AS `category`,`keyboards`.`kb_id` AS `component_id`,`keyboards`.`name` AS `name`,NULL AS `type`,`keyboards`.`condition` AS `condition`,`keyboards`.`cost` AS `cost`,`keyboards`.`status` AS `status` from `keyboards` where `keyboards`.`status` = 'STORAGE' union all select 'Mouse' AS `category`,`mice`.`mouse_id` AS `component_id`,`mice`.`name` AS `name`,NULL AS `type`,`mice`.`condition` AS `condition`,`mice`.`cost` AS `cost`,`mice`.`status` AS `status` from `mice` where `mice`.`status` = 'STORAGE' union all select 'Monitor' AS `category`,`monitors`.`monitor_id` AS `component_id`,`monitors`.`name` AS `name`,`monitors`.`width` AS `type`,`monitors`.`condition` AS `condition`,`monitors`.`cost` AS `cost`,`monitors`.`status` AS `status` from `monitors` where `monitors`.`status` = 'STORAGE' union all select 'Motherboard' AS `category`,`motherboards`.`mobo_id` AS `component_id`,`motherboards`.`name` AS `name`,`motherboards`.`size` AS `type`,`motherboards`.`condition` AS `condition`,`motherboards`.`cost` AS `cost`,`motherboards`.`status` AS `status` from `motherboards` where `motherboards`.`status` = 'STORAGE' union all select 'Power Supply' AS `category`,`powersupplies`.`psu_id` AS `component_id`,`powersupplies`.`name` AS `name`,`powersupplies`.`wattage` AS `type`,`powersupplies`.`condition` AS `condition`,`powersupplies`.`cost` AS `cost`,`powersupplies`.`status` AS `status` from `powersupplies` where `powersupplies`.`status` = 'STORAGE' union all select 'RAM' AS `category`,`ramsticks`.`ram_id` AS `component_id`,`ramsticks`.`name` AS `name`,`ramsticks`.`type` AS `type`,`ramsticks`.`condition` AS `condition`,`ramsticks`.`cost` AS `cost`,`ramsticks`.`status` AS `status` from `ramsticks` where `ramsticks`.`status` = 'STORAGE' union all select 'TOTAL' AS `category`,NULL AS `component_id`,NULL AS `name`,NULL AS `type`,NULL AS `condition`,sum(`all_costs`.`cost`) AS `cost`,NULL AS `status` from (select `accessories`.`cost` AS `cost` from `accessories` where `accessories`.`status` = 'STORAGE' union all select `graphicscards`.`cost` AS `cost` from `graphicscards` where `graphicscards`.`status` = 'STORAGE' union all select `keyboards`.`cost` AS `cost` from `keyboards` where `keyboards`.`status` = 'STORAGE' union all select `mice`.`cost` AS `cost` from `mice` where `mice`.`status` = 'STORAGE' union all select `monitors`.`cost` AS `cost` from `monitors` where `monitors`.`status` = 'STORAGE' union all select `motherboards`.`cost` AS `cost` from `motherboards` where `motherboards`.`status` = 'STORAGE' union all select `powersupplies`.`cost` AS `cost` from `powersupplies` where `powersupplies`.`status` = 'STORAGE' union all select `ramsticks`.`cost` AS `cost` from `ramsticks` where `ramsticks`.`status` = 'STORAGE') `all_costs`  ;
 
 --
 -- Indexes for dumped tables
@@ -511,6 +527,14 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `accessories`
   ADD PRIMARY KEY (`acc_id`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`employee_id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `idx_employee_type` (`employee_type`);
 
 --
 -- Indexes for table `graphicscards`
@@ -604,7 +628,7 @@ ALTER TABLE `pcsetups`
   ADD CONSTRAINT `pcsetups_ibfk_5` FOREIGN KEY (`monitor_id`) REFERENCES `monitors` (`monitor_id`),
   ADD CONSTRAINT `pcsetups_ibfk_6` FOREIGN KEY (`kb_id`) REFERENCES `keyboards` (`kb_id`),
   ADD CONSTRAINT `pcsetups_ibfk_7` FOREIGN KEY (`mouse_id`) REFERENCES `mice` (`mouse_id`),
-  ADD CONSTRAINT `pcsetups_ibfk_8` FOREIGN KEY (`storage_slot_id`) REFERENCES `storage_slots` (`storage_slot_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `pcsetups_ibfk_8` FOREIGN KEY (`storage_slot_id`) REFERENCES `storage_slots` (`storage_slot_id`);
 
 --
 -- Constraints for table `storage_components`

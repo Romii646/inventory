@@ -1,11 +1,11 @@
 CREATE TABLE employees(
 	employee_id VARCHAR(25) PRIMARY KEY,
-    FirstName VARCHAR(25) NOT NULL,
-    LastName VARCHAR(25) NOT NULL,
+    first_name VARCHAR(25) NOT NULL,
+    last_name VARCHAR(25) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     hire_date DATE NOT NULL,
-    employeeType ENUM('DBA', 'FullTime', 'SoftwareDev') NOT NULL,
-    INDEX idx_employeeType (employeeType)
+    employee_type ENUM('DBA', 'FullTime', 'SoftwareDev') NOT NULL,
+    INDEX idx_employee_type (employee_type)
 );
 
 
@@ -13,3 +13,19 @@ CREATE TABLE employees(
 insert script for new employees
 INSERT INTO employees (employee_id, first_name, last_name, email, hire_date, employee_type, password)
 VALUES (generate_employee_id(), 'enter first name', 'enter last name', 'enter email', 'enter date ex.2024-08-08', 'enter employee type ex. SoftwareDev', 'password');
+
+
+// A function to generate employee ID's automatically
+DELIMITER $$
+
+CREATE FUNCTION generate_employee_id() RETURNS VARCHAR(25)
+DETERMINISTIC
+BEGIN
+	DECLARE last_id INT;
+    SET last_id = (SELECT MAX(CAST(RIGHT(employee_id, 4) AS UNSIGNED)) FROM employees);
+    IF last_id IS NULL THEN
+    	SET last_id = 0;
+    END IF;
+    RETURN CONCAT ('EMP', LPAD(last_id + 1, 4, '0'));
+END $$    
+DELIMITER ;

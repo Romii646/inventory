@@ -1,5 +1,8 @@
 // Description: This script handles the functionality of the Cyber Lab Management System. It includes functions for adding, updating, deleting, and viewing computer setups in the lab. The script also manages the visibility of form fields based on user selections and handles form submissions.
 // It uses the Fetch API to communicate with a PHP backend for database operations. The script is designed to be modular and reusable, with clear separation of concerns for different functionalities.
+
+//Global variables
+let CSVdata = [];
 function showNeededFields(table, accessories, monitors, motherboards, ramsticks, powersupplies){
     // declared variables
     const tableSelect = document.getElementById(table).value;
@@ -56,6 +59,7 @@ function fetchTable(event) {
             document.getElementById('pcSetUp-table').innerHTML = data.message;
         } 
         else {
+            CSVdata = structuredClone(data); // deep copy of the data for CSV export
             let table = '<table border="1"><tr>';
             for (let key in data[0]) {
                 table += `<th>${key}</th>`;
@@ -301,4 +305,18 @@ fieldData.push({
     [tableSelect.id] : tableSelect.value
 });
 return fieldData;
+}
+
+/*************************************************************************************************************************************************************************************************************************************************************************************************/
+// function to export data to CSV
+function exportToCSV() {
+    const csvContent = "data:text/csv;charset=utf-8," + CSVdata.map(e => e.join(",")).join("\n");
+    const encodeURI = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodeURI);
+    link.setAttribute('download', 'tableData.csv');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    document.getElementById('success').innerHTML = "CSV export successful.";
 }

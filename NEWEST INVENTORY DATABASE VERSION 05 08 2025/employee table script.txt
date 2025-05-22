@@ -12,4 +12,4 @@ CREATE TABLE employees(
 
 insert script for new employees
 INSERT INTO employees (employee_id, first_name, last_name, email, hire_date, employee_type, password)
-VALUES (generate_employee_id(), 'enter first name', 'enter last name', 'enter email', 'enter date ex.2024-08-08', 'enter employee type ex. SoftwareDev', SHA2('your_secure_password', 256));
+VALUES (generate_employee_id(), 'enter first name', 'enter last name', 'enter email', 'enter date ex.2024-08-08', 'enter employee type ex. SoftwareDev', 'password');

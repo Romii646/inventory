@@ -1,0 +1,37 @@
+
+/* CSS for the login page */
+fieldset{
+    background-color: rgb(0, 99, 123);
+    border: 5px solid rgb(48 234 42);  
+    text-align: center; 
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.id-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 4px;
+}
+
+.password-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 4px;
+}
+
+.id-field label{
+    text-align: left;
+}
+
+.password-field label{
+    text-align: left;
+}

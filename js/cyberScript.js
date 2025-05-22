@@ -3,6 +3,7 @@
 
 //Global variables
 let CSVdata = [];
+let tableFileName = '';
 function showNeededFields(table, accessories, monitors, motherboards, ramsticks, powersupplies){
     // declared variables
     const tableSelect = document.getElementById(table).value;
@@ -45,6 +46,7 @@ function clearForm(formId){
 // function to fetchTable pcSetUp which is for the main table that keeps track of computers currently on the lab floor
 // Functions that uses this function are virtualView, queryTable, and deleteRow.
 function fetchTable(event) {
+    tableFileName = event;
     fetch('./php/pc_set_up_process.php?action=view', {
         method : 'POST',
         headers : {'content-type' : 'application/json'},
@@ -310,13 +312,32 @@ return fieldData;
 /*************************************************************************************************************************************************************************************************************************************************************************************************/
 // function to export data to CSV
 function exportToCSV() {
-    const csvContent = "data:text/csv;charset=utf-8," + CSVdata.map(e => e.join(",")).join("\n");
-    const encodeURI = encodeURI(csvContent);
-    const link = document.createElement('a');
-    link.setAttribute('href', encodeURI);
-    link.setAttribute('download', 'tableData.csv');
+    const header = Object.keys(CSVdata[0]);
+    const csvRows = []; // Create an array to hold the CSV data
+
+    //add header row
+    csvRows.push(header.join(',')); // Join the header keys with commas
+    // loop through the data to create rows for the csv file
+    CSVdata.forEach(row => {
+        const tableValues = header.map(fieldNames =>{
+            const values = row[fieldNames];
+            return `"${String(values).replace(/"/g, '""')}"`; // Escape double quotes
+        })
+        csvRows.push(tableValues.join(",")); // Join the values with commas
+    });
+
+    const csvContent = csvRows.join('\n'); // Join the rows with new lines
+    const blob = new Blob([csvContent], {type: 'text/csv;charset=utf-8;'}); // Create a new Blob object with the CSV content used for download files.
+
+    const url = URL.createObjectURL(blob); // Create a URL for the Blob
+
+    const link = document.createElement('a'); // Create a link element
+    link.setAttribute('href', url); // Set the href attribute to the Blob URL
+    link.setAttribute('download', tableFileName + 'TableData.csv'); // Set the download attribute with a default file name
+    link.style.display = 'none';
     document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    document.getElementById('success').innerHTML = "CSV export successful.";
+
+    link.click(); // Programmatically click the link to trigger the download
+    document.body.removeChild(link); 
+    URL.revokeObjectURL(url); // Release the Blob URL
 }

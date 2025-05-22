@@ -1,0 +1,15 @@
+CREATE TABLE employees(
+	employee_id VARCHAR(25) PRIMARY KEY,
+    FirstName VARCHAR(25) NOT NULL,
+    LastName VARCHAR(25) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    hire_date DATE NOT NULL,
+    employeeType ENUM('DBA', 'FullTime', 'SoftwareDev') NOT NULL,
+    INDEX idx_employeeType (employeeType)
+);
+
+
+
+insert script for new employees
+INSERT INTO employees (employee_id, first_name, last_name, email, hire_date, employee_type, password)
+VALUES (generate_employee_id(), 'enter first name', 'enter last name', 'enter email', 'enter date ex.2024-08-08', 'enter employee type ex. SoftwareDev', SHA2('your_secure_password', 256));

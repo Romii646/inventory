@@ -10,9 +10,9 @@ const sessionData = () => {
     })
     .then(data => {
         if (data && data.employeeID) {
-            const el = document.getElementById('employeeID');
+            const el = document.getElementById('welcome');
             if (el) {
-                el.textContent = `welcome ${data.employeeID}`;
+                el.innerHTML = `Welcome ${data.firstName} <br> Role: ${data.employeeType}`;
             }
         }
     })

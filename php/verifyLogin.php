@@ -14,10 +14,9 @@ session_start();?>
         require $EmployeeFile;
 
         $error = 0;
-        if(isset($_POST['loginForm'])){            
+        if(isset($_POST['login'])){            
             $employeeID = $_POST['employeeID'];
             $password = $_POST['password'];
-
             $employee = new Employee($employeeID, $password);
         }
         else{
@@ -29,12 +28,11 @@ session_start();?>
             $employee -> connect();
             if($employee -> verifyLogin()){            
                 // Set session variables
-                $_SESSION['employeeID'] = $employeeID -> getEmployeeID();
-                $_SESSION['firstName'] = $firstName -> getFirstName();
-                $_SESSION['employeeType'] = $employeeType -> getEmployeeType();
+                $_SESSION['employeeID'] = $employee->getEmployeeID();
+                $_SESSION['firstName'] = $employee->getFirstName();
+                $_SESSION['employeeType'] = $employee->getEmployeeType();
                 $employee -> DB_close();
-                header("Location: ../homePage.html"); // Redirect to the home page the ../ means go up one directory
-                $employee -> DB_close();
+                header("Location: ../homePage.html"); 
                 exit();
             }
             else{

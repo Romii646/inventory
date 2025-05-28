@@ -38,9 +38,3 @@ See [Installation Instructions](Docs/Inventory%20System%20docs/docs_INSTALLATION
 ## Reporting Bugs and Requesting Features
 
 - Please use [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to report issues, request features, and contribute code.
-
----
-
-## License
-
-Distributed under the MIT License. See [LICENSE](LICENSE) for details.

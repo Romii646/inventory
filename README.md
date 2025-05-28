@@ -16,14 +16,13 @@ The Main Inventory System is a web-based application for technical staff and adm
 - Secure authentication and role-based access
 
 ---
-
 ## Documentation
 
-- [User Guide](docs/Inventory_System_User_Guide.md)
-- [Developer Guide](docs/Inventory_System_Developer_Guide.md)
-- [Design Document](docs/Inventory_System_Design_Document_UPDATED.md)
-- [API Documentation](docs/API_DOCUMENTATION.md)
-- [Installation Instructions](docs/INSTALLATION.md)
+- [User Guide](Docs/Inventory%20System%20docs/Inventory_System_User_Guide_Version2.md)
+- [Developer Guide](Docs/Inventory%20System%20docs/Inventory_System_Developer_Guide_Version2.md)
+- [Design Document](Docs/Inventory%20System%20docs/Inventory_System_Requirements_UPDATED_Version2.md)
+- [API Documentation](Docs/Inventory%20System%20docs/docs_API_DOCUMENTATION_Version2.md)
+- [Installation Instructions](Docs/Inventory%20System%20docs/docs_INSTALLATION_Version2.md)
 - [Changelog](CHANGELOG.md)
 - [Contributing](CONTRIBUTING.md)
 

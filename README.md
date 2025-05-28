@@ -19,11 +19,11 @@ The Main Inventory System is a web-based application for technical staff and adm
 
 ## Documentation
 
-- [User Guide](docs/Inventory_System_User_Guide.md)
-- [Developer Guide](docs/Inventory_System_Developer_Guide.md)
-- [Design Document](docs/Inventory_System_Design_Document_UPDATED.md)
-- [API Documentation](docs/API_DOCUMENTATION.md)
-- [Installation Instructions](docs/INSTALLATION.md)
+- [User Guide](Docs/Inventory%20System%20Documentation/User%20Guide%20for%20Main%20Inventory%20use.docx)
+- [Developer Guide](Docs/Inventory%20System%20Documentation/Developer%20Guide.docx)
+- [Design Document](Docs/Inventory%20System%20Documentation/Design%20Document%20for%20Main%20Inventory%20System.docx)
+- [API Documentation](docs/API_DOCUMENTATION.md) <!-- Could not find new location as .docx or in Docs/Inventory System Documentation/ -->
+- [Installation Instructions](docs/INSTALLATION.md) <!-- Could not find new location as .docx or in Docs/Inventory System Documentation/ -->
 - [Changelog](CHANGELOG.md)
 - [Contributing](CONTRIBUTING.md)
 
@@ -38,9 +38,3 @@ See [INSTALLATION.md](docs/INSTALLATION.md) for complete setup instructions.
 ## Reporting Bugs and Requesting Features
 
 - Please use [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to report issues, request features, and contribute code.
-
----
-
-## License
-
-Distributed under the MIT License. See [LICENSE](LICENSE) for details.

@@ -23,8 +23,8 @@ The Main Inventory System is a web-based application for technical staff and adm
 - [Design Document](Docs/Inventory%20System%20docs/Inventory_System_Requirements_UPDATED_Version2.md)
 - [API Documentation](Docs/Inventory%20System%20docs/docs_API_DOCUMENTATION_Version2.md)
 - [Installation Instructions](Docs/Inventory%20System%20docs/docs_INSTALLATION_Version2.md)
-- [Changelog](CHANGELOG.md)
-- [Contributing](CONTRIBUTING.md)
+- [Changelog](Docs/Inventory%20System%20docs/CHANGELOG_Version2.md)
+- [Contributing](Docs/Inventory%20System%20docs/CONTRIBUTING_Version2.md)
 
 ---
 
@@ -36,4 +36,4 @@ See [Installation Instructions](Docs/Inventory%20System%20docs/docs_INSTALLATION
 
 ## Reporting Bugs and Requesting Features
 
-- Please use [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to report issues, request features, and contribute code.
+- Please use [Contributing](Docs/Inventory%20System%20docs/CONTRIBUTING_Version2.md) for guidelines on how to report issues, request features, and contribute code.

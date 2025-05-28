@@ -1,4 +1,7 @@
-# Design Document: Basic Rental System
+# Created by: Aaron C.
+# Date: 05/20/2025
+
+# Design Document: Rental System
 
 ---
 

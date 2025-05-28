@@ -1,3 +1,6 @@
+# Created by: Aaron C.
+# Date: 05/27/2025
+
 # Changelog
 
 All notable changes to the Main Inventory System will be documented here.

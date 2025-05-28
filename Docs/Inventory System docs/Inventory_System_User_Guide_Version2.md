@@ -1,3 +1,6 @@
+# Created by: Aaron C.
+# Date: 04/01/2025
+
 # User Guide: Main Inventory System
 
 ---

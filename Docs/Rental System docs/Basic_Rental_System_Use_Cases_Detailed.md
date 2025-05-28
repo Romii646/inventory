@@ -1,4 +1,7 @@
-# Detailed Use Cases with Scenarios and Alternatives: Basic Rental System
+# Created by: Aaron C.
+# Date: 05/15/2025
+
+# Detailed Use Cases with Scenarios and Alternatives: Rental System
 
 ---
 

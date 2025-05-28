@@ -1,3 +1,6 @@
+# Created by: Aaron C.
+# Date: 11/05/2024
+
 # Use Cases and Non-Use Cases for the Inventory System (Schema-Aligned)
 
 ---

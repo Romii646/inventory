@@ -1,3 +1,6 @@
+# Created by: Aaron C.
+# Date: 05/28/2025
+
 # Contributing to Main Inventory System
 
 Thank you for your interest in contributing! We welcome bug reports, feature requests, and code contributions.

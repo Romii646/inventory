@@ -1,6 +1,7 @@
-# Main Inventory System Requirements (Schema-Aligned)
+# Created by: Aaron C.
+# Date: 04/20/2025
 
----
+# Main Inventory System Requirements
 
 ## 1. Functional Requirements
 

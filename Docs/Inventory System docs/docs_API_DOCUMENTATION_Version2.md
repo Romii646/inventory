@@ -1,3 +1,6 @@
+# Created by: Aaron C.
+# Date: 05/28/2025
+
 # API Documentation: Main Inventory System
 
 ---

@@ -1,3 +1,6 @@
+# Created by: Aaron C.
+# Date: 05/25/2025
+
 # Glossary: Main Inventory System
 
 ---

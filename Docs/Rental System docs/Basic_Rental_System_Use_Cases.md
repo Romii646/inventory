@@ -1,4 +1,7 @@
-# Use Cases and Non-Use Cases for the Basic Rental System
+# Created by: Aaron C.
+# Date: 05/26/2025
+
+# Use Cases and Non-Use Cases for the Rental System
 
 ---
 

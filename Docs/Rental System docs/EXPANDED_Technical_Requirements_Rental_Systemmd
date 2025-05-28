@@ -1,8 +1,11 @@
-# Technical Requirements: Basic Rental System Extension
+# Created by: Aaron C.
+# Date: 05/26/2025
+
+# Technical Requirements: Rental System Extension
 
 ## Overview
 
-This document outlines the technical requirements for adding a **Basic Rental System** to the existing inventory management application. The goal is to allow authorized users to manage the rental of inventory items to customers or employees, track rental status, and prevent double-booking.
+This document outlines the technical requirements for adding a **Rental System** to the existing inventory management application. The goal is to allow authorized users to manage the rental of inventory items to customers or employees, track rental status, and prevent double-booking.
 
 ---
 
@@ -10,7 +13,7 @@ This document outlines the technical requirements for adding a **Basic Rental Sy
 
 ### 1.1 Tables
 
-#### a. `rentals`
+**`rentals`**
 | Field Name           | Type          | Description                                 |
 |----------------------|---------------|---------------------------------------------|
 | rental_id            | INT (PK, AI)  | Unique rental record ID                     |
@@ -21,15 +24,17 @@ This document outlines the technical requirements for adding a **Basic Rental Sy
 | actual_return_date   | DATE (NULL)   | Date item was actually returned             |
 | status               | ENUM          | ('active', 'returned', 'overdue')           |
 
-#### b. `customers`
+**`customers`**
 | Field Name | Type         | Description             |
 |------------|--------------|-------------------------|
 | customer_id| INT (PK, AI) | Unique customer ID      |
 | name       | VARCHAR(100) | Customer's name         |
 | contact    | VARCHAR(100) | Email or phone          |
 
-#### c. Update `items` Table
-- Add a `status` field (e.g., 'available', 'rented') if not present.
+**`items`** (update if not present)
+| Field Name | Type          | Description                 |
+|------------|---------------|-----------------------------|
+| status     | ENUM          | ('available', 'rented')     |
 
 ---
 

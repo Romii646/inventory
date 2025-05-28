@@ -1,3 +1,6 @@
+# Created by: Aaron C.
+# Date: 05/30/2025
+
 # Installation Guide: Main Inventory System
 
 ---

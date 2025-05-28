@@ -1,4 +1,7 @@
-# Basic Rental System Requirements (Updated Version)
+# Created by: Aaron C.
+# Date: 05/26/2025
+
+# Rental System Requirements
 
 ---
 
@@ -42,9 +45,10 @@
 **`rentals`**
 | Field Name           | Type          | Description                                 |
 |----------------------|---------------|---------------------------------------------|
-| rental_id            | INT (PK, AI)  | Unique rental record ID                     |
-| item_id              | INT (FK)      | References inventory item                   |
-| customer_id          | INT (FK)      | References customer                         |
+| rental_id            | VARCHAR (PK,Fn)| Unique rental record ID                    |
+| object_id            | VARCHAR (FK)  | References inventory item                   |
+| customer_id          | VARCHAR (FK)  | References customer                         |
+| employee_id          | VARCHAR (FK)  | References employees                        |
 | start_date           | DATE          | Rental start date                           |
 | expected_return_date | DATE          | Date the item is expected to be returned    |
 | actual_return_date   | DATE (NULL)   | Date item was actually returned             |
@@ -53,13 +57,16 @@
 **`customers`**
 | Field Name | Type         | Description             |
 |------------|--------------|-------------------------|
-| customer_id| INT (PK, AI) | Unique customer ID      |
+| customer_id| VARCHAR (PK) | Unique customer ID      |
 | name       | VARCHAR(100) | Customer's name         |
 | contact    | VARCHAR(100) | Email or phone          |
+| B#         | VARCHAR (20) |                         |
 
 **`items`** (update if not present)
 | Field Name | Type          | Description                 |
 |------------|---------------|-----------------------------|
+| object_id  | VARCHAR (PK)  | Unique rental item ID       |
+| item_id    | VARCHAR (FK)  | References tech item for rent|
 | status     | ENUM          | ('available', 'rented')     |
 
 ### 2.2 Backend Logic

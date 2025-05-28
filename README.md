@@ -19,12 +19,13 @@ The Main Inventory System is a web-based application for technical staff and adm
 
 ## Documentation
 
-- [User Guide](Docs/Inventory%20System%20docs/Inventory_System_User_Guide_Version2.md)
-- [Developer Guide](Docs/Inventory%20System%20docs/Inventory_System_Developer_Guide_Version2.md)
-- [API Documentation](Docs/Inventory%20System%20docs/docs_API_DOCUMENTATION_Version2.md)
-- [Installation Instructions](Docs/Inventory%20System%20docs/docs_INSTALLATION_Version2.md)
-- [Changelog](Docs/Inventory%20System%20docs/CHANGELOG_Version2.md)
-- [Contributing](Docs/Inventory%20System%20docs/CONTRIBUTING_Version2.md)
+- [User Guide](docs/Inventory_System_User_Guide.md)
+- [Developer Guide](docs/Inventory_System_Developer_Guide.md)
+- [Design Document](docs/Inventory_System_Design_Document_UPDATED.md)
+- [API Documentation](docs/API_DOCUMENTATION.md)
+- [Installation Instructions](docs/INSTALLATION.md)
+- [Changelog](CHANGELOG.md)
+- [Contributing](CONTRIBUTING.md)
 
 ---
 
@@ -36,5 +37,10 @@ See [Installation Instructions](Docs/Inventory%20System%20docs/docs_INSTALLATION
 
 ## Reporting Bugs and Requesting Features
 
-- Please use [Contributing Guide](Docs/Inventory%20System%20docs/CONTRIBUTING_Version2.md) for guidelines on how to report issues, request features, and contribute code.
+- Please use [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to report issues, request features, and contribute code.
 
+---
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.

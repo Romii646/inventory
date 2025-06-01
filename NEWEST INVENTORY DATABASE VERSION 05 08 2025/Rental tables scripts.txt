@@ -1,22 +1,69 @@
-CREATE TABLE Object_Junction (
-    object_id INT PRIMARY KEY AUTO_INCREMENT,
-    category ENUM('Motherboard', 'RAMStick', 'GPU', 'Keyboard', 'Mouse', 'Monitor'),
-    specific_item_id INT
+CREATE TABLE rentals (
+	rental_id VARCHAR(25) PRIMARY KEY,
+    object_id VARCHAr(25) NOT NULL,
+    customer_id VARCHAR(25) NOT NULL,
+    employee_id VARCHAR(25) NOT NULL,
+    rental_start_date DATE,
+    rental_return_date DATE,
+    actual_return_date DATE,
+    status ENUM('active', 'returned', 'overdue') NOT NULL,
+    rental_total DECIMAL(10,2),
+    FOREIGN KEY (object_id) REFERENCES rentable_tech (object_id) ON DELETE CASCADE,
+    FOREIGN KEY (customer_id) REFERENCES customer (customer_id) ON DELETE CASCADE,
+    FOREIGN KEY (employee_id) REFERENCES employees (employee_id) ON DELETE CASCADE
 );
 
+CREATE TABLE rentable_tech (
+    object_id VARCHAR(25) PRIMARY KEY,
+    item_id VARCHAR(25) NOT NULL,
+    category ENUM('accessory', 'mouse', 'keyboard', 'monitor', 'gpu', 'minipc', 'motherboard', 'psu', 'ram', 'storage') NOT NULL,
+    rent_price DECIMAL(10,2),
+    CONSTRAINT valid_item CHECK (
+        (category = 'accessory' AND item_id LIKE 'acc_%') OR
+        (category = 'mouse' AND item_id LIKE 'mouse_%') OR
+        (category = 'keyboard' AND item_id LIKE 'kb_%') OR
+        (category = 'monitor' AND item_id LIKE 'monitor_%') OR
+        (category = 'gpu' AND item_id LIKE 'gpu_%') OR
+        (category = 'minipc' AND item_id LIKE 'mipc_%') OR
+        (category = 'motherboard' AND item_id LIKE 'mobo_%') OR
+        (category = 'psu' AND item_id LIKE 'psu_%') OR
+        (category = 'ram' AND item_id LIKE 'ram_%') OR
+        (category = 'storage' AND item_id LIKE 'storage_%')
+    )
+);
 
-CREATE TABLE Rentals (
-    rental_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    object_id INT,
-    rental_date DATE,
-    return_date DATE,
-    rental_status ENUM('Active', 'Returned', 'Overdue'),
-    FOREIGN KEY (object_id) REFERENCES Object_Junction(object_id) ON DELETE CASCADE
+CREATE TABLE customer (
+	customer_id VARCHAR(25) PRIMARY KEY,
+    first_name VARCHAR(25) NOT NULL,
+    last_name VARCHAR(25) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    BNumber VARCHAR(50) NOT NULL,
+    registration_date DATE DEFAULT CURRENT_DATE,
+    INDEX idx_email (email),
+    UNIQUE INDEX idx_bnumber(BNumber)
 );
 
 
 SELECT * FROM Rentals 
-JOIN Object_Junction ON Rentals.object_id = Object_Junction.object_id
-JOIN RAMSticks ON Object_Junction.specific_item_id = RAMSticks.ramstick_id
-WHERE Object_Junction.category = 'RAMStick';
+JOIN rentableItems ON Rentals.object_id = rentableItems.object_id
+JOIN RAMSticks ON rentableItems.specific_item_id = RAMSticks.ramstick_id
+WHERE rentableItems.category = 'RAMStick';
+
+
+
+
+
+Remove the status column from rentable_tech
+Use the rentals table as the single source of truth for item availability
+Create a VIEW if you need quick access to item availability status:
+CREATE VIEW item_availability AS
+SELECT rt.object_id,
+    rt.item_id,
+    rt.category,
+    CASE 
+        WHEN r.rental_id IS NULL THEN 'available'
+        ELSE r.status 
+    END AS status
+FROM rentable_tech rt
+LEFT JOIN rentals r ON rt.object_id = r.object_id 
+    AND r.status IN ('active', 'overdue');

@@ -1,13 +1,13 @@
 
 <?php
-// Created by Aaron C. 10/08/2024 Updated on 02/12/2025 
+// Created by Aaron C. 10/08/2024 Updated on 05/31/2025 
 ini_set('display_errors', 1); 
 ini_set('display_startup_errors', 1); 
 error_reporting(E_ALL);
 ini_set('log_errors', 1);
-ini_set('error_log', 'C:/xampp/htdocs/inventory/database_operations_error_log.log'); // Update this path to a writable location
+ini_set('error_log', 'C:/xampp/htdocs/inventory/php/SQL_Operation_Layer/database_operations_error_log.log'); // Update this path to a writable location
 
-require 'word_bank.php';
+require '../Utility/word_bank.php';
 require $databaseFile;
 include $SQLGeneratorFile;
 
@@ -94,9 +94,10 @@ include $SQLGeneratorFile;
          try{
            if($statement -> execute()){
               $this -> database -> closeDB();
+              return true;
             } 
            else{
-              echo "Record insert not successful.";
+              echo false;
            }
         }
         catch(PDOException $e){
@@ -199,6 +200,7 @@ class updateOp extends SQLOp{// updateOp class intended to update tables
         try{
             if($this -> statement -> execute()){
                 $this -> database -> closeDB();
+                return true;
             }
         }
         catch(PDOException $e){
@@ -221,6 +223,8 @@ class deleteOp extends SQLOp {// delete rows
     public function delete_row(){// function used to delete a row from a table.
         try{
             $this -> statement -> execute();
+            $this -> database -> closeDB();
+            return true;
         }
         catch(PDOException $e){
             error_log("Execution failed: " . $e->getMessage());

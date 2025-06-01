@@ -1,5 +1,5 @@
 const sessionData = () => {
-    fetch('php/SessionsData.php')
+    fetch('../php/Utility/SessionsData.php')
     .then(response => {
         if (!response.ok) {
             window.alert('Session expired, please login again');

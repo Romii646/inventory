@@ -60,7 +60,8 @@
 | customer_id| VARCHAR (PK) | Unique customer ID      |
 | name       | VARCHAR(100) | Customer's name         |
 | contact    | VARCHAR(100) | Email or phone          |
-| B#         | VARCHAR (20) |                         |
+| B#         | VARCHAR (20) | Unique Student Number   |
+| joinDate   | DATE         | when customer registered|
 
 **`items`** (update if not present)
 | Field Name | Type          | Description                 |

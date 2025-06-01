@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2025 at 08:41 PM
+-- Generation Time: May 29, 2025 at 09:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,6 +51,21 @@ CREATE TABLE `component_totals` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `customer_id` varchar(25) NOT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `BNumber` varchar(50) NOT NULL,
+  `registration_date` date DEFAULT curdate()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `disposed_parts`
 -- (See below for the actual view)
 --
@@ -77,6 +92,13 @@ CREATE TABLE `employees` (
   `hire_date` date NOT NULL,
   `employee_type` enum('DBA','FullTime','SoftwareDev') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`employee_id`, `password`, `first_name`, `last_name`, `email`, `hire_date`, `employee_type`) VALUES
+('EMP0001', 'aaron', 'Aaron', 'Cortina', 'cortina.aaron@easternflorida.edu', '2024-08-08', 'SoftwareDev');
 
 -- --------------------------------------------------------
 
@@ -447,6 +469,37 @@ INSERT INTO `ramsticks` (`ram_id`, `name`, `type`, `speed`, `condition`, `cost`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rentable_tech`
+--
+
+CREATE TABLE `rentable_tech` (
+  `object_id` varchar(25) NOT NULL,
+  `item_id` varchar(25) NOT NULL,
+  `category` enum('accessory','mouse','keyboard','monitor','gpu','minipc','motherboard','psu','ram','storage') NOT NULL,
+  `rent_price` decimal(10,2) DEFAULT NULL
+) ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rental`
+--
+
+CREATE TABLE `rental` (
+  `rental_id` varchar(25) NOT NULL,
+  `object_id` varchar(25) NOT NULL,
+  `customer_id` varchar(25) NOT NULL,
+  `employee_id` varchar(25) NOT NULL,
+  `rental_start_date` date DEFAULT NULL,
+  `rental_return_date` date DEFAULT NULL,
+  `actual_return_date` date DEFAULT NULL,
+  `status` enum('active','returned','overdue') NOT NULL,
+  `rental_total` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `storage_components`
 --
 
@@ -529,6 +582,14 @@ ALTER TABLE `accessories`
   ADD PRIMARY KEY (`acc_id`);
 
 --
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customer_id`),
+  ADD UNIQUE KEY `idx_bnumber` (`BNumber`),
+  ADD KEY `idx_email` (`email`);
+
+--
 -- Indexes for table `employees`
 --
 ALTER TABLE `employees`
@@ -600,6 +661,21 @@ ALTER TABLE `ramsticks`
   ADD PRIMARY KEY (`ram_id`);
 
 --
+-- Indexes for table `rentable_tech`
+--
+ALTER TABLE `rentable_tech`
+  ADD PRIMARY KEY (`object_id`);
+
+--
+-- Indexes for table `rental`
+--
+ALTER TABLE `rental`
+  ADD PRIMARY KEY (`rental_id`),
+  ADD KEY `object_id` (`object_id`),
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `employee_id` (`employee_id`);
+
+--
 -- Indexes for table `storage_components`
 --
 ALTER TABLE `storage_components`
@@ -629,6 +705,14 @@ ALTER TABLE `pcsetups`
   ADD CONSTRAINT `pcsetups_ibfk_6` FOREIGN KEY (`kb_id`) REFERENCES `keyboards` (`kb_id`),
   ADD CONSTRAINT `pcsetups_ibfk_7` FOREIGN KEY (`mouse_id`) REFERENCES `mice` (`mouse_id`),
   ADD CONSTRAINT `pcsetups_ibfk_8` FOREIGN KEY (`storage_slot_id`) REFERENCES `storage_slots` (`storage_slot_id`);
+
+--
+-- Constraints for table `rental`
+--
+ALTER TABLE `rental`
+  ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`object_id`) REFERENCES `rentable_tech` (`object_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_3` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `storage_components`

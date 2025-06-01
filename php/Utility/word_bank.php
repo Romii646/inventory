@@ -1,12 +1,24 @@
 <?php
-// Created by Aaron C. 10/08/2024 updated on 02/12/2025
+// Created by Aaron C. 10/08/2024 updated on 05/31/2025
 
 // External file listing
-   $databaseFile = 'database.php';
-   $SQLGeneratorFile = "SQL_statement_generator.php";
-   $SQLOperationFile = 'database_operations.php';
-   $errorFunctionsFile = 'validate_error_functions.php';
-   $EmployeeFile = 'Employees.php';
+$databaseFile = '../Database/database.php';
+$SQLGeneratorFile = '../Utility/SQL_statement_generator.php';
+$SQLOperationFile = '../SQL_Operation_Layer/database_operations.php';
+$errorFunctionsFile = '../Utility/validate_error_functions.php';
+$configurationFile = '../configuration/config_logging.php';
+
+
+//plain class group
+$EmployeeFile = '../Domain_Layer/Employee.php';
+$rentalFile = '../Domain_Layer/Rental.php';
+$itemFile = '../Domain_Layer/Item.php';
+$customerFile = '../Domain_Layer/Customer.php';
+$sessionFile = '../Domain_Layer/Session.php';
+
+
+//manager class file group
+$rentalManagerFile = '../Application_Layer/RentalManager.php';
 
  //if (!function_exists('find_ID')) {
     /**

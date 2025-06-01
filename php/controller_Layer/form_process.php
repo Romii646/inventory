@@ -12,7 +12,7 @@
 
     // Start of form processing for keyboard page
     // Variable list and require list
-    require 'word_bank.php';
+    require '../Utility/word_bank.php';
     require $SQLOperationFile;
     require $errorFunctionsFile;
 
@@ -74,7 +74,7 @@
 
         // View Table form ***********************************************************************
         case 'form2'://This form is no long in use due to javascript function fetchTable take control of rendering tables
-            // on the homePage. This function can be used from more dominate php focused data transfers between php files
+            // on the homePage. This function can be used for more dominate php focused data transfers between php files
             
             $viewOp = new queryOp(); // Instantiating queryOp class for viewing data
             if(isset($_GET['table'])){

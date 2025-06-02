@@ -15,6 +15,8 @@ $logDirs = [
     LOG_PATH,
     LOG_PATH . 'database',
     LOG_PATH . 'rentals',
+    LOG_PATH . 'customer',
+    LOG_PATH . 'item',
     LOG_PATH . 'security',
     LOG_PATH . 'errors'
 ];
@@ -42,6 +44,9 @@ function writeLog($message, $type = 'error', $level = 'INFO') {
             break;
         case 'item':
             $logFile .= 'item/item_operations.log';
+            break;
+        case 'security':
+            $logFile .= 'session/session_operations.log';
             break;
         default:
             $logFile .= 'errors/general_errors.log';

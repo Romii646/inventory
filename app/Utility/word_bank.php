@@ -10,7 +10,7 @@ $configurationFile = '../configuration/config_logging.php';
 
 
 //plain class group
-$EmployeeFile = '../Domain_Layer/Employee.php';
+$employeeFile = '../Domain_Layer/Employee.php';
 $rentalFile = '../Domain_Layer/Rental.php';
 $itemFile = '../Domain_Layer/Item.php';
 $customerFile = '../Domain_Layer/Customer.php';
@@ -19,6 +19,12 @@ $sessionFile = '../Domain_Layer/Session.php';
 
 //manager class file group
 $rentalManagerFile = '../Application_Layer/RentalManager.php';
+$employeeManagerFile = '../Application_Layer/EmployeeManager.php';
+$sessionManagerFile = '../Apllication_Layer/SessionManager';
+
+//controller class file group
+$loginControllerFile = '../Controller_Layer/EmployeeManager.php';
+$rentalControllerFile = '../Controller_Layer/rentalManager.php';
 
  //if (!function_exists('find_ID')) {
     /**

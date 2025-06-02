@@ -10,12 +10,13 @@ class SessionManager {
     function setSessionInfo($employeeInfo){// Set session information based on employee data
         $this -> session = new Session(
             $employeeInfo['employeeID'],
-            $employeeInfo['first_name'],
+            $employeeInfo['firstName'],
             $employeeInfo['employeeType'],
         );
+        return setSession();
     }
 
-    function setSession(){
+    private function setSession(){
         if(!empty($this -> employee)){
             $_SESSION['employeeID'] = $this -> session -> getEmployeeID();
             $_SESSION['firstName'] = $this -> session -> getFirstName();
@@ -39,9 +40,9 @@ class SessionManager {
             }
 
             return [
-                'employeeID' => $_SESSION['employeeID'],
-                'firstName' => $_SESSION['firstName'],
-                'employeeType' => $_SESSION['employeeType']
+                'employeeID' => $_SESSION['employeeID'] ?? null,
+                'firstName' => $_SESSION['firstName'] ?? null,
+                'employeeType' => $_SESSION['employeeType'] ?? null,
             ];
         }
         catch (Exception $e) {

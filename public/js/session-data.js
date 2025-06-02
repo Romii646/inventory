@@ -1,5 +1,7 @@
 const sessionData = () => {
-    fetch('../php/Utility/SessionsData.php')
+    fetch('../../app/Routes/Router.php?router=grabSession',{
+        method : 'GET'
+    })
     .then(response => {
         if (!response.ok) {
             window.alert('Session expired, please login again');

@@ -11,7 +11,7 @@ function showTable(event){//function to show table currently a function not in u
             document.getElementById('show').innerHTML = this.responseText;
         }
     };
-        httpRequest.open("GET", "./php/form_process.php?table=" + tables + "&form=" + form, true);//specify the type of request
+        httpRequest.open("GET", "../../app/controller_Layer/form_process.php?table=" + tables + "&form=" + form, true);//specify the type of request
         httpRequest.send();//send the request
 } 
 

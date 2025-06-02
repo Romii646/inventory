@@ -1,6 +1,10 @@
 <?php
-// Created by Aaron C.
-// Date: 05/30/2025
+/**
+ * Employee Manager Class
+ * 
+ * @author Aaron C.
+ * @date 05/30/2025
+ */
 require "../Utility/word_bank.php";
 require $EmployeeFile;
 class EmployeeManager extends SQLOp {
@@ -16,10 +20,10 @@ class EmployeeManager extends SQLOp {
         if($this -> statement -> rowCount() > 0){
             $row = $this -> statement -> fetch(PDO::FETCH_ASSOC);// fetch the row
             $this -> employee = new Employee(
-                $row['employee_id'],
+                $row['employeeID'],
                 $row['password'],
-                $row['first_name'],
-                $row['employee_type']
+                $row['firstName'],
+                $row['employeeType']
             );
             if(!$employee -> verifyPassword($inputPassword)){
                 return false; // password does not match
@@ -30,7 +34,7 @@ class EmployeeManager extends SQLOp {
             DB_close();
         }
         DB_close();
-        return $employee; // return the employee object if password matches
+        return true; // returns true if password matches
     }
     // retrieve credentials for session login
     function retrieveCredential(){

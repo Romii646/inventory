@@ -46,7 +46,7 @@ function clearForm(formId){
 // Functions that uses this function are virtualView, queryTable, and deleteRow.
 function fetchTable(event) {
     tableFileName = event;
-    fetch('./php/Application_Layer/pc_set_up_process.php?action=view', {
+    fetch('../../app/controller_Layer/pc_set_up_process.php?action=view', {
         method : 'POST',
         headers : {'content-type' : 'application/json'},
         body : event
@@ -143,7 +143,7 @@ function queryTable(event){
     console.log(nameValue);
 
     if(nameValue === 'add'){
-        fetch('./php/Application_Layer/pc_set_up_process.php?action=add', {
+        fetch('../../app/controller_Layer/pc_set_up_process.php?action=add', {
             method : 'POST',
             headers : {'content-type' : 'application/json' },
             body: JSON.stringify(fieldValueArray)
@@ -165,7 +165,7 @@ function queryTable(event){
         });
     }
     else if(nameValue === 'update'){
-        fetch('./php/pc_set_up_process.php?action=update', {
+        fetch('../../app/controller_Layer/pc_set_up_process.php?action=update', {
             method : 'POST',
             headers : {'content-type' : 'application/json'},
             body : JSON.stringify(fieldValueArray) 
@@ -186,7 +186,7 @@ function deleteRow(event){
         event.preventDefault();
         const pc_id = document.getElementById('delete_pc_id').value;
 
-        fetch('./php/Application_Layer/pc_set_up_process.php?action=delete', {
+        fetch('../../app/controller_Layer/pc_set_up_process.php?action=delete', {
             method : 'POST',
             headers : {'content-type' : 'application/json'},
             body : JSON.stringify({pc_id : pc_id})
@@ -242,7 +242,7 @@ function queryAction(event) {
         }
  
         if(nameValue === 'add'){
-            fetch('./php/Application_Layer/form_process.php?form=form1', {
+            fetch('../../app/controller_Layer/form_process.php?form=form1', {
                 method : 'POST',
                 body : formData
             })
@@ -255,7 +255,7 @@ function queryAction(event) {
             });
         }
         else if(nameValue === 'update'){
-            fetch('./php/Application_Layer/form_process.php?form=form3', {
+            fetch('../../app/controller_Layer/form_process.php?form=form3', {
                 method : 'POST',
                 body : formData
             })
@@ -268,7 +268,7 @@ function queryAction(event) {
             });
         }
         else if (nameValue === 'delete'){
-            fetch('./php/Application_Layer/form_process.php?form=form4', {
+            fetch('../../app/controller_Layer/form_process.php?form=form4', {
                 method : 'POST',
                 body : formData
             })

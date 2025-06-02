@@ -27,15 +27,15 @@ class CustomerManager extends SQLOp {
 }
 
 //function registerCustomer($firstName, $lastName, $email, $BNumber, $registrationDate)
-function registerCustomer($bNumber, $email, $firstName, $lastName){
+function registerCustomer($post){
     $joinDate = date('y-m-d');
     $customer = new Customer(
         null, // customer_id will be set by the database
-        $firstName,
-        $lastName,
-        $email,
-        $bNumber,
-        $joinDate
+        $post['firstName'],
+        $post['lastName'],
+        $post['email'],
+        $post['bNumber'],
+        $post['joinDate']
     );
     $insert = new insertOp();
 

@@ -20,7 +20,8 @@ $sessionFile = '../Domain_Layer/Session.php';
 //manager class file group
 $rentalManagerFile = '../Application_Layer/RentalManager.php';
 $employeeManagerFile = '../Application_Layer/EmployeeManager.php';
-$sessionManagerFile = '../Apllication_Layer/SessionManager';
+$sessionManagerFile = '../Apllication_Layer/SessionManager.php';
+$customerManagerFile = '../Aplication_Layer/CustomerManager.php';
 
 //controller class file group
 $loginControllerFile = '../Controller_Layer/EmployeeManager.php';

@@ -8,6 +8,7 @@
 
  require '../Utility/word_bank.php';
  require_once $sessionManagerFile;
+ require_once $sessionFile;
  
 
  class SessionController {

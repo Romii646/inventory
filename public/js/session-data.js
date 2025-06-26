@@ -1,6 +1,6 @@
 const sessionData = () => {
-    fetch('../../app/Routes/Router.php?router=grabSession',{
-        method : 'GET'
+    fetch('../app/Routes/Router.php?router=grabSession',{
+        method : 'POST'
     })
     .then(response => {
         if (!response.ok) {
@@ -19,8 +19,8 @@ const sessionData = () => {
         }
     })
     .catch(error => {
-        console.error('Error fetching session data:', error);
-        window.alert('Session expired, please login again');
+        console.error('Error fetching session data:', error.message);
+        window.alert('Error fetching session data: ' + error.message);
         window.location.href = './LoginPage.html';
     });
 }

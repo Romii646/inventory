@@ -1,5 +1,5 @@
 
-const tableNames = {
+window.tableNames = {
     "accessories": [
         {
            "acc_id": "Accessory ID",
@@ -138,5 +138,3 @@ const tableNames = {
         }
     ]
 }
-
-export default tableNames;

@@ -7,6 +7,7 @@ $SQLGeneratorFile = '../Utility/SQL_statement_generator.php';
 $SQLOperationFile = '../SQL_Operation_Layer/database_operations.php';
 $errorFunctionsFile = '../Utility/validate_error_functions.php';
 $configurationFile = '../../configuration/config_logging.php';
+require $configurationFile;
 
 
 //plain class group
@@ -26,6 +27,7 @@ $customerManagerFile = '../Application_Layer/CustomerManager.php';
 //controller class file group
 $loginControllerFile = '../Controller_Layer/LoginController.php';
 $rentalControllerFile = '../Controller_Layer/RentalController.php';
+$sessionControllerFile = '../Controller_Layer/SessionController.php';
 
  //if (!function_exists('find_ID')) {
     /**

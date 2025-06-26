@@ -11,8 +11,7 @@ require_once $employeeManagerFile;
 require_once $employeeFile;
 require_once $sessionManagerFile;
 require_once $sessionFile;
-require_once $configurationFile;
-
+// require_once $configurationFile;
 class LoginController {
     private $employeeManager;
     private $sessionManager;
@@ -27,11 +26,11 @@ class LoginController {
         $employeeInfo = [];
         $error = 0;
         $employeeID = $post['employeeID'];
-        $givenPassword = $post['pasword'];
+        $givenPassword = $post['password'];
         try{
             if(preg_match($pattern, $employeeID)){
                 if($this -> employeeManager -> verifyLogin($employeeID, $givenPassword)){
-                    $employeeInfo = $this -> retrieveCredential(); 
+                    $employeeInfo = $this -> employeeManager -> retrieveCredential(); 
                 }
                 else{
                     echo '<p>Password is incorrect</p>';
@@ -49,7 +48,7 @@ class LoginController {
             }
 
             if($this -> sessionManager -> setSessionInfo($employeeInfo)){
-                header("Location: ../homePage.html"); 
+                header("Location: /inventory/inventory/public/homePage.html"); 
                 exit();
             }
             else{
@@ -61,6 +60,9 @@ class LoginController {
         catch(Exception $e){
             echo '</p>An error has occured, please notify DBA or WEB administrator</p>';
             writeLog("Error in function handleVerifyLogin: " . $e->getMessage(), 'errors', 'ERROR');
+            http_response_code(500);
+            header('Content-Type: application/json');
+            echo json_encode(['error' => 'An internal error occurred.']);
             exit();
         }
     }

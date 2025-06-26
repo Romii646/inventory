@@ -6,24 +6,23 @@
         <title>Rental main page</title>
         <link rel="stylesheet" href="./css/cyberStyles.css">
         <link rel="stylesheet" href="./css/rentalStyles.css">
-    
     </head>
     <body class="home">
         <header>
             <div class="title">Cyber Range Database Home Page</div>
             <div class="images">
-                    <img src="./images/cyberBanner.jpg" alt="A banner for the Cyber Range website">
-                </div>
-                <div class ="nav">
-                    <ul>
-                        <li><a href="./homePage.html">Home</a></li>
-                        <li><a href="#">Customer Management</a></li>
-                        <li><a href="../app/logout.php">Log Out</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p id="welcome"></p>
-                </div>
+                <img src="./images/cyberBanner.jpg" alt="A banner for the Cyber Range website">
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="./homePage.html">Home</a></li>
+                    <li><a href="#">Customer Management</a></li>
+                    <li><a href="../app/logout.php">Log Out</a></li>
+                </ul>
+            </div>
+            <div>
+                <p id="welcome"></p>
+            </div>
         </header>
         <main class="rentalContainer">
             <div class="leftSide" id="left-section">
@@ -39,9 +38,9 @@
             <div class="mainTableContainer">
                 <div class="formMaker">
                     <div class="viewSpace">
-                            <p id="pcSetUp-table" name="pcSetUp-table" class="table"></p>
-                            <p id="success" name="success"></p>
-                            <p id="error" name="error"></p>
+                        <p id="pcSetUp-table" name="pcSetUp-table" class="table"></p>
+                        <p id="success" name="success"></p>
+                        <p id="error" name="error"></p>
                     </div>
                     <form id="Main-form" name="Main-form">
                         <div class="mainFormHeading">
@@ -58,18 +57,32 @@
                                     <option value="empty">Drop down list</option>
                                 </select><br>
                             </div> 
-                        <div>
+                        </div>
+                    </form>
+                    <form id="deleteForm" name="deleteForm">
+                        <div class="mainFormHeading">
+                            <h2>Delete Row</h2>
+                        </div>
+                        <div class="form-field" name="delete">
+                            <label for="delete_id">ID: </label>
+                            <input type="text" id="delete_id" name="delete_id"/>
+                        </div>
+                        <div class="button-container" name="delete">
+                            <button type="submit" name="delete" value="deleteForm">Delete Row</button>
+                            <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>
+                        </div>
                     </form>
                 </div>
             </div>
             <div class="rightSide" id="right-section">this is the right li</div>
         </main>
+        <footer class="footer">
+            Cyber Range V2.5
+            Created by: Aaron C.
+        </footer>
+        <script src="js/rentalTables.js"></script>
+        <script src="./js/formScript.js"></script>
+        <script src="./js/session-data.js"></script>
+        <script src="./js/cyberScript.js"></script>
     </body>
-    <foot class="footer">
-        Cyber Range V2.5
-        Created by: Aaron C.
-    </foot>
-    <script type="module" src="./js/formScript.js"></script>
-    <script type="module" src="./js/session-data.js"></script>
-    <script src="./js/cyberScript.js"></script>
 </html>

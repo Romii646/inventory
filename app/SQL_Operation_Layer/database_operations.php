@@ -1,13 +1,13 @@
 
 <?php
 // Created by Aaron C. 10/08/2024 Updated on 05/31/2025 
-ini_set('display_errors', 1); 
+/* ini_set('display_errors', 1); 
 ini_set('display_startup_errors', 1); 
 error_reporting(E_ALL);
 ini_set('log_errors', 1);
-ini_set('error_log', 'C:/xampp/htdocs/inventory/php/SQL_Operation_Layer/database_operations_error_log.log'); // Update this path to a writable location
+ini_set('error_log', 'C:/xampp/htdocs/inventory/php/SQL_Operation_Layer/database_operations_error_log.log'); */ // Update this path to a writable location
 
-require '../Utility/word_bank.php';
+require_once '../Utility/word_bank.php';
 require $databaseFile;
 include $SQLGeneratorFile;
 

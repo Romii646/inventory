@@ -7,9 +7,6 @@
 </head>
 <body>
     <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-
     // Start of form processing for keyboard page
     // Variable list and require list
     require_once '../Utility/word_bank.php';

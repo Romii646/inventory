@@ -46,7 +46,7 @@ function writeLog($message, $type = 'error', $level = 'INFO') {
             $logFile .= 'item/item_operations.log';
             break;
         case 'security':
-            $logFile .= 'session/session_operations.log';
+            $logFile .= 'security/session_operations.log';
             break;
         default:
             $logFile .= 'errors/general_errors.log';

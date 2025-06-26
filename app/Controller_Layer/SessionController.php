@@ -28,9 +28,17 @@
     }
 
     function handleGetSessionData(){
-      $result = $this -> sessionManager -> getSessionData();
-      echo json_encode($result);
-      writeLog("Session log in for" . $result, 'security', 'LoginAttempt');
+      header('Content-Type: application/json');
+      try {
+          $result = $this-> sessionManager-> getSessionData();
+          echo json_encode($result);
+          writeLog("Session log in for " . json_encode($result), 'security', 'LoginAttempt');
+      } catch (Exception $e) {
+          writeLog("Error in handleGetSessionData: " . $e-> getMessage(), 'errors', 'ERROR');
+          http_response_code(500);
+          echo json_encode(['error' => 'An internal error occurred.']);
+      }
+      exit();
     }
  }
 ?>

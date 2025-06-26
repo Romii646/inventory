@@ -5,6 +5,6 @@
     $_SESSION = array(); // Clear all session variables
     session_destroy(); // Destroy the session
 
-    header('location: ../LoginPage.html'); // Redirect to the login page
+    header('location: ../public/LoginPage.html'); // Redirect to the login page
     exit();
 ?>

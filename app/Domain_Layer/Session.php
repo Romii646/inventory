@@ -1,7 +1,6 @@
 <?php
 // Created by Aaron C.
 // Date: 05/30/2025
-
 class Session {
     private $sessionID;
     private $employeeID;
@@ -10,7 +9,7 @@ class Session {
     private $startTime;
     private $endTime;
 
-    function __construct($sessionID, $employeeID, $firstName, $employeeType, $startTime, $endTime) {
+    function __construct($employeeID, $firstName, $employeeType) {
         $this -> employeeID = $employeeID;
         $this -> firstName = $firstName;
         $this -> employeeType = $employeeType;

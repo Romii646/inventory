@@ -1,6 +1,6 @@
 <?php
 /**
- * Logging Configuration
+ * Customer Controller
  * 
  * @author Aaron C.
  * @date 05/31/2025
@@ -14,47 +14,78 @@ class customerController {
     private $customerManager;
 
     function __construct(){
-        $this -> customerManager = new CustomerManager();
+        $this->customerManager = new CustomerManager();
     }
 
     function handleRegisterCustomer($post) {
-      $validatedPost = validateSanitize($post);
+        header('Content-Type: application/json');
+        try {
+            $validatedPost = $this->validateSanitize($post);
 
-      if(!$validatedPost['failed']){
-        echo $validatedPost['message'];
-        exit();
-      }
+            if(isset($validatedPost['failed']) && $validatedPost['failed'] === false){
+                writeLog("Customer registration failed validation: " . $validatedPost['message'], 'customer', 'ERROR');
+                http_response_code(400);
+                echo json_encode(['error' => $validatedPost['message']]);
+                exit();
+            }
 
-      $result = $this -> customerManager -> registerCustomer($validatedPost);
-      
-      echo json_encode($result);
+            $result = $this->customerManager->registerCustomer($validatedPost);
+
+            if ($result) {
+                writeLog("Customer registered: " . json_encode($validatedPost), 'customer', 'INFO');
+                echo json_encode(['success' => true, 'customerID' => $result]);
+            } else {
+                writeLog("Customer registration failed for: " . json_encode($validatedPost), 'customer', 'ERROR');
+                http_response_code(500);
+                echo json_encode(['error' => 'Customer registration failed.']);
+            }
+        } catch (Exception $e) {
+            writeLog("Exception in handleRegisterCustomer: " . $e->getMessage(), 'customer', 'ERROR');
+            http_response_code(500);
+            echo json_encode(['error' => 'Internal server error.']);
+        }
     }
 
     private function validateSanitize($post): array {
-      $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_SPECIAL_CHAR);
-      $lastNAme = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_SPECIAL_CHAR);
-      $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-      $bNumber = filter_input(INPUT_POST, 'bNumber', FILTER_SANITIZE_SPECIAL_CHAR);
-      $joinDate = filter_input(INPUT_POST, 'joinDate', FILTER_SANITIZE_SPECIAL_CHAR);
+        $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_SPECIAL_CHARS);
+        $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+        $bNumber = filter_input(INPUT_POST, 'bNumber', FILTER_SANITIZE_SPECIAL_CHARS);
+        $joinDate = filter_input(INPUT_POST, 'joinDate', FILTER_SANITIZE_SPECIAL_CHARS);
 
-      if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return [
+                'failed' => false,
+                'message' => 'Invalid email. Please hit the back button and try again.'
+            ];
+        }
+
         return [
-          'failed' => false,
-          'message' => 'Invalid email. Please hit the back button and try again.'
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'email' => $email,
+            'bNumber' => $bNumber,
+            'joinDate' => $joinDate
         ];
-      }
-
-      return [
-        'firstName' => $firstName,
-        'lastName' => $lastName,
-        'email' => $email,
-        'bNumber' => $bNumber,
-        'joinDate' => $joinDate
-      ];
     }
     
     function handleDeleteCustomer($post){
-      $this -> customerManager -> deleteCustomer($post);
+        header('Content-Type: application/json');
+        try {
+            $result = $this->customerManager->deleteCustomer($post['customerID'] ?? null);
+            if ($result) {
+                writeLog("Customer deleted: " . ($post['customerID'] ?? 'unknown'), 'customer', 'INFO');
+                echo json_encode(['success' => true]);
+            } else {
+                writeLog("Customer deletion failed for ID: " . ($post['customerID'] ?? 'unknown'), 'customer', 'ERROR');
+                http_response_code(500);
+                echo json_encode(['error' => 'Customer deletion failed.']);
+            }
+        } catch (Exception $e) {
+            writeLog("Exception in handleDeleteCustomer: " . $e->getMessage(), 'customer', 'ERROR');
+            http_response_code(500);
+            echo json_encode(['error' => 'Internal server error.']);
+        }
     }
 }
 ?>

@@ -1,8 +1,8 @@
 <?php
 // Created by Aaron C.
 // Date: 05/31/2025
-require "../Utility/word_bank.php";
-require $SessionFile;
+require_once "../Utility/word_bank.php";
+require $sessionFile;
 session_start();
 class SessionManager {
     private $session;

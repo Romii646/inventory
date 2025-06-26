@@ -6,7 +6,7 @@
  * @date 06/01/2025
  */
 
-require '../Utility/word_bank.php';
+require_once '../Utility/word_bank.php';
 require_once $employeeManagerFile;
 require_once $employeeFile;
 require_once $sessionManagerFile;

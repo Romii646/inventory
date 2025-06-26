@@ -1,7 +1,7 @@
 <?php
 // Created by Aaron C.
 // Date: 05/30/2025
-require "../Utility/word_bank.php";
+require_once '../Utility/word_bank.php';
 require $SQLOperationFile;
 require $customerFile;
 

@@ -2,17 +2,15 @@
 // Start of employee object file
 // Author: Aaron Cortina
 // Date: 05/20/2025
-require '../Utility/word_bank.php';
-require $SQLOperationFile;
 
-class Employee extends SQLOp{
+
+class Employee {
     private $employeeID;
     private $firstName;
     private $password;
     private $employeeType;
 
     function __construct($employeeID, $password, $firstName = null, $employeeType = null){
-        parent::__construct();
         $this -> employeeID = $employeeID;
         $this -> password = $password;
         $this -> firstName = $firstName;

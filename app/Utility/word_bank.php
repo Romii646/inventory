@@ -6,7 +6,7 @@ $databaseFile = '../Database/database.php';
 $SQLGeneratorFile = '../Utility/SQL_statement_generator.php';
 $SQLOperationFile = '../SQL_Operation_Layer/database_operations.php';
 $errorFunctionsFile = '../Utility/validate_error_functions.php';
-$configurationFile = '../configuration/config_logging.php';
+$configurationFile = '../../configuration/config_logging.php';
 
 
 //plain class group
@@ -20,12 +20,12 @@ $sessionFile = '../Domain_Layer/Session.php';
 //manager class file group
 $rentalManagerFile = '../Application_Layer/RentalManager.php';
 $employeeManagerFile = '../Application_Layer/EmployeeManager.php';
-$sessionManagerFile = '../Apllication_Layer/SessionManager.php';
-$customerManagerFile = '../Aplication_Layer/CustomerManager.php';
+$sessionManagerFile = '../Application_Layer/SessionManager.php';
+$customerManagerFile = '../Application_Layer/CustomerManager.php';
 
 //controller class file group
-$loginControllerFile = '../Controller_Layer/EmployeeManager.php';
-$rentalControllerFile = '../Controller_Layer/rentalManager.php';
+$loginControllerFile = '../Controller_Layer/LoginController.php';
+$rentalControllerFile = '../Controller_Layer/RentalController.php';
 
  //if (!function_exists('find_ID')) {
     /**

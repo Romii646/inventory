@@ -9,7 +9,7 @@ session_start();?>
 </head>
 <body>
     <?php
-        require 'Utility/word_bank.php';
+        require_once 'Utility/word_bank.php';
         require $errorFunctionsFile;
         require $EmployeeFile;
 

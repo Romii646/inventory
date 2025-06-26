@@ -6,14 +6,14 @@
  * @date 05/30/2025
  */
 
-require '../Uitlity/word_bank.php';
+require_once '../Utility/word_bank.php';
 require_once $configurationFile;
-require $SQLOperationFile;
-require $rentalFile;
+require_once $SQLOperationFile;
+require_once $rentalFile;
 
 class RentalManager extends SQLOp {
 
-    function addRental($objectID, $BNumber, $employeeID, $rentalStartDate, $expectedReturnDate, $actualReturnDate = NULL, $status, $totalPrice) {
+    function addRental($objectID, $BNumber, $employeeID, $rentalStartDate, $expectedReturnDate, $status, $totalPrice, $actualReturnDate = NULL) {
         require_once $itemFile;
         $customerManager = new CustomerManager();
         $customer = $customerManager -> getCustomer($BNumber);
@@ -25,9 +25,9 @@ class RentalManager extends SQLOp {
             $employeeID,
             $rentalStartDate,
             $expectedReturnDate,
-            $actualReturnDate,
             $status,
-            $totalPrice
+            $totalPrice,
+            $actualReturnDate
         );
         $insert = new insertOp();
         $insert -> set_table_names(
@@ -87,13 +87,13 @@ class RentalManager extends SQLOp {
     function upDateRental($rentalData){// Function to update rental information for the status column active, returned, or overdue
         $tableName = 'rental';
         $updateOp = new updateOp();
-        $updateOP -> set_table_update($tableName, $rentalData);
+        $updateOp -> set_table_update($tableName, $rentalData);
         return $updateOp -> update_table();
     }
 
     function deleteRental($rentalID) {
         $deleteOp = new deleteOp();
-        $deleteOp - set_table_delete('rental', 'rental_id', $rentalID);
+        $deleteOp -> set_table_delete('rental', 'rental_id', $rentalID);
         return $deleteOp -> delete_row();
     }
 

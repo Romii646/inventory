@@ -13,13 +13,13 @@ require '../Utility/word_bank.php';
 require $loginControllerFile;
 require $rentalControllerFile;
 
-if($method === 'post' && $route === 'login'){
+if(strtolower($method) === 'post' && $route === 'login'){
     (new LoginController()) -> handleVerifyLogin($_POST);
 }
-else if($method === 'post' && $route === 'rentalSubmission'){
-    (new RenalManager()) -> processRentalRequest($_POST);
+else if(strtolower($method) === 'post' && $route === 'rentalSubmission'){
+    (new RentalManager()) -> processRentalRequest($_POST);
 }
-else if ($method === 'post' && $route === 'grabSession'){
+else if (strtolower($method) === 'post' && $route === 'grabSession'){
     (new SessionController()) -> handleGetSessionData();
 }
 else{

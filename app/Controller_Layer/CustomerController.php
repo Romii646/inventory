@@ -6,7 +6,7 @@
  * @date 05/31/2025
  */
 
-require '../Utility/word_bank.php';
+require_once '../Utility/word_bank.php';
 require_once $cusotmerManager;
 require_once $customerFile;
 

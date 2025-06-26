@@ -12,7 +12,7 @@
 
     // Start of form processing for keyboard page
     // Variable list and require list
-    require '../Utility/word_bank.php';
+    require_once '../Utility/word_bank.php';
     require $SQLOperationFile;
     require $errorFunctionsFile;
 

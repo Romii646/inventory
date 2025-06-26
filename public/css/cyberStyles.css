@@ -19,7 +19,7 @@ header{
 body{
     font-family: monospace;
     color: white;
-    position: relative;
+    /* position: relative; */
     top: 20px;
     background-image: var(--body-bg-image);
 }

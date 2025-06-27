@@ -1,0 +1,68 @@
+[2025-06-26 04:21:51][LoginAttempt] Session log in for{"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 04:54:10][INFO] Session set for employeeID: EMP00001
+[2025-06-26 04:54:10][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 04:54:10][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 04:54:20][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 04:54:20][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 04:54:23][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 04:54:23][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 04:56:24][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 04:56:24][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:46:50][INFO] Session set for employeeID: EMP00001
+[2025-06-26 05:46:50][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:46:50][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:49:03][INFO] Session set for employeeID: EMP00001
+[2025-06-26 05:49:03][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:49:03][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:49:06][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:49:06][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:49:59][INFO] Session set for employeeID: EMP00001
+[2025-06-26 05:49:59][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:49:59][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:50:03][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:50:03][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:50:44][INFO] Session set for employeeID: EMP00001
+[2025-06-26 05:50:44][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:50:44][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:50:45][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:50:45][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:50:54][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:50:54][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:55:19][INFO] Session set for employeeID: EMP00001
+[2025-06-26 05:55:19][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:55:19][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:55:25][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:55:25][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:55:51][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:55:51][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:56:01][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:56:01][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:59:42][INFO] Session set for employeeID: EMP00001
+[2025-06-26 05:59:42][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:59:42][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 05:59:43][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 05:59:43][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:08:20][INFO] Session set for employeeID: EMP00001
+[2025-06-26 06:08:20][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:08:20][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:08:26][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:08:26][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:12:55][INFO] Session set for employeeID: EMP00001
+[2025-06-26 06:12:55][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:12:55][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:12:57][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:12:57][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:13:04][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:13:04][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:13:09][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:13:09][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:24:39][INFO] Session set for employeeID: EMP00001
+[2025-06-26 06:24:39][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:24:39][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:24:52][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:24:52][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:28:46][INFO] Session set for employeeID: EMP00001
+[2025-06-26 06:28:46][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:28:46][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-26 06:28:57][INFO] Session data retrieved for employeeID: EMP00001
+[2025-06-26 06:28:57][LoginAttempt] Session log in for {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}

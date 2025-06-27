@@ -1,0 +1,32 @@
+.rentalContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 10px 0px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+.leftSide{
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    /* flex: 1; */
+    border: 1px solid rgb(48 234 42);
+    width: 78.5%;
+    /* max-width: 1000px; */
+    height: 1000px;
+    box-sizing: border-box;
+    margin-left: 17px;
+    min-width: 800px;
+}
+.rightSide {
+    flex: 1;
+    border: 5px solid rgb(64 207 58);
+    width: 220px;
+    height: 1000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #00637b;
+}

@@ -6,11 +6,11 @@
  * @date 05/31/2025
  */
 
- require_once '/../Utility/word_bank.php';
- require_once $itemManagerFile;
- require_once $itemFile;
+require_once '/../Utility/word_bank.php';
+require_once $itemManagerFile;
+require_once $itemFile;
 
- class ItemController{
+class ItemController{
     private $itemManager;
 
     function  __construct(){
@@ -21,6 +21,7 @@
         try {
             $item = $this -> itemManager -> getItem($objectID);
             if ($item){
+                writeLog("Item fetched successfully: objectID=$objectID", 'item', 'INFO');
                 return [
                     'status' => 'success',
                     'data' => [
@@ -32,6 +33,7 @@
                 ];
             }
             else {
+                writeLog("Item not found: objectID=$objectID", 'item', 'WARNING');
                 return [
                     'status' => 'error',
                     'message' => 'Item not found.'
@@ -39,10 +41,10 @@
             }
         }
         catch (Exception $e) {
-            writeLog("Failed to get Item: " . $e->getMessage(), 'item', 'ERROR');
+            writeLog("Exception in getItemDetails: " . $e->getMessage(), 'item', 'ERROR');
             return [
                 'status' => 'error',
-                'message' => 'An error occurred: ' . $e -> getMessage()
+                'message' => 'An internal error occurred while fetching item details.'
             ];
         }
     }
@@ -50,5 +52,5 @@
     //addItem function can be added here if needed
     //updateItem function can be added here if needed
     //deleteItem function can be added here if needed
- }
+}
 ?>

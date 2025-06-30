@@ -1,0 +1,51 @@
+[2025-06-30 01:35:39][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 01:35:43][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist
+[2025-06-30 01:35:51][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 01:35:58][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist
+[2025-06-30 01:36:00][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 01:36:05][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist
+[2025-06-30 01:36:06][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 01:36:08][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist
+[2025-06-30 01:36:10][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 01:36:12][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist
+[2025-06-30 01:36:16][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 01:40:18][INFO] Insert attempt: table=keyboards, columns=["kb_id","name","condition","cost","status","Location"], values=["kb_0023","Cherry","GOOD",400,"IN_USE","Storage room 212"]
+[2025-06-30 01:40:18][INFO] Insert operation successful for table: keyboards
+[2025-06-30 01:40:48][INFO] Delete attempt: table=keyboards, p_id=kb_id, p_value=kb_0023
+[2025-06-30 01:40:48][INFO] Delete operation successful for table: keyboards, p_id: kb_id, p_value: kb_0023
+[2025-06-30 01:41:00][INFO] Insert attempt: table=keyboards, columns=["kb_id","name","condition","cost","status","Location"], values=["kb_0023","Cherry","GOOD",400,"IN_USE","Storage room 212"]
+[2025-06-30 01:41:00][INFO] Insert operation successful for table: keyboards
+[2025-06-30 01:41:40][INFO] Insert attempt: table=keyboards, columns=["kb_id","cost"], values=["kb_0023",99.99]
+[2025-06-30 01:41:40][ERROR] Execution not successful for the add_query: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'kb_0023' for key 'PRIMARY'
+[2025-06-30 01:41:40][INFO] Insert operation successful for table: keyboards
+[2025-06-30 01:41:44][INFO] Update attempt: table=keyboards, values={"kb_id":"kb_0023","cost":"99.99"}
+[2025-06-30 01:41:44][INFO] Update operation successful for table: keyboards
+[2025-06-30 01:45:35][INFO] Insert attempt: table=keyboards, columns=[], values=[]
+[2025-06-30 01:45:35][ERROR] Execution not successful for the add_query: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2025-06-30 01:45:35][INFO] Insert operation successful for table: keyboards
+[2025-06-30 01:45:50][INFO] Delete attempt: table=keyboards, p_id=kb_id, p_value=kb_0023
+[2025-06-30 01:45:50][INFO] Delete operation successful for table: keyboards, p_id: kb_id, p_value: kb_0023
+[2025-06-30 01:48:48][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.not_in_use' doesn't exist
+[2025-06-30 02:11:46][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2025-06-30 02:12:06][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2025-06-30 02:12:51][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:13:40][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:13:46][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:13:57][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:21:37][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:25:27][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:25:31][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:34:02][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:45:13][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:45:24][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:45:37][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:46:01][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:46:14][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:46:21][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:46:25][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:47:26][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:47:39][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:47:46][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:47:52][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:47:54][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2025-06-30 02:48:09][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist

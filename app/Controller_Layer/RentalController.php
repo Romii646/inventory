@@ -19,7 +19,6 @@ class RentalController{
     }
 
     function processRentalRequest($post): array{
-        //validate inputdata
         $validatedpost = $post;
         try{
             $result = $this -> rentalManager -> addRental(
@@ -29,17 +28,19 @@ class RentalController{
                 $validatedpost['start_date'],
                 $validatedpost['return_date'],
                 'active',
-                $validatedpost['totalPrice'],
+                $validatedpost['totalPrice']
             );
 
             if($result){
+                writeLog("Rental created successfully: rental_id=$result, data=" . json_encode($validatedpost), 'rental', 'INFO');
                 return ['success' => true, 'rental_id' => $result];
             }
-            return ['success' => false, 'message' => 'failed to create rental entry.'];
+            writeLog("Failed to create rental entry: " . json_encode($validatedpost), 'rental', 'WARNING');
+            return ['success' => false, 'message' => 'Failed to create rental entry.'];
         }
         catch(Exception $e){
-            writeLog("Failed to process new rental: " . $e->getMessage(), 'rental', 'ERROR');
-            return ['success' => false, 'message' => $e->getMessage()]; 
+            writeLog("Exception in processRentalRequest: " . $e->getMessage(), 'rental', 'ERROR');
+            return ['success' => false, 'message' => 'An internal error occurred while processing the rental.'];
         }
     }
 }

@@ -9,3 +9,115 @@
 [2025-06-26 06:12:55][INFO] Login successful for employee_id EMP00001
 [2025-06-26 06:24:39][INFO] Login successful for employee_id EMP00001
 [2025-06-26 06:28:46][INFO] Login successful for employee_id EMP00001
+[2025-06-29 23:24:36][INFO] Login successful for employee_id EMP00001
+[2025-06-29 23:24:36][INFO] Login successful for employeeID: EMP00001
+[2025-06-29 23:24:36][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-29 23:24:36][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:37:53][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:38:01][INFO] Login successful for employee_id EMP00001
+[2025-06-29 23:38:01][INFO] Login successful for employeeID: EMP00001
+[2025-06-29 23:38:01][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-29 23:38:02][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:40:44][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:42:02][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:42:05][INFO] Login successful for employee_id EMP00001
+[2025-06-29 23:42:05][INFO] Login successful for employeeID: EMP00001
+[2025-06-29 23:42:05][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-29 23:42:05][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:42:37][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:45:27][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:52:24][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:56:46][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:57:16][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-29 23:57:35][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:35:33][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:36:21][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:38:51][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:39:01][INFO] Login successful for employee_id EMP00001
+[2025-06-30 01:39:01][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 01:39:01][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 01:39:01][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:39:23][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:39:42][INFO] Login successful for employee_id EMP00001
+[2025-06-30 01:39:42][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 01:39:42][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 01:39:43][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:41:44][ERROR] PHP Error [2] include(word_bank.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2025-06-30 01:41:44][ERROR] PHP Error [2] include(): Failed opening 'word_bank.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2025-06-30 01:42:37][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:42:45][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:45:35][ERROR] PHP Error [2] Undefined array key -1 in C:\xampp\htdocs\inventory\inventory\app\Utility\SQL_statement_generator.php on line 20
+[2025-06-30 01:46:04][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:47:15][INFO] Login successful for employee_id EMP00001
+[2025-06-30 01:47:15][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 01:47:15][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 01:47:15][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:47:20][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:48:39][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:48:43][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 01:49:52][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:11:13][INFO] Login successful for employee_id EMP00001
+[2025-06-30 02:11:13][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 02:11:13][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 02:11:13][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:11:15][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:11:44][INFO] Login successful for employee_id EMP00001
+[2025-06-30 02:11:44][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 02:11:44][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 02:11:44][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:11:46][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:11:54][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:12:06][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:12:51][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:13:00][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:13:33][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:13:40][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:13:43][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:13:46][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:13:52][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:13:57][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:13:59][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:21:37][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:25:18][INFO] Login successful for employee_id EMP00001
+[2025-06-30 02:25:18][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 02:25:18][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 02:25:18][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:25:27][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:25:30][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:25:31][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:25:41][INFO] Login successful for employee_id EMP00001
+[2025-06-30 02:25:41][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 02:25:41][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 02:25:41][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:28:46][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:29:17][INFO] Login successful for employee_id EMP00001
+[2025-06-30 02:29:17][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 02:29:17][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 02:29:17][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:33:59][INFO] Login successful for employee_id EMP00001
+[2025-06-30 02:33:59][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 02:33:59][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 02:33:59][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:34:02][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:35:34][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:45:12][INFO] Login successful for employee_id EMP00001
+[2025-06-30 02:45:12][INFO] Login successful for employeeID: EMP00001
+[2025-06-30 02:45:12][INFO] Session setup successful for employeeID: EMP00001
+[2025-06-30 02:45:12][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:45:13][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:45:37][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:46:01][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:46:07][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:46:14][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:46:18][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:46:21][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:46:24][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:46:25][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:46:33][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:47:26][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:47:39][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:47:42][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:47:46][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:47:49][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:47:52][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-06-30 02:48:09][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}

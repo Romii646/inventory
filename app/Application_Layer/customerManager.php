@@ -3,8 +3,8 @@
 // Date: 05/30/2025
 
 require_once '../Utility/word_bank.php';
-require $SQLOperationFile;
-require $customerFile;
+require_once $SQLOperationFile;
+require_once $customerFile;
 class CustomerManager extends SQLOp {
     // get customer by student number
     function getCustomer($bNumber){

@@ -36,13 +36,17 @@ const formHeaderDescription = "Add & Update form for ";
 const optionDescription = "Select an option";
 
 function formLoader(event) {
-    const tableSelect = tableSelectElement.value;
+    let tableSelect = tableSelectElement.value;
     let tableName = undefined;
 
     if (window.rentalTables && window.rentalTables[tableSelect]) {
         tableName = window.rentalTables[tableSelect];
     } else if (window.tableNames && window.tableNames[tableSelect]) {
         tableName = window.tableNames[tableSelect];
+    }else if(event && (window.customerTable || window.rentalTables)){
+        const firstKey = window.customerTable ? Object.keys(window.customerTable)[0] : Object.keys(window.rentalTables)[0];
+        tableName = window.customerTable ? window.customerTable[firstKey] : window.rentalTables[firstKey];
+        tableSelect = event;
     }
 
     if (!tableName) {
@@ -223,7 +227,10 @@ if (window.tableNames) {
     setDropdownOptions(window.tableNames);
 } else if (window.rentalTables) {
     setDropdownOptions(window.rentalTables);
-} else {
-    console.error('No tableNames or rentalTables found.');
+} else if (window.customerTable) {
+    setDropdownOptions(window.customerTable)
+}
+else {
+    console.error('No tableNames, rentalTables, or customerTable found. ', window.customerTable);
 }
 /*************************************************************************************************************************************************************************/

@@ -25,20 +25,18 @@
             </div>
         </header>
         <main class="rentalContainer">
-            <div class="leftSide" id="left-section">
+            <div class="viewTableContainer">
                 <h2>View Table</h2>
-                <ul>
-                    <li id="">Available Items</li>
-                    <li id="">scheduled rentals</li>
-                    <li id="">Overdue rentals</li>
-                    <li id="">Rental Agreement Form</li>
-                    <li id="">Reporting</li>
-                </ul>
+                <section id="">Rental Agreement Form</section>
+                <section id="">Storaged Items</section>
+                <section id="">Disposed Parts</section>
+                <section id="">Component Count</section>
+                <section id="">Not in use</section>
             </div>
             <div class="mainTableContainer">
                 <div class="formMaker">
                     <div class="viewSpace">
-                        <p id="pcSetUp-table" name="pcSetUp-table" class="table"></p>
+                        <p id="pcSetUp-table" name="pcSetUp-table" class="table"></p><!--Change id to customer-setup-table-->
                         <p id="success" name="success"></p>
                         <p id="error" name="error"></p>
                     </div>
@@ -47,9 +45,9 @@
                             <h2>Customer Management Forms</h2>
                         </div>
                         <div class="button-container">
-                            <button type="submit" name="add" value="addPCForm" class="button">Insert Row</button>
-                            <button type="submit" name="update" value="addPCForm" class="button">Update Row</button>
-                            <button type="submit" onclick="exportToCSV()" class="button">Export</button>
+                            <button type="submit" name="add" id="addCustomer" class="button">Insert Row</button><!--Use querselector for the id's in the parameter it'll be (#addCustomer)-->
+                            <button type="submit" name="update" id="updateCustomer" class="button">Update Row</button><!--Use querselector for the id's in the parameter it'll be (#updateCustomer)-->
+                            <button type="submit" onclick="exportToCSV()" class="button">Export</button> 
                             <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>
                             <div class="tableSelection">
                                 <label for="tableSelect">Table Names</label><br>
@@ -68,7 +66,7 @@
                             <input type="text" id="delete_id" name="delete_id"/>
                         </div>
                         <div class="button-container" name="delete">
-                            <button type="submit" name="delete" value="deleteForm">Delete Row</button>
+                            <button type="submit" name="delete" id="deleteCustomer">Delete Row</button><!--id is now included and string value is deleteCustomer-->
                             <button type="reset" onclick="clearForm('updateForm')">Clear Form</button>
                         </div>
                     </form>
@@ -80,7 +78,8 @@
             Cyber Range V2.5
             Created by: Aaron C.
         </footer>
-        <script src="js/rentalTables.js"></script>
+        <script src="js/customerTable.js"></script>
+        <script src="js/customerCyberScript.js"></script>
         <script src="./js/formScript.js"></script>
         <script src="./js/session-data.js"></script>
         <script src="./js/cyberScript.js"></script>

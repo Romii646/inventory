@@ -28,6 +28,7 @@ $customerManagerFile = '../Application_Layer/CustomerManager.php';
 $loginControllerFile = '../Controller_Layer/LoginController.php';
 $rentalControllerFile = '../Controller_Layer/RentalController.php';
 $sessionControllerFile = '../Controller_Layer/SessionController.php';
+$customerControllerFile = '../Controller_Layer/customerController.php';
 
  //if (!function_exists('find_ID')) {
     /**

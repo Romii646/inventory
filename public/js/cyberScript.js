@@ -237,10 +237,10 @@ function queryAction(event) {
             console.error("Invalid data format. function queryAction")
         }
         
-        for (const [key, value] of formData.entries()) {//debugger
+        /* for (const [key, value] of formData.entries()) {//debugger
             console.log('Input ID:', key);
             console.log('Input Value:', value);
-        }
+        } */
  
         if(nameValue === 'add'){
             fetch('../app/Controller_Layer/form_process.php?form=form1', {

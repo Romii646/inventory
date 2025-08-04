@@ -1,38 +1,45 @@
+document.addEventListener("DOMContentLoaded", function () {
+  formLoader("customer");
 
-document.addEventListener('DOMContentLoaded', function (){
-    formLoader('customer');
-    
-    // Add an event listener to the form to handle form submissions.
-    document.getElementById('Main-form').addEventListener("submit", queryAction);
+  document.getElementById("Main-form").addEventListener("submit", queryAction);
 
-    // Add an event listener to the delete form to handle form submissions.
-    document.getElementById('deleteForm').addEventListener("submit", queryAction)
-})
+  document.getElementById("deleteForm").addEventListener("submit", queryAction);
+});
 
-const handleCustomerData = async (event) =>{
-    let buttonValue = event.submitter.name;
+function handleCustomerData(event) {
+  let buttonValue = event.submitter.name;
+  let tableSelect = document.getElementById("tableSelect");
 
-    const formFields = this.querySelectorAll('.form-field');
-    const data = tableKeyAndDataJoiner(formFields);
-    const formData = new URLSearchParams();
-    if(Array.isArray(data)){
+  const formFields = this.querySelectorAll(".form-field");
+  const data = tableKeyAndDataJoiner(formFields);
+  const formData = new URLSearchParams();
+  if (Array.isArray(data)) {
+    data.forEach((field) => {
+      for (const key in field) {
+        formData.append(key, field[key]);
+      }
+    });
+  } else {
+    console.error("Invalid data format. function queryAction");
+  }
 
-    }
+  if (buttonValue === "add") {
+    fetch("../app/Routes/Router.php?router=customerRegistration", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: formData,
+    })
+      .then((response) => {
+        console.log("Response back from php server", response);
+        fetchTable(tableSelect.value);
+      })
+      .catch((error) => {
+        console.error(
+          "Error from cyberScript: FUNCTION queryAction : add section: ",
+          error
+        );
+      });
+  }
 
-    if(buttonValue === 'add'){
-        await fetch('../app/Routes/Router.php?router=grabSession', {
-            method : "POST",
-            headers : {'content-type' : 'application/json'},
-            body: JSON.stringify()
-        })
-        .then(response =>{
-
-        })
-        .then(data => {
-
-        })
-        .catch(error => {
-
-        });
-    }
+  // TODO: Implement the update and delete functionality
 }

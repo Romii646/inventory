@@ -37,3 +37,8 @@ See [Installation Instructions](Docs/Inventory%20System%20docs/docs_INSTALLATION
 ## Reporting Bugs and Requesting Features
 
 - Please use [Contributing](Docs/Inventory%20System%20docs/CONTRIBUTING_Version2.md) for guidelines on how to report issues, request features, and contribute code.
+
+
+Here's a few walkthroughs
+
+<img src='./walkthroughpt1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />

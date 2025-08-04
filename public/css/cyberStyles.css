@@ -234,6 +234,16 @@ footer{
     grid-auto-rows: auto;
     justify-items: right;
     background: rgb(0, 99, 123);
+    min-height: 300px;
+}
+
+#Main-form .button-container{
+    display: flex;
+    justify-self: center;
+    grid-column: span 3;
+    gap: 15px;
+    margin-left: 10%;
+    max-height: 40px;
 }
 
 #deleteForm{

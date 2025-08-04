@@ -34,7 +34,8 @@ window.tableNames = {
                 "condition": ["GOOD", "BROKEN"]    
            },
             "cost": "Cost",
-            "status": ["IN_USE", "STORAGE", "DISPOSED"]
+            "status": ["IN_USE", "STORAGE", "DISPOSED"],
+            "Location": "Location"
         }
     ],
     "mice": [

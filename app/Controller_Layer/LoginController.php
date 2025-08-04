@@ -11,7 +11,7 @@ require_once $employeeManagerFile;
 require_once $employeeFile;
 require_once $sessionManagerFile;
 require_once $sessionFile;
-// require_once $configurationFile;
+
 class LoginController {
     private $employeeManager;
     private $sessionManager;
@@ -31,39 +31,39 @@ class LoginController {
             if(preg_match($pattern, $employeeID)){
                 if($this -> employeeManager -> verifyLogin($employeeID, $givenPassword)){
                     $employeeInfo = $this -> employeeManager -> retrieveCredential(); 
+                    writeLog("Login successful for employeeID: $employeeID", 'login', 'INFO');
                 }
                 else{
-                    echo '<p>Password is incorrect</p>';
+                    writeLog("Login failed: Incorrect password for employeeID: $employeeID", 'login', 'WARNING');
                     $error++;
                 }
             }
             else{
-                echo '<p>Incorrect input for employeeID field</p>';
+                writeLog("Login failed: Invalid employeeID format: $employeeID", 'login', 'WARNING');
                 $error++; 
             }
 
             if($error > 0){
-                echo '<p>Please hit the back button and try again</p>';
-                exit();
+                http_response_code(401);
+                return;
             }
 
             if($this -> sessionManager -> setSessionInfo($employeeInfo)){
+                writeLog("Session setup successful for employeeID: $employeeID", 'login', 'INFO');
                 header("Location: /inventory/inventory/public/homePage.html"); 
                 exit();
             }
             else{
-                echo '<p>Session setup failed, please hit the back button and try again</p>';
-                exit();
+                writeLog("Session setup failed for employeeID: $employeeID", 'login', 'ERROR');
+                http_response_code(500);
+                return;
             }
 
         }
         catch(Exception $e){
-            echo '</p>An error has occured, please notify DBA or WEB administrator</p>';
-            writeLog("Error in function handleVerifyLogin: " . $e->getMessage(), 'errors', 'ERROR');
+            writeLog("Exception in handleVerifyLogin: " . $e->getMessage(), 'errors', 'ERROR');
             http_response_code(500);
-            header('Content-Type: application/json');
-            echo json_encode(['error' => 'An internal error occurred.']);
-            exit();
+            return;
         }
     }
 }

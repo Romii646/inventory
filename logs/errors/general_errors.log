@@ -1,11 +1,8 @@
-[2025-06-26 04:54:10][INFO] Login successful for employee_id EMP00001
-[2025-06-26 05:46:50][INFO] Login successful for employee_id EMP00001
-[2025-06-26 05:49:03][INFO] Login successful for employee_id EMP00001
-[2025-06-26 05:49:59][INFO] Login successful for employee_id EMP00001
-[2025-06-26 05:50:44][INFO] Login successful for employee_id EMP00001
-[2025-06-26 05:55:19][INFO] Login successful for employee_id EMP00001
-[2025-06-26 05:59:42][INFO] Login successful for employee_id EMP00001
-[2025-06-26 06:08:20][INFO] Login successful for employee_id EMP00001
-[2025-06-26 06:12:55][INFO] Login successful for employee_id EMP00001
-[2025-06-26 06:24:39][INFO] Login successful for employee_id EMP00001
-[2025-06-26 06:28:46][INFO] Login successful for employee_id EMP00001
+[2025-07-07 03:01:45][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-07-07 03:02:48][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-08-05 00:54:10][INFO] Session data retrieved: {"error":"Session expired or not logged in"}
+[2025-08-05 00:54:58][INFO] Login successful for employee_id EMP00001
+[2025-08-05 00:54:58][INFO] Login successful for employeeID: EMP00001
+[2025-08-05 00:54:58][INFO] Session setup successful for employeeID: EMP00001
+[2025-08-05 00:54:58][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2025-08-05 00:55:03][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}

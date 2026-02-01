@@ -6,3 +6,9 @@
 [2025-08-05 00:54:58][INFO] Session setup successful for employeeID: EMP00001
 [2025-08-05 00:54:58][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
 [2025-08-05 00:55:03][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 18:39:31][INFO] Login successful for employee_id EMP00001
+[2026-02-01 18:39:31][INFO] Login successful for employeeID: EMP00001
+[2026-02-01 18:39:31][INFO] Session setup successful for employeeID: EMP00001
+[2026-02-01 18:39:31][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 18:39:38][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 18:39:49][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}

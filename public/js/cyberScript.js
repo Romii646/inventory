@@ -102,11 +102,20 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.getAttribute("data-default-table") || "pcsetups";
   fetchTable(defaultTable);
 
-  // Add an event listener to the form to handle form submissions.
-  document.getElementById("Main-form").addEventListener("submit", queryAction);
+  // Attach submit handlers when the form is ready to avoid losing listeners when the form is rebuilt
+  document.addEventListener("formReady", function (e) {
+    const mainForm = document.getElementById("Main-form");
+    if (mainForm) {
+      mainForm.removeEventListener("submit", queryAction);
+      mainForm.addEventListener("submit", queryAction);
+    }
 
-  // Add an event listener to the delete form to handle form submissions.
-  document.getElementById("deleteForm").addEventListener("submit", queryAction);
+    const deleteF = document.getElementById("deleteForm");
+    if (deleteF) {
+      deleteF.removeEventListener("submit", queryAction);
+      deleteF.addEventListener("submit", queryAction);
+    }
+  });
 
   // Add an event listener to the viewTableContainer to handle view table submissions.
   document

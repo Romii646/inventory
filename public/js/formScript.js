@@ -1,5 +1,5 @@
 function showTable(event) {
-  // function to show table currently a function not in use until more php focused files are developed.
+  //  A function not in use until more php focused files are developed. This function should be moved to another file since this file only focus on creating forms.
   event.preventDefault();
   var tables = document.getElementById("table").value; // get the value of the table
   var httpRequest = new XMLHttpRequest(); // create a new XMLHttpRequest object
@@ -19,15 +19,45 @@ function showTable(event) {
       tables +
       "&form=" +
       form,
-    true
+    true,
   ); // specify the type of request
   httpRequest.send(); // send the request
 }
 
 /*********************************************************************************************************************************************************** */
-// import tableNames from './tableNames.js'; // Import the JavaScript object
+let tableSelectElement = null;
 
-const tableSelectElement = document.getElementById("tableSelect");
+// Initialize DOM-dependent elements and set dropdown options when DOM is ready.
+// This ensures elements and table objects (window.tableNames / window.rentalTables / window.customerTable)
+// are available before we use them.
+document.addEventListener("DOMContentLoaded", () => {
+  tableSelectElement = document.getElementById("tableSelect");
+  if (!tableSelectElement) {
+    console.warn("tableSelect element not found in DOM.");
+  } else {
+    tableSelectElement.addEventListener("change", formLoader);
+  }
+
+  // Populate dropdown options after scripts and DOM have loaded
+  if (window.tableNames) {
+    setDropdownOptions(window.tableNames);
+  } else if (window.rentalTables) {
+    setDropdownOptions(window.rentalTables);
+  } else if (window.customerTable) {
+    setDropdownOptions(window.customerTable);
+  } else {
+    console.error(
+      "No tableNames, rentalTables, or customerTable found during DOMContentLoaded.",
+    );
+  }
+
+  // If the page expects a default table (e.g., rental page), trigger formLoader for it.
+  const defaultTable = document.body.getAttribute("data-default-table");
+  if (defaultTable) {
+    // call formLoader with the default table name
+    formLoader(defaultTable);
+  }
+});
 
 // this variable is used to access the description key in the condition object if you
 // change the key in the tableNames.js file then you need to change this variable
@@ -45,21 +75,40 @@ const formHeaderDescription = "Add & Update form for ";
 const optionDescription = "Select an option";
 
 function formLoader(event) {
-  let tableSelect = tableSelectElement.value;
+  let tableSelect;
+  if (tableSelectElement && tableSelectElement.value !== undefined) {
+    tableSelect = tableSelectElement.value;
+  } else if (typeof event === "string") {
+    // Allows callers to pass a table name directly (e.g., 'customer' or 'rental')
+    tableSelect = event;
+  } else {
+    console.error(
+      "formLoader: tableSelect element not ready and no table specified.",
+      { event },
+    );
+    return;
+  }
   let tableName = undefined;
 
   if (window.rentalTables && window.rentalTables[tableSelect]) {
     tableName = window.rentalTables[tableSelect];
   } else if (window.tableNames && window.tableNames[tableSelect]) {
     tableName = window.tableNames[tableSelect];
-  } else if (event && (window.customerTable || window.rentalTables)) {
+  } else if (window.customerTable && window.customerTable[tableSelect]) {
+    tableName = window.customerTable[tableSelect];
+    console.debug("formLoader: using customerTable for", tableSelect);
+  } else if (
+    // this last 'else if' section is to support direct string table name input for rentalTables or customerTable for when the page is loaded.
+    typeof event === "string" &&
+    (window.customerTable || window.rentalTables)
+  ) {
     const firstKey = window.customerTable
       ? Object.keys(window.customerTable)[0]
       : Object.keys(window.rentalTables)[0];
     tableName = window.customerTable
       ? window.customerTable[firstKey]
       : window.rentalTables[firstKey];
-    tableSelect = event;
+    tableSelect = event; // event is a string table name example formLoader("customer") or formLoader("rental")
   }
 
   if (!tableName) {
@@ -68,7 +117,6 @@ function formLoader(event) {
   }
 
   const mainForm = document.getElementById("Main-form");
-  // const output = document.querySelector('.formMaker');
 
   deleteFormElements(mainForm); // Clear previous form content
 
@@ -170,9 +218,11 @@ function formLoader(event) {
   moveButtonContainer(mainForm);
   deleteRowFormLoader(tableName);
   fetchTable(tableSelect);
-}
 
-tableSelectElement.addEventListener("change", formLoader);
+  document.dispatchEvent(
+    new CustomEvent("formReady", { detail: { formId: "Main-form" } }),
+  );
+}
 
 function deleteFormElements(form) {
   let formChildElement = form.querySelectorAll("." + formFields);
@@ -232,7 +282,13 @@ function deleteRowFormLoader(tableName) {
 /*************************************************************************************************************************************************************************/
 function setDropdownOptions(tableNames) {
   const tableSelect = document.getElementById("tableSelect");
-  Object.keys(tableNames).forEach((tableName) => {
+  if (!tableSelect) {
+    console.error("setDropdownOptions: #tableSelect not found in DOM");
+    return;
+  }
+  const keys = Object.keys(tableNames);
+  console.debug("setDropdownOptions: adding keys:", keys);
+  keys.forEach((tableName) => {
     const option = document.createElement("option");
     option.value = tableName;
     option.textContent = tableName.charAt(0).toUpperCase() + tableName.slice(1);
@@ -240,16 +296,5 @@ function setDropdownOptions(tableNames) {
   });
 }
 
-if (window.tableNames) {
-  setDropdownOptions(window.tableNames);
-} else if (window.rentalTables) {
-  setDropdownOptions(window.rentalTables);
-} else if (window.customerTable) {
-  setDropdownOptions(window.customerTable);
-} else {
-  console.error(
-    "No tableNames, rentalTables, or customerTable found. ",
-    window.customerTable
-  );
-}
+// Dropdown initialization moved to DOMContentLoaded handler to ensure DOM and table objects are available.
 /*************************************************************************************************************************************************************************/

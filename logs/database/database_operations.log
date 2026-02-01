@@ -1,2 +1,3 @@
 [2025-08-05 00:54:10][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
 [2025-08-05 00:55:03][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
+[2026-02-01 18:39:41][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist

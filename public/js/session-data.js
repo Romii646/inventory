@@ -1,5 +1,5 @@
 const sessionData = () => {
-  fetch("../app/Routes/Router.php?router=grabSession", {
+  fetch("../app/Routes/SessionRouter.php?router=grabSession", {
     method: "POST",
   })
     .then((response) => {
@@ -21,7 +21,7 @@ const sessionData = () => {
     .catch((error) => {
       console.error("Error fetching session data:", error.message);
       window.alert("Error fetching session data: " + error.message);
-      window.location.href = "./LoginPage.html";
+      window.location.href = "./login-page.html";
     });
 };
 

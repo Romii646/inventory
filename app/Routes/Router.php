@@ -3,31 +3,44 @@
  * Rental Manager Class
  * 
  * @author Aaron C.
- * @date 06/01/2025
+ * @date 02/01/2026
  */
 session_start();
 $route = $_GET['router'] ?? '';
 $method = strtolower($_SERVER['REQUEST_METHOD']);
 
 require '../Utility/word_bank.php';
-require $loginControllerFile;
 require $rentalControllerFile;
-require $sessionControllerFile;
 require $customerControllerFile;
 
-if($method === 'post' && $route === 'login'){
-    (new LoginController()) -> handleVerifyLogin($_POST);
-}
-else if($method === 'post' && $route === 'rentalSubmission'){// change this file name to SessionRouter and remove customer controller and rental controller this will increase better organization and not clutter different routes with one router
+
+if($method === 'post' && $route === 'rentalSubmission'){
     (new RentalManager()) -> processRentalRequest($_POST);
+} 
+else if ($method === 'post' && $route === 'customerRegistration'){
+    $raw = file_get_contents('php://input');
+    checkBody($raw);
+    $payload = json_decode($raw, true);
+    checkJsonConversion();
+    (new customerController()) -> handleRegisterCustomer($payload);
 }
-else if (($method === 'post' || $method === 'get') && $route === 'grabSession'){
-    (new SessionController()) -> handleGetSessionData();
-}
-else if($method === 'post' && $route === 'customerRegistration')
-    (new customerController()) -> handleRegisterCustomer();
 else{
     http_response_code(404);
     echo 'Route not found';
+}
+
+function checkBody($raw) {
+    if(empty($raw)){
+        http_response_code(400);
+        echo json_encode(['error' =>'empty body']);
+        exit;
+    }
+}
+function checkJsonConversion() {
+    if(json_last_error() !== JSON_ERROR_NONE){
+        http_response_code(400);
+        echo json_encode(['error' =>'invalid json', 'detail' => json_last_error_msg()]);
+        exit;   
+    }   
 }
 ?>

@@ -10,7 +10,7 @@ function showNeededFields(
   monitors,
   motherboards,
   ramsticks,
-  powersupplies
+  powersupplies,
 ) {
   // declared variables
   const tableSelect = document.getElementById(table).value;
@@ -103,13 +103,16 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchTable(defaultTable);
 
   // Attach submit handlers when the form is ready to avoid losing listeners when the form is rebuilt
+  document.getElementById("Main-form").addEventListener("submit", queryAction);
   document.addEventListener("formReady", function (e) {
     const mainForm = document.getElementById("Main-form");
     if (mainForm) {
       mainForm.removeEventListener("submit", queryAction);
       mainForm.addEventListener("submit", queryAction);
     }
-
+    document
+      .getElementById("deleteForm")
+      .addEventListener("submit", queryAction);
     const deleteF = document.getElementById("deleteForm");
     if (deleteF) {
       deleteF.removeEventListener("submit", queryAction);
@@ -163,11 +166,11 @@ function queryTable(event) {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(fieldValueArray),
     })
-      .then((data) => {
-        console.log("Response:", data);
-        if (data.error) {
-          console.error("Error: ", data.error);
-          document.getElementById("error").innerHTML = data.error;
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.error) {
+          console.error("Error: ", json.error);
+          document.getElementById("error").innerHTML = json.error;
         } else {
           fetchTable("pcsetups");
           document.getElementById("success").innerHTML = "Add successful.";
@@ -179,14 +182,39 @@ function queryTable(event) {
         document.getElementById("error").innerHTML = "Add operation failed.";
       });
   } else if (nameValue === "update") {
-    fetch("../../app/Controller_Layer/pc_set_up_process.php?action=update", {
+    // Basic validation: pc_id is required and at least one other field must be provided
+    if (!fieldValueArray.pc_id || fieldValueArray.pc_id.trim() === "") {
+      document.getElementById("error").innerHTML =
+        "PC ID is required to perform an update.";
+      return;
+    }
+    const hasUpdate = Object.keys(fieldValueArray).some(
+      (k) =>
+        k !== "pc_id" &&
+        fieldValueArray[k] &&
+        fieldValueArray[k].toString().trim() !== "",
+    );
+    if (!hasUpdate) {
+      document.getElementById("error").innerHTML =
+        "Please provide at least one field to update.";
+      return;
+    }
+
+    fetch("../app/Controller_Layer/pc_set_up_process.php?action=update", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(fieldValueArray),
     })
-      .then(() => {
-        fetchTable("pcsetups");
-        document.getElementById("success").innerHTML = "Update successful.";
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.error) {
+          console.error("Update Error:", json.error);
+          document.getElementById("error").innerHTML = json.error;
+        } else {
+          fetchTable("pcsetups");
+          document.getElementById("success").innerHTML = "Update successful.";
+          document.getElementById("error").innerHTML = "";
+        }
       })
       .catch((error) => {
         console.error("Error: ", error);
@@ -265,7 +293,7 @@ function queryAction(event) {
         .catch((error) => {
           console.error(
             "Error from cyberScript: FUNCTION queryAction : add section: ",
-            error
+            error,
           );
         });
     } else if (nameValue === "update") {
@@ -280,7 +308,7 @@ function queryAction(event) {
         .catch((error) => {
           console.error(
             "Error from cyberScript: FUNCTION queryAction : update section: ",
-            error
+            error,
           );
         });
     } else if (nameValue === "delete") {
@@ -295,7 +323,7 @@ function queryAction(event) {
         .catch((error) => {
           console.error(
             "Error from cyberScript: FUNCTION queryAction : delete section: ",
-            error
+            error,
           );
         });
     }

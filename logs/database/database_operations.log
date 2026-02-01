@@ -1,3 +1,24 @@
 [2025-08-05 00:54:10][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
 [2025-08-05 00:55:03][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.scheduledrentals' doesn't exist
 [2026-02-01 18:39:41][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist
+[2026-02-01 19:04:49][INFO] Update attempt: table=keyboards, values={"kb_id":"kb_0003","Location":"Table 1 - 5"}
+[2026-02-01 19:04:49][INFO] Update operation successful for table: keyboards
+[2026-02-01 19:05:23][INFO] Update attempt: table=empty, values={"kb_id":"kb_0003","cost":"500"}
+[2026-02-01 19:05:23][ERROR] Execution not successful in updateOp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.empty' doesn't exist
+[2026-02-01 19:05:23][INFO] Update operation successful for table: empty
+[2026-02-01 19:05:23][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.empty' doesn't exist
+[2026-02-01 19:05:57][INFO] Update attempt: table=keyboards, values={"kb_id":"kb_0003","cost":"100"}
+[2026-02-01 19:05:58][INFO] Update operation successful for table: keyboards
+[2026-02-01 19:06:06][INFO] Update attempt: table=keyboards, values={"kb_id":"kb_0003","cost":"500"}
+[2026-02-01 19:06:06][INFO] Update operation successful for table: keyboards
+[2026-02-01 19:48:20][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist
+[2026-02-01 19:48:25][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'inventdev.overduerentals' doesn't exist
+[2026-02-01 19:50:01][INFO] Insert attempt: table=ramsticks, columns=["ram_id","name","type","speed","condition","cost","status"], values=["ram_0015","Cherry","DDR4","6000","GOOD",200,"STORAGE"]
+[2026-02-01 19:50:01][INFO] Insert operation successful for table: ramsticks
+[2026-02-01 19:50:30][INFO] Update attempt: table=ramsticks, values={"ram_id":"ram_0015","cost":"100","status":"STORAGE"}
+[2026-02-01 19:50:30][INFO] Update operation successful for table: ramsticks
+[2026-02-01 19:50:40][INFO] Update attempt: table=ramsticks, values={"ram_id":"ram_0015","cost":"150","status":"STORAGE"}
+[2026-02-01 19:50:40][INFO] Update operation successful for table: ramsticks
+[2026-02-01 20:02:01][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2026-02-01 20:02:04][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2026-02-01 20:02:11][ERROR] Execution not successful for view_table in pcSetUp: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1

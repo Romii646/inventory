@@ -12,3 +12,55 @@
 [2026-02-01 18:39:31][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
 [2026-02-01 18:39:38][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
 [2026-02-01 18:39:49][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 18:57:00][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:00:23][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:01:28][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:02:23][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:04:49][ERROR] PHP Error [2] include(word_bank.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:04:49][ERROR] PHP Error [2] include(): Failed opening 'word_bank.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:05:23][ERROR] PHP Error [2] include(word_bank.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:05:23][ERROR] PHP Error [2] include(): Failed opening 'word_bank.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:05:33][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:05:58][ERROR] PHP Error [2] include(word_bank.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:05:58][ERROR] PHP Error [2] include(): Failed opening 'word_bank.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:06:06][ERROR] PHP Error [2] include(word_bank.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:06:06][ERROR] PHP Error [2] include(): Failed opening 'word_bank.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:06:13][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:06:32][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:09:06][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:14:20][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:15:56][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:26:12][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:26:15][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:26:16][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:26:17][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:26:19][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:26:35][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:39:13][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:47:58][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:47:59][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:48:00][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:48:16][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:48:21][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:48:29][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:50:30][ERROR] PHP Error [2] include(word_bank.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:50:30][ERROR] PHP Error [2] include(): Failed opening 'word_bank.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:50:40][ERROR] PHP Error [2] include(word_bank.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:50:40][ERROR] PHP Error [2] include(): Failed opening 'word_bank.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\inventory\inventory\app\SQL_Operation_Layer\database_operations.php on line 140
+[2026-02-01 19:51:26][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 19:51:43][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:01:43][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:02:01][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:02:04][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:02:11][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:02:43][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:02:49][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:02:57][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:03:31][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:03:42][INFO] Row updated successfully: pc_id=pc00_14, updates={"PCcondition":"Hello World "}
+[2026-02-01 20:04:04][INFO] Row updated successfully: pc_id=pc00_14, updates={"PCcondition":"Hello Ed"}
+[2026-02-01 20:04:51][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:05:53][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:06:09][INFO] Row updated successfully: pc_id=pc00_14, updates={"PCcondition":"Hi Edwin"}
+[2026-02-01 20:06:34][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
+[2026-02-01 20:06:37][INFO] Session data retrieved: {"employeeID":"EMP00001","firstName":"Aaron","employeeType":"SoftwareDev"}
